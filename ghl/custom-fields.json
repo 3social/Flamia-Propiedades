@@ -1,0 +1,14 @@
+{
+  "_nota": "Campos de contacto que los agentes rellenan al calificar. Tipos según GHL: TEXT, NUMERICAL, MONETORY, SINGLE_OPTIONS.",
+  "object": "contact",
+  "custom_fields": [
+    { "name": "Intencion", "dataType": "SINGLE_OPTIONS", "options": ["Comprar", "Alquilar", "Vender"] },
+    { "name": "Tipo de Propiedad", "dataType": "SINGLE_OPTIONS", "options": ["Casa", "Apartamento", "Lote", "Local comercial", "Otro"] },
+    { "name": "Zona de Interes", "dataType": "TEXT" },
+    { "name": "Presupuesto Maximo", "dataType": "MONETORY" },
+    { "name": "Habitaciones", "dataType": "NUMERICAL" },
+    { "name": "Plazo de Decision", "dataType": "SINGLE_OPTIONS", "options": ["Inmediato", "1 a 3 meses", "3 a 6 meses", "Mas de 6 meses", "Solo explorando"] },
+    { "name": "Forma de Pago", "dataType": "SINGLE_OPTIONS", "options": ["Contado", "Credito hipotecario", "Por definir"] },
+    { "name": "Propiedad de Referencia", "dataType": "TEXT", "_nota": "Codigo o URL de la propiedad del sitio web por la que consulto" }
+  ]
+}

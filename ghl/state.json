@@ -1,0 +1,26 @@
+{
+  "_nota": "IDs reales de GHL. Se llenan al aplicar cada fase. No guardar secretos aquí.",
+  "locationId": null,
+  "calendarId": null,
+  "pipelineId": null,
+  "stageIds": {
+    "nuevo_lead": null,
+    "calificado": null,
+    "visita_agendada": null,
+    "negociacion": null,
+    "cierre": null
+  },
+  "agentes": {
+    "texto_botId": null,
+    "voz_agentId": null
+  },
+  "fases": {
+    "1_subcuenta": "pendiente",
+    "2_estructura": "pendiente",
+    "3_custom_values": "pendiente",
+    "4_tags": "pendiente",
+    "5_pipeline": "pendiente",
+    "6_agente_texto": "pendiente",
+    "7_agente_voz": "pendiente"
+  }
+}

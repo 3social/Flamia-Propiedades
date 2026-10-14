@@ -1,0 +1,10 @@
+{
+  "_nota": "Etiquetas básicas en minúscula con guiones. Grupos: origen, intención, tipo, estado, control de IA.",
+  "tags": {
+    "origen": ["origen-web", "origen-whatsapp", "origen-meta-ads", "origen-google-ads", "origen-referido", "origen-llamada", "origen-portal"],
+    "intencion": ["quiero-comprar", "quiero-alquilar", "quiero-vender"],
+    "tipo_propiedad": ["prop-casa", "prop-apartamento", "prop-lote", "prop-comercial"],
+    "estado": ["lead-calificado", "visita-agendada", "visita-realizada", "en-negociacion", "cliente-cerrado", "no-interesado", "no-contactar"],
+    "control_ia": ["ia-activa", "ia-pausada", "handoff-humano"]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "_nota": "name = nombre visible en GHL; la clave {{custom_values.*}} la genera GHL a partir del nombre. value:null + required_input:true = dato que debe dar el cliente.",
+  "custom_values": [
+    { "name": "Empresa Nombre", "value": "Flamia Propiedades", "required_input": false },
+    { "name": "Empresa Telefono", "value": null, "required_input": true },
+    { "name": "Empresa WhatsApp", "value": null, "required_input": true },
+    { "name": "Empresa Email", "value": null, "required_input": true },
+    { "name": "Empresa Sitio Web", "value": null, "required_input": true },
+    { "name": "Empresa Zonas Cobertura", "value": null, "required_input": true },
+    { "name": "Empresa Horario Atencion", "value": null, "required_input": true },
+    { "name": "Moneda Principal", "value": null, "required_input": true },
+    { "name": "Asesor Principal Nombre", "value": null, "required_input": true },
+    { "name": "Agente IA Nombre", "value": "Flami", "required_input": false, "_propuesta": true },
+    { "name": "Link Agendar Visita", "value": null, "required_input": true, "_depende_de": "calendario de la fase 2" },
+    { "name": "Link Catalogo Propiedades", "value": null, "required_input": true },
+    {
+      "name": "Mensaje Bienvenida",
+      "value": "¡Hola {{contact.first_name}}! Soy {{custom_values.agente_ia_nombre}}, el asistente de {{custom_values.empresa_nombre}}. Cuéntame, ¿buscas comprar, alquilar o vender una propiedad?",
+      "required_input": false
+    },
+    {
+      "name": "Mensaje Fuera Horario",
+      "value": "Gracias por escribirnos. Ahora estamos fuera de horario ({{custom_values.empresa_horario_atencion}}), pero ya tomé tus datos y un asesor te contactará en cuanto abramos.",
+      "required_input": false
+    },
+    {
+      "name": "Mensaje Derivacion Humano",
+      "value": "Te paso con {{custom_values.asesor_principal_nombre}}, nuestro asesor, para que te atienda personalmente. Te escribirá en breve.",
+      "required_input": false
+    }
+  ]
+}
