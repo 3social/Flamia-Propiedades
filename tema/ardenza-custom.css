@@ -1,0 +1,87 @@
+/*
+ * ARDENZA PROPIEDADES · by FLAMIA
+ * Capa de marca para el tema Flex Home (Botble Real Estate).
+ *
+ * Se pega en: /admin → Apariencia → CSS personalizado (reemplaza todo lo anterior).
+ * Requiere en /admin → Apariencia → Opciones del tema → General:
+ *   Primary font ............ DM Sans
+ *   Primary color ........... #0F1B2D   (navy: botones y enlaces, texto blanco legible)
+ *   Hover primary color ..... #8C6A2F   (oro: estado hover)
+ * Esos valores alimentan las variables --primary-* que el tema ya usa
+ * en ~60 sitios; este archivo solo agrega lo que el panel no cubre.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap");
+
+:root {
+  --ardenza-navy: #0F1B2D;
+  --ardenza-navy-deep: #0A1220;
+  --ardenza-gold: #C9A55C;
+  --ardenza-gold-deep: #8C6A2F;
+  --ardenza-ivory: #F7F3EC;
+}
+
+/* Títulos en serif de lujo; el cuerpo usa DM Sans desde el panel. */
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Botones: navy sólido con filo dorado; al pasar el mouse se vuelven oro. */
+.btn-primary,
+.btn-primary:disabled {
+  background: var(--ardenza-navy);
+  border: 1px solid var(--ardenza-gold);
+  border-radius: 2px !important;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--ardenza-gold-deep);
+  border-color: var(--ardenza-gold-deep);
+  color: #fff;
+}
+
+/* Detalles destacados (precios, etiquetas activas) en oro. */
+.text-orange {
+  color: var(--ardenza-gold-deep) !important;
+  border-left-color: var(--ardenza-gold) !important;
+}
+
+/* Pie de página en navy profundo con acentos dorados. */
+footer {
+  background-color: var(--ardenza-navy-deep);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+footer .menufooter h4 {
+  color: var(--ardenza-gold);
+  border-bottom-color: rgba(201, 165, 92, 0.25);
+  letter-spacing: 0.08em;
+}
+
+footer .menufooter ul li a,
+footer p,
+footer .copyright {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+footer .menufooter ul li a:hover,
+footer p a {
+  color: var(--ardenza-gold);
+}
+
+footer .copyright {
+  border-top-color: rgba(201, 165, 92, 0.2);
+}
+
+/* Cabecera de proyectos: navy con un velo dorado en lugar de la foto del demo. */
+.bgheadproject {
+  background: var(--ardenza-navy);
+  background-image: linear-gradient(135deg, rgba(201, 165, 92, 0.18), rgba(15, 27, 45, 0));
+}
