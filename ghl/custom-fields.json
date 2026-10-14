@@ -1,14 +1,37 @@
 {
-  "_nota": "Campos de contacto que los agentes rellenan al calificar. Tipos según GHL: TEXT, NUMERICAL, MONETORY, SINGLE_OPTIONS.",
+  "_nota": "Campos de contacto que rellenan los agentes y n8n. dataType según la API de GHL (TEXT, NUMERICAL, MONETORY, SINGLE_OPTIONS, DATE); confirmar con describe_operation antes de crear. Zonas y tipos se guardan como TEXT separado por comas: la fuente real es Supabase.",
   "object": "contact",
-  "custom_fields": [
-    { "name": "Intencion", "dataType": "SINGLE_OPTIONS", "options": ["Comprar", "Alquilar", "Vender"] },
-    { "name": "Tipo de Propiedad", "dataType": "SINGLE_OPTIONS", "options": ["Casa", "Apartamento", "Lote", "Local comercial", "Otro"] },
-    { "name": "Zona de Interes", "dataType": "TEXT" },
-    { "name": "Presupuesto Maximo", "dataType": "MONETORY" },
-    { "name": "Habitaciones", "dataType": "NUMERICAL" },
-    { "name": "Plazo de Decision", "dataType": "SINGLE_OPTIONS", "options": ["Inmediato", "1 a 3 meses", "3 a 6 meses", "Mas de 6 meses", "Solo explorando"] },
-    { "name": "Forma de Pago", "dataType": "SINGLE_OPTIONS", "options": ["Contado", "Credito hipotecario", "Por definir"] },
-    { "name": "Propiedad de Referencia", "dataType": "TEXT", "_nota": "Codigo o URL de la propiedad del sitio web por la que consulto" }
-  ]
+  "grupos": {
+    "perfil_comprador": [
+      { "name": "Idioma Preferido", "dataType": "SINGLE_OPTIONS", "options": ["es", "en"] },
+      { "name": "Operacion", "dataType": "SINGLE_OPTIONS", "options": ["Compra", "Renta"] },
+      { "name": "Presupuesto Minimo", "dataType": "MONETORY" },
+      { "name": "Presupuesto Maximo", "dataType": "MONETORY" },
+      { "name": "Moneda", "dataType": "SINGLE_OPTIONS", "options": ["USD", "MXN"] },
+      { "name": "Zonas de Interes", "dataType": "TEXT" },
+      { "name": "Recamaras Minimas", "dataType": "NUMERICAL" },
+      { "name": "Tipos de Propiedad", "dataType": "TEXT" },
+      { "name": "Plazo de Decision", "dataType": "SINGLE_OPTIONS", "options": ["Inmediato", "1 a 3 meses", "3 a 6 meses", "Mas de 6 meses", "Solo explorando"] },
+      { "name": "Financiamiento", "dataType": "SINGLE_OPTIONS", "options": ["Contado", "Fideicomiso", "Credito", "Por definir"] },
+      { "name": "Preferencias", "dataType": "TEXT", "_nota": "Texto libre: 'frente al mar, tranquilo, para rentar'" }
+    ],
+    "consentimiento": [
+      { "name": "Opt-in WhatsApp", "dataType": "SINGLE_OPTIONS", "options": ["Si", "No"] },
+      { "name": "Fecha Opt-in", "dataType": "DATE" },
+      { "name": "Origen Opt-in", "dataType": "TEXT" }
+    ],
+    "atribucion": [
+      { "name": "Ref Propiedad Origen", "dataType": "TEXT", "_nota": "Ej. PV-0042, viene del enlace/QR" },
+      { "name": "UTM Source", "dataType": "TEXT" },
+      { "name": "UTM Medium", "dataType": "TEXT" },
+      { "name": "UTM Campaign", "dataType": "TEXT" }
+    ],
+    "alerta_coincidencia": [
+      { "name": "Alerta Titulo", "dataType": "TEXT", "_nota": "Variable de la plantilla de WhatsApp" },
+      { "name": "Alerta Zona", "dataType": "TEXT" },
+      { "name": "Alerta Precio", "dataType": "TEXT" },
+      { "name": "Alerta Enlace", "dataType": "TEXT" },
+      { "name": "Propiedad Sugerida Ref", "dataType": "TEXT" }
+    ]
+  }
 }

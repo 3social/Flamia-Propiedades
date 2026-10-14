@@ -1,10 +1,9 @@
 {
-  "_nota": "Etiquetas básicas en minúscula con guiones. Grupos: origen, intención, tipo, estado, control de IA.",
+  "_nota": "Etiquetas con guion bajo, en minúscula (D14). `site_chat` ya existe en el flujo Sofía; no duplicar.",
   "tags": {
-    "origen": ["origen-web", "origen-whatsapp", "origen-meta-ads", "origen-google-ads", "origen-referido", "origen-llamada", "origen-portal"],
-    "intencion": ["quiero-comprar", "quiero-alquilar", "quiero-vender"],
-    "tipo_propiedad": ["prop-casa", "prop-apartamento", "prop-lote", "prop-comercial"],
-    "estado": ["lead-calificado", "visita-agendada", "visita-realizada", "en-negociacion", "cliente-cerrado", "no-interesado", "no-contactar"],
-    "control_ia": ["ia-activa", "ia-pausada", "handoff-humano"]
+    "canal": ["site_chat", "whatsapp", "voz", "qr", "formulario_portal", "me_importa"],
+    "estado": ["lead_calificado", "visita_agendada", "alerta_pendiente", "no_contactar", "opt_in_whatsapp"],
+    "control_ia": ["ia_pausada", "handoff_humano"],
+    "segmento": ["comprador", "vendedor", "renta", "demo"]
   }
 }

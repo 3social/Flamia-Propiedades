@@ -1,31 +1,46 @@
 {
-  "_nota": "name = nombre visible en GHL; la clave {{custom_values.*}} la genera GHL a partir del nombre. value:null + required_input:true = dato que debe dar el cliente.",
+  "_nota": "name = nombre visible en GHL; la clave {{custom_values.*}} la genera GHL a partir del nombre. value:null + required_input:true = dato que debe dar el cliente (no se inventa). Mensajes bilingües: el agente elige _es o _en según el idioma del lead.",
   "custom_values": [
-    { "name": "Empresa Nombre", "value": "Flamia Propiedades", "required_input": false },
+    { "name": "Empresa Nombre", "value": null, "required_input": true, "_nota": "D4 abierta; demo: '[Nombre ficticio] Realty'" },
     { "name": "Empresa Telefono", "value": null, "required_input": true },
     { "name": "Empresa WhatsApp", "value": null, "required_input": true },
     { "name": "Empresa Email", "value": null, "required_input": true },
     { "name": "Empresa Sitio Web", "value": null, "required_input": true },
-    { "name": "Empresa Zonas Cobertura", "value": null, "required_input": true },
-    { "name": "Empresa Horario Atencion", "value": null, "required_input": true },
-    { "name": "Moneda Principal", "value": null, "required_input": true },
+    { "name": "Empresa Horario", "value": null, "required_input": true },
+    { "name": "Zona Horaria", "value": "America/Mexico_City", "required_input": false },
     { "name": "Asesor Principal Nombre", "value": null, "required_input": true },
-    { "name": "Agente IA Nombre", "value": "Flami", "required_input": false, "_propuesta": true },
-    { "name": "Link Agendar Visita", "value": null, "required_input": true, "_depende_de": "calendario de la fase 2" },
-    { "name": "Link Catalogo Propiedades", "value": null, "required_input": true },
+    { "name": "Agente IA Nombre", "value": "Sofía", "required_input": false, "_propuesta": true },
+    { "name": "Tools Base URL", "value": null, "required_input": true, "_depende_de": "Edge Functions desplegadas (no es secreto; el secreto va en la config del agente)" },
+    { "name": "Link Agendar Visita", "value": null, "required_input": true, "_depende_de": "calendario 'Visitas privadas'" },
+    { "name": "Link Portal", "value": null, "required_input": true },
     {
-      "name": "Mensaje Bienvenida",
-      "value": "¡Hola {{contact.first_name}}! Soy {{custom_values.agente_ia_nombre}}, el asistente de {{custom_values.empresa_nombre}}. Cuéntame, ¿buscas comprar, alquilar o vender una propiedad?",
+      "name": "Mensaje Bienvenida ES",
+      "value": "Hola {{contact.first_name}}, soy {{custom_values.agente_ia_nombre}} de {{custom_values.empresa_nombre}}. ¿Buscas comprar o rentar en Puerto Vallarta? Cuéntame zona, recámaras y presupuesto y te muestro opciones.",
       "required_input": false
     },
     {
-      "name": "Mensaje Fuera Horario",
-      "value": "Gracias por escribirnos. Ahora estamos fuera de horario ({{custom_values.empresa_horario_atencion}}), pero ya tomé tus datos y un asesor te contactará en cuanto abramos.",
+      "name": "Mensaje Bienvenida EN",
+      "value": "Hi {{contact.first_name}}, I'm {{custom_values.agente_ia_nombre}} from {{custom_values.empresa_nombre}}. Are you looking to buy or rent in Puerto Vallarta? Tell me the area, bedrooms and budget and I'll show you options.",
       "required_input": false
     },
     {
-      "name": "Mensaje Derivacion Humano",
-      "value": "Te paso con {{custom_values.asesor_principal_nombre}}, nuestro asesor, para que te atienda personalmente. Te escribirá en breve.",
+      "name": "Mensaje Handoff ES",
+      "value": "Te paso con {{custom_values.asesor_principal_nombre}}, quien te atenderá personalmente. Te escribe en breve.",
+      "required_input": false
+    },
+    {
+      "name": "Mensaje Handoff EN",
+      "value": "I'm connecting you with {{custom_values.asesor_principal_nombre}}, who will assist you personally. They'll message you shortly.",
+      "required_input": false
+    },
+    {
+      "name": "Mensaje Error Herramienta ES",
+      "value": "Ahora mismo no puedo consultar el inventario. Prefiero no darte datos que no pueda confirmar: un asesor te contactará hoy con la información.",
+      "required_input": false
+    },
+    {
+      "name": "Mensaje Error Herramienta EN",
+      "value": "I can't check the inventory right now, and I'd rather not give you details I can't confirm. An advisor will contact you today with the information.",
       "required_input": false
     }
   ]

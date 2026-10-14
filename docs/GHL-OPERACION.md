@@ -1,40 +1,31 @@
 # Operación de GHL desde este repo
 
-Comprobado el 2026-10-14 contra el conector MCP `MCP-Lead-GHL` (conexión multi-subcuenta).
+Comprobado el 2026-10-14 contra el conector MCP `MCP-Lead-GHL` (conexión multi-subcuenta, `list_locations` devuelve 9).
 
 ## Qué puede hacer el MCP y qué no
 
-| Objeto | MCP | Operación |
+| Objeto | MCP | Cómo |
 |---|---|---|
-| Subcuenta | ❌ no crea | solo `get-location`, `search-locations`, `list_locations` → **manual** |
-| Custom values | ✅ | `create-custom-value` |
+| Subcuenta | ❌ no expuesto | API de agencia vía n8n (patrón `SaaS - Provisioning Stripe a GHL`, que ya crea subcuentas con snapshot) o UI |
 | Campos personalizados | ✅ | `locations.create-custom-field` |
+| Custom values | ✅ | `create-custom-value` |
 | Etiquetas | ✅ | `create-tag`, `get-location-tags` |
-| Pipeline / etapas | ❌ no crea | solo `get-pipelines` (lectura) → **manual** en UI |
-| Oportunidades | ✅ | `create-opportunity`, `update-opportunity`, `Upsert-opportunity` |
+| Pipelines / etapas | ❌ no hay creación, solo `get-pipelines` | **UI**, luego leer IDs y guardarlos en `state.json` |
+| Oportunidades | ✅ | `create-opportunity`, `Upsert-opportunity`, `update-opportunity` |
 | Agente de voz | ✅ | `voice-ai.create-agent`, `patch-agent`, `voice-ai.create-action` |
-| Agente de texto (Conversation AI) | ❌ no expuesto | **manual** en UI con prompt de `ghl/agents/texto.md` |
+| Agente de texto (Conversation AI) | ❌ no expuesto | **UI** con el prompt de `docs/prompts/texto.md` |
+| Plantillas de WhatsApp, números, workflows | ❌ | UI de GHL / Meta |
 
-## Fase 1 — crear la subcuenta (manual, ~5 min)
+## Pasos manuales previstos
 
-1. Agency view → **Sub-Accounts → Create Sub-Account** (o desde snapshot de inmobiliaria si existe).
-2. Datos: nombre, teléfono, correo, dirección, zona horaria, moneda, idioma.
-3. Activar los permisos de Conversaciones, Calendarios, Oportunidades, Workflows y Voice AI.
-4. Volver a esta sesión y pedir: *"lista las ubicaciones"*. Copiar el `locationId` nuevo a `ghl/state.json`.
-
-## Fase 5 — crear el pipeline (manual, ~5 min)
-
-Settings → **Pipelines → Create**, nombre y etapas exactamente como `ghl/pipeline.json`.
-Después ejecutar `get-pipelines` y guardar `pipelineId` y los `stageId` en `ghl/state.json`.
-
-## Fase 6 — agente de texto (manual)
-
-AI Agents → **Conversation AI** → crear bot; pegar el prompt de `ghl/agents/texto.md`; conectar canales;
-activar acciones de campos, tags, etapa y calendario. Registrar el ID del bot en `ghl/state.json`.
+1. **Subcuenta demo** (Fase 0/1-C): preferible por API de agencia reutilizando el flujo de n8n; si no, UI desde snapshot.
+   Luego `list_locations` y copiar el `locationId` a `ghl/state.json` → `demoLocationId`.
+2. **Pipeline "Compradores"** (~5 min): *Settings → Pipelines*, etapas exactas de `ghl/pipeline.json`; luego `get-pipelines`.
+3. **Conversation AI** (~15 min): pegar prompt, conectar canal, crear las 5 acciones webhook con el secreto del agente.
+4. **WhatsApp**: número, WABA, plantillas (`ghl/plantillas-whatsapp`). Ver D11 si el ticket de Meta no se resuelve.
 
 ## Reglas de seguridad al escribir
 
-- Siempre `locationId` explícito = el de `ghl/state.json`.
-- `idempotencyKey` con prefijo `flamia-prop-`.
-- `dryRun: true` en la primera escritura de cada tipo; luego aplicar y **leer de vuelta** para verificar.
-- Cuentas que **no** se tocan: Flamiagroup (`Mzmr9yxQ2iMapPYViK1B`, agencia) y las de otros clientes.
+- `locationId` explícito = `demoLocationId`. **Nunca** `Mzmr9yxQ2iMapPYViK1B` (agencia Flamiagroup) ni otras subcuentas.
+- `idempotencyKey` con prefijo `flr-`; `dryRun: true` la primera vez por tipo; después **leer de vuelta** para verificar.
+- Antes de crear: listar lo existente y comparar por nombre (ej. `site_chat` ya existe en otras cuentas del flujo Sofía).

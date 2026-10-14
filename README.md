@@ -1,12 +1,17 @@
-# Flamia Propiedades
+# FLAMIA Luxury Real Estate System
 
-Sitio web (tema Flex Home / Botble) y CRM en GoHighLevel con agentes de IA de texto y voz para una
-inmobiliaria cliente de FLAMIA.
+Plataforma inmobiliaria premium (Supabase + n8n + GoHighLevel + agentes de texto y voz ES/EN) que FLAMIA
+construye y Halcón vende a agentes de lujo en Puerto Vallarta / Guadalajara.
 
-- Plan por fases: [`docs/PLAN.md`](docs/PLAN.md)
-- Qué es automático y qué manual en GHL: [`docs/GHL-OPERACION.md`](docs/GHL-OPERACION.md)
-- Configuración como código: [`ghl/`](ghl/)
-- Marca del sitio: [`tema/flamia-custom.css`](tema/flamia-custom.css)
-- Guías para agentes: [`AGENTS.md`](AGENTS.md), [`CLAUDE.md`](CLAUDE.md)
+**Hito:** demo funcional el 21-oct-2026 (AMPI).
 
-Estado actual: ver `ghl/state.json` (campo `fases`).
+| Documento | Para qué |
+|---|---|
+| [`docs/PLAN.md`](docs/PLAN.md) | Calendario, frentes, ruta crítica, criterios |
+| [`docs/especificacion.md`](docs/especificacion.md) | Especificación fuente |
+| [`docs/analisis-especificacion.md`](docs/analisis-especificacion.md) | Hallazgos y correcciones |
+| [`docs/decisiones.md`](docs/decisiones.md) | D1–D15 |
+| [`docs/runbook-alta-cliente.md`](docs/runbook-alta-cliente.md) | Alta de cliente y criterio de producción |
+| [`AGENTS.md`](AGENTS.md) · [`CLAUDE.md`](CLAUDE.md) | Guías para agentes |
+
+Estado de la ejecución: `ghl/state.json` (campo `fases`) y el proyecto de Linear "FLAMIA Luxury Real Estate".
