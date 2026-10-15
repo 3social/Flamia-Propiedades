@@ -37,7 +37,7 @@ DROP PROCEDURE ard_check;
 
 -- A. Reemplazo de textos en toda la base ---------------------------------
 DROP TABLE IF EXISTS ard_rules;
-CREATE TABLE ard_rules (n INT PRIMARY KEY, pattern VARCHAR(255), replacement VARCHAR(255)) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_rules (n INT PRIMARY KEY, pattern VARCHAR(255), replacement VARCHAR(255)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_rules VALUES
   (1, '(?i)kosaricorp@gmail\\.com', 'contacto@flamiagroup.com'),
   (2, '(?i)[a-z0-9._%+-]+@propiedadesvip\\.[a-z.]+', 'contacto@flamiagroup.com'),
@@ -48,7 +48,7 @@ INSERT INTO ard_rules VALUES
 
 DROP TABLE IF EXISTS ard_cols;
 CREATE TABLE ard_cols AS
-SELECT c.TABLE_NAME AS t, c.COLUMN_NAME AS col
+SELECT c.TABLE_NAME AS t, c.COLUMN_NAME AS col, c.CHARACTER_SET_NAME AS cs, c.COLLATION_NAME AS coll
 FROM information_schema.COLUMNS c
 JOIN information_schema.TABLES tb ON tb.TABLE_SCHEMA = c.TABLE_SCHEMA AND tb.TABLE_NAME = c.TABLE_NAME AND tb.TABLE_TYPE = 'BASE TABLE'
 WHERE c.TABLE_SCHEMA = DATABASE()
@@ -66,17 +66,20 @@ DELIMITER $$
 CREATE PROCEDURE ard_rebrand()
 BEGIN
   DECLARE done INT DEFAULT 0;
-  DECLARE v_t, v_c VARCHAR(255);
-  DECLARE cur CURSOR FOR SELECT t, col FROM ard_cols;
+  DECLARE v_t, v_c, v_cs, v_coll VARCHAR(255);
+  DECLARE cur CURSOR FOR SELECT t, col, cs, coll FROM ard_cols;
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
   OPEN cur;
   cols: LOOP
-    FETCH cur INTO v_t, v_c;
+    FETCH cur INTO v_t, v_c, v_cs, v_coll;
     IF done THEN LEAVE cols; END IF;
     SET @n = 1;
     WHILE @n <= 6 DO
       SELECT pattern, replacement INTO @p, @r FROM ard_rules WHERE n = @n;
-      SET @sql = CONCAT('UPDATE `', v_t, '` SET `', v_c, '` = REGEXP_REPLACE(`', v_c, '`, ?, ?) WHERE `', v_c, '` REGEXP ?');
+      -- Patrón y reemplazo se convierten al cotejo de cada columna (las tablas pueden no compartir el mismo).
+      SET @arg = CONCAT('CONVERT(? USING ', v_cs, ') COLLATE ', v_coll);
+      SET @sql = CONCAT('UPDATE `', v_t, '` SET `', v_c, '` = REGEXP_REPLACE(`', v_c, '`, ', @arg, ', ', @arg,
+                        ') WHERE `', v_c, '` REGEXP ', @arg);
       PREPARE st FROM @sql;
       EXECUTE st USING @p, @r, @p;
       DEALLOCATE PREPARE st;
@@ -96,7 +99,7 @@ WHERE email = 'kosaricorp@gmail.com'
 
 -- B. Identidad del sitio --------------------------------------------------
 DROP TABLE IF EXISTS ard_settings;
-CREATE TABLE ard_settings (k VARCHAR(190) PRIMARY KEY, v TEXT) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_settings (k VARCHAR(190) PRIMARY KEY, v TEXT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_settings VALUES
   ('site_title', 'Ardenza Propiedades'),
   ('show_site_name', '0'),
@@ -139,7 +142,7 @@ DROP TABLE IF EXISTS ard_agents;
 CREATE TABLE ard_agents (
   n INT PRIMARY KEY, country VARCHAR(120), city VARCHAR(120), first_name VARCHAR(120), last_name VARCHAR(120),
   email VARCHAR(190), username VARCHAR(60), phone VARCHAR(25), description TEXT, id BIGINT UNSIGNED NULL
-) DEFAULT CHARSET=utf8mb4;
+) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_agents (n, country, city, first_name, last_name, email, username, phone, description) VALUES
   (0, 'México', 'tulum', 'Mariana', 'Salazar', 'agente.mexico@example.com', 'agente-mexico', '+52 984 000 0101',
    'Agente de demostración. Residencias de lujo en la Riviera Maya, Ciudad de México, Los Cabos y Puerto Vallarta.'),

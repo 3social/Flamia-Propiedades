@@ -263,7 +263,7 @@ POSTS = [
 
 def tpl_table(name, cols, rows):
     out = [f"DROP TABLE IF EXISTS {name};",
-           f"CREATE TABLE {name} (n INT PRIMARY KEY, {', '.join(c + ' ' + t for c, t in cols)}) DEFAULT CHARSET=utf8mb4;"]
+           f"CREATE TABLE {name} (n INT PRIMARY KEY, {', '.join(c + ' ' + t for c, t in cols)}) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"]
     vals = []
     for i, r in enumerate(rows):
         vals.append("(" + ", ".join([str(i)] + [q(v) for v in r]) + ")")

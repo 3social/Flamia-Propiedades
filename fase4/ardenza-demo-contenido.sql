@@ -92,7 +92,7 @@ DELETE FROM re_currencies WHERE title NOT IN ('USD', 'MXN', 'CRC');
 
 -- 3. Propiedades ---------------------------------------------------------
 DROP TABLE IF EXISTS ard_city_geo;
-CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
   (0, 'tulum', 20.2114, -87.4654),
   (1, 'playa-del-carmen', 20.6296, -87.0739),
@@ -109,7 +109,7 @@ INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
   (12, 'key-biscayne', 25.6937, -80.1628),
   (13, 'coral-gables', 25.7215, -80.2684);
 DROP TABLE IF EXISTS ard_tpl_prop;
-CREATE TABLE ard_tpl_prop (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), type VARCHAR(20), bed INT, bath INT, floors INT, square INT, price DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_tpl_prop (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), type VARCHAR(20), bed INT, bath INT, floors INT, square INT, price DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_tpl_prop (n, slug, name, city, type, bed, bath, floors, square, price, location, description, content) VALUES
   (0, 'villa-selva-tulum', 'Villa Selva con alberca privada', 'tulum', 'sale', 4, 4, 2, 420, 1250000, 'Región 15, Tulum, Quintana Roo, México', 'Villa de cuatro recámaras rodeada de selva, a diez minutos de las playas de Tulum.', '<p>Arquitectura contemporánea en chukum y madera tropical, integrada a la selva maya.</p><p>La planta baja abre por completo hacia la alberca y el jardín; la planta alta concentra las recámaras con terrazas privadas.</p><ul><li>Alberca privada y jardín</li><li>Roof garden con vista a la selva</li><li>Paneles solares y cisterna</li><li>A 10 minutos de la zona hotelera</li></ul><p><em>Ficha de demostración · Ardenza Propiedades by FLAMIA.</em></p>'),
   (1, 'penthouse-aldea-zama-tulum', 'Penthouse en Aldea Zamá con roof privado', 'tulum', 'sale', 3, 3, 1, 210, 890000, 'Aldea Zamá, Tulum, Quintana Roo, México', 'Penthouse con terraza privada y jacuzzi en la zona residencial más buscada de Tulum.', '<p>Penthouse de tres recámaras en un condominio boutique de solo doce unidades.</p><p>Terraza privada con jacuzzi y cocina exterior, ideal para renta vacacional o residencia.</p><ul><li>Jacuzzi en el roof</li><li>Amenidades tipo hotel</li><li>Administración de rentas disponible</li><li>Entrega inmediata</li></ul><p><em>Ficha de demostración · Ardenza Propiedades by FLAMIA.</em></p>'),
@@ -161,7 +161,7 @@ WHERE s.reference_type LIKE '%RealEstate%Models%Property';
 
 -- 4. Proyectos y desarrolladores ------------------------------------------
 DROP TABLE IF EXISTS ard_city_geo;
-CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
   (0, 'tulum', 20.2114, -87.4654),
   (1, 'playa-del-carmen', 20.6296, -87.0739),
@@ -178,7 +178,7 @@ INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
   (12, 'key-biscayne', 25.6937, -80.1628),
   (13, 'coral-gables', 25.7215, -80.2684);
 DROP TABLE IF EXISTS ard_tpl_proj;
-CREATE TABLE ard_tpl_proj (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), blocks INT, floors INT, flats INT, price_from DECIMAL(15,0), price_to DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_tpl_proj (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), blocks INT, floors INT, flats INT, price_from DECIMAL(15,0), price_to DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_tpl_proj (n, slug, name, city, blocks, floors, flats, price_from, price_to, location, description, content) VALUES
   (0, 'aldea-ardenza-tulum', 'Aldea Ardenza Tulum', 'tulum', 4, 4, 48, 380000, 1200000, 'Región 15, Tulum, Quintana Roo, México', 'Desarrollo boutique de 48 residencias integradas a la selva, con club de playa.', '<p>Departamentos y penthouses con roof privado, rodeados de selva.</p><p>Club de playa, spa y concierge para administración de rentas.</p><ul><li>48 residencias</li><li>Club de playa</li><li>Spa y gimnasio</li><li>Entrega estimada 2027</li></ul><p><em>Ficha de demostración · Ardenza Propiedades by FLAMIA.</em></p>'),
   (1, 'torre-mareas-cancun', 'Torre Mareas Cancún', 'cancun', 1, 32, 120, 420000, 2100000, 'Zona Hotelera, Cancún, Quintana Roo, México', 'Torre residencial frente al mar Caribe con amenidades tipo resort.', '<p>Departamentos de una a cuatro recámaras con vista al mar.</p><p>Alberca infinity, marina y restaurante privado para residentes.</p><ul><li>Frente al mar</li><li>Marina privada</li><li>Restaurante para residentes</li><li>Entrega estimada 2028</li></ul><p><em>Ficha de demostración · Ardenza Propiedades by FLAMIA.</em></p>'),
@@ -217,7 +217,7 @@ SET s.`key` = IF(m.rn < @nj, t.slug, CONCAT(t.slug, '-', s.reference_id))
 WHERE s.reference_type LIKE '%RealEstate%Models%Project';
 
 DROP TABLE IF EXISTS ard_tpl_inv;
-CREATE TABLE ard_tpl_inv (n INT PRIMARY KEY, name VARCHAR(120)) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_tpl_inv (n INT PRIMARY KEY, name VARCHAR(120)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_tpl_inv (n, name) VALUES
   (0, 'Grupo Riviera Residencial'),
   (1, 'Pacífico Living'),
@@ -232,7 +232,7 @@ SET i.name = IF(m.rn < 4, t.name, CONCAT(t.name, ' ', FLOOR(m.rn / 4) + 1));
 
 -- 5. Agentes (cuentas de realtors demo) ------------------------------------
 DROP TABLE IF EXISTS ard_tpl_agent;
-CREATE TABLE ard_tpl_agent (n INT PRIMARY KEY, first_name VARCHAR(120), last_name VARCHAR(120), city VARCHAR(120), phone VARCHAR(25), description TEXT) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_tpl_agent (n INT PRIMARY KEY, first_name VARCHAR(120), last_name VARCHAR(120), city VARCHAR(120), phone VARCHAR(25), description TEXT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_tpl_agent (n, first_name, last_name, city, phone, description) VALUES
   (0, 'Mariana', 'Salazar', 'tulum', '+52 984 000 0101', 'Especialista en villas y desarrollos en Tulum y la Riviera Maya.'),
   (1, 'Diego', 'Herrera', 'ciudad-de-mexico', '+52 55 0000 0202', 'Asesor de residencias de lujo en Polanco, Lomas y Condesa.'),
@@ -262,7 +262,7 @@ SET a.first_name = t.first_name,
 
 -- 6. Noticias del blog ----------------------------------------------------
 DROP TABLE IF EXISTS ard_tpl_post;
-CREATE TABLE ard_tpl_post (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4;
+CREATE TABLE ard_tpl_post (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 INSERT INTO ard_tpl_post (n, slug, name, description, content) VALUES
   (0, 'comprar-propiedad-en-mexico-siendo-extranjero', 'Cómo comprar propiedad en México siendo extranjero', 'El fideicomiso bancario y otras claves para invertir en la costa mexicana.', '<p>Los extranjeros pueden comprar propiedades en México. En la llamada zona restringida —50 km desde la costa y 100 km desde las fronteras— la compra se hace a través de un fideicomiso bancario o de una sociedad mexicana.</p><p>El fideicomiso da al comprador todos los derechos de uso, renta y venta del inmueble, y se puede heredar.</p><p>Antes de firmar, conviene revisar el título, el certificado de libertad de gravamen y el uso de suelo con un notario público.</p><p><em>Contenido informativo de demostración. Consulta siempre a un asesor legal.</em></p>'),
   (1, 'tulum-o-playa-del-carmen-donde-invertir', 'Tulum o Playa del Carmen: dónde invertir', 'Dos destinos del Caribe mexicano con perfiles de inversión distintos.', '<p>Tulum atrae a compradores que buscan diseño, naturaleza y renta vacacional de alto valor por noche.</p><p>Playa del Carmen ofrece un mercado más consolidado, con demanda de renta durante todo el año y mejor conectividad.</p><p>La decisión depende del horizonte de inversión, del uso personal que se planee y del nivel de riesgo aceptable.</p><p><em>Contenido informativo de demostración.</em></p>'),
