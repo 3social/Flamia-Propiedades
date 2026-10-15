@@ -5,7 +5,6 @@ Reescribe el contenido demo de Colombia como demo de Ardenza Propiedades
 """
 import sys
 
-OUT = sys.argv[1]
 DEMO = "<p><em>Ficha de demostración · Ardenza Propiedades by FLAMIA.</em></p>"
 
 
@@ -510,6 +509,8 @@ FROM cities ci JOIN countries co ON co.id = ci.country_id
 ORDER BY co.`order`, ci.`order`;
 """))
 
-with open(OUT, "w", encoding="utf-8") as f:
-    f.write("\n".join(sql))
-print("ok", OUT)
+if __name__ == "__main__":
+    OUT = sys.argv[1]
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write("\n".join(sql))
+    print("ok", OUT)
