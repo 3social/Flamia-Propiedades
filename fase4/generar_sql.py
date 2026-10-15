@@ -315,8 +315,6 @@ for order, (slug, name, state, lat, lng) in enumerate(CITIES):
     sql.append(f"INSERT INTO cities (name, slug, state_id, country_id, `order`, is_default, status, created_at, updated_at) "
                f"VALUES ({q(name)}, {q(slug)}, @s_{state}, @c_{state_country[state]}, {order}, 0, 'published', NOW(), NOW());")
 
-sql.append(tpl_table("ard_city_geo", [("slug", "VARCHAR(120)"), ("lat", "DECIMAL(10,6)"), ("lng", "DECIMAL(10,6)")],
-                     [(c[0], c[3], c[4]) for c in CITIES]))
 
 sql.append("""
 -- Las nuevas ciudades reutilizan las imágenes de las ciudades del demo anterior.
@@ -349,6 +347,8 @@ DELETE FROM re_currencies WHERE title NOT IN ('USD', 'MXN', 'CRC');
 
 # 3. Propiedades
 sql.append("-- 3. Propiedades ---------------------------------------------------------")
+sql.append(tpl_table("ard_city_geo", [("slug", "VARCHAR(120)"), ("lat", "DECIMAL(10,6)"), ("lng", "DECIMAL(10,6)")],
+                     [(c[0], c[3], c[4]) for c in CITIES]))
 sql.append(tpl_table("ard_tpl_prop", [
     ("slug", "VARCHAR(190)"), ("name", "VARCHAR(300)"), ("city", "VARCHAR(120)"), ("type", "VARCHAR(20)"),
     ("bed", "INT"), ("bath", "INT"), ("floors", "INT"), ("square", "INT"), ("price", "DECIMAL(15,0)"),
@@ -388,6 +388,8 @@ WHERE s.reference_type LIKE '%RealEstate%Models%Property';
 
 # 4. Proyectos y desarrolladores
 sql.append("-- 4. Proyectos y desarrolladores ------------------------------------------")
+sql.append(tpl_table("ard_city_geo", [("slug", "VARCHAR(120)"), ("lat", "DECIMAL(10,6)"), ("lng", "DECIMAL(10,6)")],
+                     [(c[0], c[3], c[4]) for c in CITIES]))
 sql.append(tpl_table("ard_tpl_proj", [
     ("slug", "VARCHAR(190)"), ("name", "VARCHAR(300)"), ("city", "VARCHAR(120)"), ("blocks", "INT"), ("floors", "INT"),
     ("flats", "INT"), ("price_from", "DECIMAL(15,0)"), ("price_to", "DECIMAL(15,0)"), ("location", "VARCHAR(255)"),
@@ -475,7 +477,7 @@ WHERE s.reference_type LIKE '%Blog%Models%Post';
 """)
 
 # 7. Traducciones y limpieza
-sql.append("""-- 7. Traducciones viejas y limpieza ----------------------------------------
+sql.append(("""-- 7. Traducciones viejas y limpieza ----------------------------------------
 -- El inglés vuelve a mostrar el texto en español hasta que se traduzca.
 DELETE FROM re_properties_translations;
 DELETE FROM re_projects_translations;
@@ -485,9 +487,10 @@ WHERE s.reference_type LIKE '%RealEstate%Models%Property'
    OR s.reference_type LIKE '%RealEstate%Models%Project'
    OR s.reference_type LIKE '%Blog%Models%Post';
 
-DELETE FROM cities WHERE id IN (SELECT id FROM ard_old_cities);
-DELETE FROM states WHERE id IN (SELECT id FROM ard_old_states);
-DELETE FROM countries WHERE id IN (SELECT id FROM ard_old_countries);
+-- Se conservan solo las ubicaciones nuevas (por slug), aunque el script se haya ejecutado por partes.
+DELETE FROM cities WHERE slug IS NULL OR slug NOT IN (""" + ", ".join(q(c[0]) for c in CITIES) + """);
+DELETE FROM states WHERE slug IS NULL OR slug NOT IN (""" + ", ".join(q(s_[4]) for s_ in STATES) + """);
+DELETE FROM countries WHERE id NOT IN (SELECT country_id FROM (SELECT DISTINCT country_id FROM states WHERE country_id IS NOT NULL) x);
 DELETE FROM cities_translations WHERE cities_id NOT IN (SELECT id FROM cities);
 DELETE FROM states_translations WHERE states_id NOT IN (SELECT id FROM states);
 DELETE FROM countries_translations WHERE countries_id NOT IN (SELECT id FROM countries);
@@ -505,7 +508,7 @@ SELECT co.name AS pais, ci.name AS ciudad,
        (SELECT COUNT(*) FROM re_projects j WHERE j.city_id = ci.id) AS proyectos
 FROM cities ci JOIN countries co ON co.id = ci.country_id
 ORDER BY co.`order`, ci.`order`;
-""")
+"""))
 
 with open(OUT, "w", encoding="utf-8") as f:
     f.write("\n".join(sql))

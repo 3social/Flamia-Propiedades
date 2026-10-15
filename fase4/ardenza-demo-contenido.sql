@@ -64,23 +64,6 @@ INSERT INTO cities (name, slug, state_id, country_id, `order`, is_default, statu
 INSERT INTO cities (name, slug, state_id, country_id, `order`, is_default, status, created_at, updated_at) VALUES ('Miami Beach', 'miami-beach', @s_fl, @c_us, 11, 0, 'published', NOW(), NOW());
 INSERT INTO cities (name, slug, state_id, country_id, `order`, is_default, status, created_at, updated_at) VALUES ('Key Biscayne', 'key-biscayne', @s_fl, @c_us, 12, 0, 'published', NOW(), NOW());
 INSERT INTO cities (name, slug, state_id, country_id, `order`, is_default, status, created_at, updated_at) VALUES ('Coral Gables', 'coral-gables', @s_fl, @c_us, 13, 0, 'published', NOW(), NOW());
-DROP TABLE IF EXISTS ard_city_geo;
-CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4;
-INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
-  (0, 'tulum', 20.2114, -87.4654),
-  (1, 'playa-del-carmen', 20.6296, -87.0739),
-  (2, 'cancun', 21.1619, -86.8515),
-  (3, 'ciudad-de-mexico', 19.4326, -99.1332),
-  (4, 'los-cabos', 22.8905, -109.9167),
-  (5, 'puerto-vallarta', 20.6534, -105.2253),
-  (6, 'tamarindo', 10.2993, -85.8371),
-  (7, 'santa-teresa', 9.6431, -85.169),
-  (8, 'escazu', 9.9189, -84.1395),
-  (9, 'heredia', 9.9981, -84.117),
-  (10, 'miami', 25.7617, -80.1918),
-  (11, 'miami-beach', 25.7907, -80.13),
-  (12, 'key-biscayne', 25.6937, -80.1628),
-  (13, 'coral-gables', 25.7215, -80.2684);
 
 -- Las nuevas ciudades reutilizan las imágenes de las ciudades del demo anterior.
 DROP TABLE IF EXISTS ard_map_city, ard_old_city_img;
@@ -108,6 +91,23 @@ UPDATE re_packages SET currency_id = @usd;
 DELETE FROM re_currencies WHERE title NOT IN ('USD', 'MXN', 'CRC');
 
 -- 3. Propiedades ---------------------------------------------------------
+DROP TABLE IF EXISTS ard_city_geo;
+CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4;
+INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
+  (0, 'tulum', 20.2114, -87.4654),
+  (1, 'playa-del-carmen', 20.6296, -87.0739),
+  (2, 'cancun', 21.1619, -86.8515),
+  (3, 'ciudad-de-mexico', 19.4326, -99.1332),
+  (4, 'los-cabos', 22.8905, -109.9167),
+  (5, 'puerto-vallarta', 20.6534, -105.2253),
+  (6, 'tamarindo', 10.2993, -85.8371),
+  (7, 'santa-teresa', 9.6431, -85.169),
+  (8, 'escazu', 9.9189, -84.1395),
+  (9, 'heredia', 9.9981, -84.117),
+  (10, 'miami', 25.7617, -80.1918),
+  (11, 'miami-beach', 25.7907, -80.13),
+  (12, 'key-biscayne', 25.6937, -80.1628),
+  (13, 'coral-gables', 25.7215, -80.2684);
 DROP TABLE IF EXISTS ard_tpl_prop;
 CREATE TABLE ard_tpl_prop (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), type VARCHAR(20), bed INT, bath INT, floors INT, square INT, price DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4;
 INSERT INTO ard_tpl_prop (n, slug, name, city, type, bed, bath, floors, square, price, location, description, content) VALUES
@@ -160,6 +160,23 @@ SET s.`key` = IF(m.rn < @np, t.slug, CONCAT(t.slug, '-', s.reference_id))
 WHERE s.reference_type LIKE '%RealEstate%Models%Property';
 
 -- 4. Proyectos y desarrolladores ------------------------------------------
+DROP TABLE IF EXISTS ard_city_geo;
+CREATE TABLE ard_city_geo (n INT PRIMARY KEY, slug VARCHAR(120), lat DECIMAL(10,6), lng DECIMAL(10,6)) DEFAULT CHARSET=utf8mb4;
+INSERT INTO ard_city_geo (n, slug, lat, lng) VALUES
+  (0, 'tulum', 20.2114, -87.4654),
+  (1, 'playa-del-carmen', 20.6296, -87.0739),
+  (2, 'cancun', 21.1619, -86.8515),
+  (3, 'ciudad-de-mexico', 19.4326, -99.1332),
+  (4, 'los-cabos', 22.8905, -109.9167),
+  (5, 'puerto-vallarta', 20.6534, -105.2253),
+  (6, 'tamarindo', 10.2993, -85.8371),
+  (7, 'santa-teresa', 9.6431, -85.169),
+  (8, 'escazu', 9.9189, -84.1395),
+  (9, 'heredia', 9.9981, -84.117),
+  (10, 'miami', 25.7617, -80.1918),
+  (11, 'miami-beach', 25.7907, -80.13),
+  (12, 'key-biscayne', 25.6937, -80.1628),
+  (13, 'coral-gables', 25.7215, -80.2684);
 DROP TABLE IF EXISTS ard_tpl_proj;
 CREATE TABLE ard_tpl_proj (n INT PRIMARY KEY, slug VARCHAR(190), name VARCHAR(300), city VARCHAR(120), blocks INT, floors INT, flats INT, price_from DECIMAL(15,0), price_to DECIMAL(15,0), location VARCHAR(255), description VARCHAR(400), content LONGTEXT) DEFAULT CHARSET=utf8mb4;
 INSERT INTO ard_tpl_proj (n, slug, name, city, blocks, floors, flats, price_from, price_to, location, description, content) VALUES
@@ -278,9 +295,10 @@ WHERE s.reference_type LIKE '%RealEstate%Models%Property'
    OR s.reference_type LIKE '%RealEstate%Models%Project'
    OR s.reference_type LIKE '%Blog%Models%Post';
 
-DELETE FROM cities WHERE id IN (SELECT id FROM ard_old_cities);
-DELETE FROM states WHERE id IN (SELECT id FROM ard_old_states);
-DELETE FROM countries WHERE id IN (SELECT id FROM ard_old_countries);
+-- Se conservan solo las ubicaciones nuevas (por slug), aunque el script se haya ejecutado por partes.
+DELETE FROM cities WHERE slug IS NULL OR slug NOT IN ('tulum', 'playa-del-carmen', 'cancun', 'ciudad-de-mexico', 'los-cabos', 'puerto-vallarta', 'tamarindo', 'santa-teresa', 'escazu', 'heredia', 'miami', 'miami-beach', 'key-biscayne', 'coral-gables');
+DELETE FROM states WHERE slug IS NULL OR slug NOT IN ('quintana-roo', 'ciudad-de-mexico-estado', 'baja-california-sur', 'jalisco', 'guanacaste', 'puntarenas', 'san-jose-cr', 'heredia-provincia', 'florida');
+DELETE FROM countries WHERE id NOT IN (SELECT country_id FROM (SELECT DISTINCT country_id FROM states WHERE country_id IS NOT NULL) x);
 DELETE FROM cities_translations WHERE cities_id NOT IN (SELECT id FROM cities);
 DELETE FROM states_translations WHERE states_id NOT IN (SELECT id FROM states);
 DELETE FROM countries_translations WHERE countries_id NOT IN (SELECT id FROM countries);
