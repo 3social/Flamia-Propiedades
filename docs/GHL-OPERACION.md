@@ -20,8 +20,8 @@ Comprobado el 2026-10-14 contra el conector MCP `MCP-Lead-GHL` (conexión multi-
 
 1. **Subcuenta demo** (Fase 0/1-C): preferible por API de agencia reutilizando el flujo de n8n; si no, UI desde snapshot.
    Luego `list_locations` y copiar el `locationId` a `ghl/state.json` → `demoLocationId`.
-2. **Pipeline "Compradores"** (~5 min): *Settings → Pipelines*, etapas exactas de `ghl/pipeline.json`; luego `get-pipelines`.
-3. **Conversation AI** (~15 min): pegar prompt, conectar canal, crear las 5 acciones webhook con el secreto del agente.
+2. ~~Pipeline "Compradores"~~ **Hecho por API** el 2026-10-19 (ids en `ghl/state.json`).
+3. **Agente de texto**: probar primero Agent Studio por API; si no alcanza, UI (pegar prompt, conectar canal, 5 acciones webhook con el secreto del agente).
 4. **WhatsApp**: número, WABA, plantillas (`ghl/plantillas-whatsapp`). Ver D11 si el ticket de Meta no se resuelve.
 
 ## Reglas de seguridad al escribir

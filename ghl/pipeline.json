@@ -1,5 +1,5 @@
 {
-  "_nota": "Creado en Ardenza DEMO por API el 2026-10-19 (ids en state.json). La API pública de GHL no crea pipelines: se crean a mano con estos nombres y luego se registran los IDs en state.json. Ganado/Perdido es el ESTADO de la oportunidad, no una etapa (D9).",
+  "_nota": "Pipeline 'Compradores' creado en Ardenza DEMO por API el 2026-10-19 (ids en state.json). Para clientes nuevos se crea con POST /opportunities/pipelines (cada etapa con position numerica) o viene en el snapshot. Ganado/Perdido es el ESTADO de la oportunidad, no una etapa (D9).",
   "pipelines": [
     {
       "key": "compradores",
