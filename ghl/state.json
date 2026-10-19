@@ -22,7 +22,9 @@
     "texto_botId": null,
     "voz_agentId": null
   },
-  "n8nWorkflowIds": {},
+  "n8nWorkflowIds": {
+    "mcp_ghl_ardenza": "07NdqtZhhLzfFlM4"
+  },
   "fases": {
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "pendiente",
@@ -37,5 +39,8 @@
     "2_signature": "pendiente",
     "3_private": "pendiente"
   },
-  "demoLocationName": "Ardenza DEMO"
+  "demoLocationName": "Ardenza DEMO",
+  "n8nCredenciales": {
+    "ghl_pit_ardenza": "RVXU4guLpA2rVXFu"
+  }
 }

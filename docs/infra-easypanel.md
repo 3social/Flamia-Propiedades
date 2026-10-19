@@ -52,3 +52,17 @@ pública no ofrece creación de pipelines, bots de Conversation AI, workflows ni
 esos pasos siguen siendo manuales aunque el MCP sea propio.
 
 El token se carga como credencial `httpBearerAuth` en n8n (`GHL PIT - Ardenza`) por Michael; no se pega en chats ni en el repo.
+
+## Estado del MCP de Ardenza (2026-10-19)
+
+Workflow `FLR · MCP GHL Ardenza` (n8n `07NdqtZhhLzfFlM4`), **creado e inactivo**. Tres herramientas genéricas sobre la API v2 de GHL con el PIT
+`GHL PIT - Ardenza`: `ghl_get`, `ghl_write` (POST/PUT/PATCH) y `ghl_delete`. Aceptan cabecera `Version` y query/body libres, así que cubren
+cualquier endpoint que el token permita (incluida la edición de la ubicación). Respuestas 4xx se devuelven al modelo (`neverError`).
+
+Para activarlo (pasos manuales en la UI de n8n, no se pueden hacer por API):
+1. En `ghl_get`, `ghl_write` y `ghl_delete`: elegir la credencial **GHL PIT - Ardenza** (Bearer).
+2. En el nodo `MCP Server Ardenza`: n8n le asignó automáticamente la credencial existente "Vapi" (cabecera). **Sustituirla** por una credencial
+   nueva de cabecera dedicada a este MCP; no mezclar secretos entre servicios.
+3. Activar el workflow y copiar la *Production URL* del nodo; registrarla como servidor MCP con la cabecera de acceso.
+
+Sin autenticación en la entrada la URL sería pública y cualquiera podría escribir en la subcuenta: no activar antes del paso 2.
