@@ -67,3 +67,16 @@ Riesgo aceptado: quien tenga la URL puede leer, escribir y borrar en Ardenza DEM
 
 Pendiente de verificar: la credencial `GHL PIT - Ardenza` en los 3 nodos HTTP (la API de n8n no la muestra). Prueba: una lectura `ghl_get` a
 `/locations/20Yv36Yd31saVEePDNwB/tags` desde un cliente que tenga el MCP registrado.
+
+## Ámbitos medidos del token de Ardenza (2026-10-19)
+
+Medido con un workflow temporal (archivado) que llamó a la API de GHL con el PIT `GHL PIT - Ardenza`:
+
+- **Lectura: 33 de 34 dominios autorizados** (ubicación, etiquetas, campos, valores, contactos, oportunidades y pipelines, calendarios, conversaciones,
+  usuarios, formularios, embudos, workflows, campañas, Voice AI, bases de conocimiento, productos, pagos, facturas, redes sociales, blogs, correos,
+  encuestas, enlaces, negocios, objetos y asociaciones, propuestas). `medias` devolvió 422 por parámetros, es decir, autorizado.
+- **Sin ámbito:** `custom-menus` (401). No afecta al proyecto.
+- **Escritura y borrado verificados** en etiquetas (crear 201, borrar 200; la etiqueta de prueba ya fue eliminada).
+- **`PUT /locations/{id}` → 401.** Editar la ubicación (zona horaria, moneda) no la permite un token de subcuenta; exige token de agencia.
+  Zona horaria/moneda de Ardenza se corrigen a mano en *Settings → Business Profile* o con una credencial de agencia (ver `docs/decisiones.md`, D21).
+- Bug corregido en las tools del MCP: un objeto en `jsonQuery`/`jsonBody` llega como `[object Object]`; ahora se serializa con `JSON.stringify`.
