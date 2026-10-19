@@ -13,7 +13,7 @@
       { "name": "Tipos de Propiedad", "dataType": "TEXT" },
       { "name": "Plazo de Decision", "dataType": "SINGLE_OPTIONS", "options": ["Inmediato", "1 a 3 meses", "3 a 6 meses", "Mas de 6 meses", "Solo explorando"] },
       { "name": "Financiamiento", "dataType": "SINGLE_OPTIONS", "options": ["Contado", "Fideicomiso", "Credito", "Por definir"] },
-      { "name": "Preferencias", "dataType": "TEXT", "_nota": "Texto libre: 'frente al mar, tranquilo, para rentar'" }
+      { "name": "Preferencias", "dataType": "LARGE_TEXT", "_nota": "Texto libre: 'frente al mar, tranquilo, para rentar'" }
     ],
     "consentimiento": [
       { "name": "Opt-in WhatsApp", "dataType": "SINGLE_OPTIONS", "options": ["Si", "No"] },
