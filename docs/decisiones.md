@@ -27,3 +27,10 @@ Formato: contexto → decisión → consecuencia.
 | D13 | Alta de subcuenta | Adoptada | Vía API de agencia usando el patrón del flujo n8n `SaaS - Provisioning Stripe a GHL`; el MCP `MCP-Lead-GHL` no la expone |
 | D14 | Convenciones de nombres | Adoptada | Workflows n8n con prefijo `FLR · `; tags con guion bajo; ref de propiedad `PV-0001` |
 | D15 | Retención de datos de compradores | **Abierta** | Default 24 meses hasta revisión legal |
+
+## Subcuenta de trabajo
+
+| # | Decisión | Estado | Resolución |
+|---|---|---|---|
+| D16 | Dónde se monta el sistema | Adoptada | Subcuenta **Ardenza DEMO** (`20Yv36Yd31saVEePDNwB`) dentro de la agencia Flamia. Sustituye a la "subcuenta demo" por crear; el token tiene todos los ámbitos (`scopeFilteredCount` 0) |
+| D17 | País, zona horaria y moneda de la subcuenta | **Abierta** | La subcuenta está en San José, Costa Rica, zona `America/Guatemala`, sin moneda. La spec asume Puerto Vallarta (`America/Mexico_City`, USD). Hay que decidir si la demo es Vallarta o Costa Rica; afecta a zona horaria, horario de alertas, moneda, número de voz y datos seed |

@@ -7,7 +7,7 @@
       { "name": "Operacion", "dataType": "SINGLE_OPTIONS", "options": ["Compra", "Renta"] },
       { "name": "Presupuesto Minimo", "dataType": "MONETORY" },
       { "name": "Presupuesto Maximo", "dataType": "MONETORY" },
-      { "name": "Moneda", "dataType": "SINGLE_OPTIONS", "options": ["USD", "MXN"] },
+      { "name": "Moneda", "dataType": "SINGLE_OPTIONS", "options": ["USD", "MXN", "CRC"] },
       { "name": "Zonas de Interes", "dataType": "TEXT" },
       { "name": "Recamaras Minimas", "dataType": "NUMERICAL" },
       { "name": "Tipos de Propiedad", "dataType": "TEXT" },

@@ -2,21 +2,32 @@
   "_nota": "IDs reales. Se llenan al aplicar cada frente. No guardar secretos aquí.",
   "supabaseProjectRef": null,
   "demoClientId": null,
-  "demoLocationId": null,
+  "demoLocationId": "20Yv36Yd31saVEePDNwB",
   "calendarId": null,
   "pipelines": {
     "compradores": {
       "pipelineId": null,
-      "stageIds": { "nuevo_lead": null, "calificado": null, "visita_agendada": null, "visita_realizada": null, "negociacion": null, "cerrado": null }
+      "stageIds": {
+        "nuevo_lead": null,
+        "calificado": null,
+        "visita_agendada": null,
+        "visita_realizada": null,
+        "negociacion": null,
+        "cerrado": null
+      },
+      "_nota": "La subcuenta trae 'Marketing Pipeline' (6 etapas por defecto, id p3AUar7OCFUcGJ7vHU40). Crear 'Compradores' en la UI o renombrar."
     }
   },
-  "agentes": { "texto_botId": null, "voz_agentId": null },
+  "agentes": {
+    "texto_botId": null,
+    "voz_agentId": null
+  },
   "n8nWorkflowIds": {},
   "fases": {
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "pendiente",
     "1_b_herramientas": "pendiente",
-    "1_c_ghl_snapshot": "pendiente",
+    "1_c_ghl_snapshot": "en_curso: tags(17) y campos(22) aplicados; faltan custom values, calendario, pipeline (UI)",
     "1_d_agentes": "pendiente",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
@@ -25,5 +36,6 @@
     "1_i_ensayo": "pendiente",
     "2_signature": "pendiente",
     "3_private": "pendiente"
-  }
+  },
+  "demoLocationName": "Ardenza DEMO"
 }
