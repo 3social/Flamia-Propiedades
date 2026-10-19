@@ -6,16 +6,16 @@
   "calendarId": null,
   "pipelines": {
     "compradores": {
-      "pipelineId": null,
+      "pipelineId": "rS0oVeLwnZsT1FIsPYpv",
       "stageIds": {
-        "nuevo_lead": null,
-        "calificado": null,
-        "visita_agendada": null,
-        "visita_realizada": null,
-        "negociacion": null,
-        "cerrado": null
+        "nuevo_lead": "8fb052d3-5321-41cd-8263-7c217bb2c981",
+        "calificado": "c4d90c5b-1d93-449a-9b77-b7a6164d3309",
+        "visita_agendada": "42cfcd24-5a2a-4a43-a6f7-dc7ec794a9ca",
+        "visita_realizada": "5dcde591-72fc-40ec-92e9-7d3e7b03c579",
+        "negociacion": "337b0436-a238-49df-a3f5-d31262930ce5",
+        "cerrado": "73f3c3fa-0a47-475e-8453-2c7241e606c2"
       },
-      "_nota": "La subcuenta trae 'Marketing Pipeline' (6 etapas por defecto, id p3AUar7OCFUcGJ7vHU40). Crear 'Compradores' en la UI o renombrar."
+      "_nota": "Creado por API (POST /opportunities/pipelines). La subcuenta conserva el 'Marketing Pipeline' por defecto (p3AUar7OCFUcGJ7vHU40)."
     }
   },
   "agentes": {
@@ -23,14 +23,15 @@
     "voz_agentId": null
   },
   "n8nWorkflowIds": {
-    "mcp_ghl_ardenza": "3Ax4YAF2LOoMYrlU",
-    "mcp_ghl_ardenza_v1_archivado": "07NdqtZhhLzfFlM4"
+    "mcp_ghl_ardenza": "dq6t44jVjv81zPrp",
+    "mcp_ghl_ardenza_v1_archivado": "07NdqtZhhLzfFlM4",
+    "mcp_ghl_ardenza_v2_archivado": "3Ax4YAF2LOoMYrlU"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "pendiente",
     "1_b_herramientas": "pendiente",
-    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22) y custom values(19, plantilla con PENDIENTE) aplicados; faltan perfil/zona horaria (UI), calendario y pipeline (UI)",
+    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22), custom values(19) y pipeline Compradores aplicados; faltan calendario Visitas privadas, perfil/zona horaria (D21) y workflows",
     "1_d_agentes": "pendiente",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",

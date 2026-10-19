@@ -90,3 +90,15 @@ conversaciones de solo lectura, calendarios, workflows y usuarios) más `ghl_get
 
 Diferencias con la plantilla de Ana: se añadieron `Crear_Tag`, `Crear_CustomField` y `Crear_CustomValue` (necesarias para montar el snapshot), y los cuerpos usan
 `JSON.stringify({...})` en lugar de JSON con `{{ }}` anidado, que en la plantilla original de tags era sintaxis inválida.
+
+## MCP de Ardenza v3 (2026-10-19)
+
+Sustituye al v2 (archivado). Workflow `FLR · MCP GHL Ardenza v3` (n8n `dq6t44jVjv81zPrp`), **activo**, **misma URL** que el v2 (el path no cambia, así que el conector registrado sigue funcionando).
+53 herramientas: las 28 del v2, más pipelines (crear/actualizar), calendarios (obtener, crear, horarios libres, crear cita), mensajes (`Enviar_Mensaje`, real),
+Voice AI (listar, obtener, crear, actualizar agentes y acciones), Agent Studio, bases de conocimiento y FAQs, formularios, embudos, productos, redes sociales, `Actualizar_Contacto`,
+`ghl_catalogo` (endpoints verificados con notas) y las 3 genéricas `ghl_get` / `ghl_write` / `ghl_delete`.
+
+Probado desde Claude el 2026-10-19: `Listar_Tags_Ardenza` (20 etiquetas), `ghl_get` de pipelines y de `/agent-studio/agents`, y `ghl_write` creando el pipeline "Compradores".
+
+Notas de uso: `query` de las genéricas es un objeto JSON **no vacío** (por ejemplo `locationId`); n8n solo permite añadir credenciales a nodos de herramienta al crear el workflow
+desde código, no al editarlo por API, así que añadir herramientas nuevas implica recrear el workflow.

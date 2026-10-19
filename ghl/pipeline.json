@@ -1,17 +1,47 @@
 {
-  "_nota": "La API pública de GHL no crea pipelines: se crean a mano con estos nombres y luego se registran los IDs en state.json. Ganado/Perdido es el ESTADO de la oportunidad, no una etapa (D9).",
+  "_nota": "Creado en Ardenza DEMO por API el 2026-10-19 (ids en state.json). La API pública de GHL no crea pipelines: se crean a mano con estos nombres y luego se registran los IDs en state.json. Ganado/Perdido es el ESTADO de la oportunidad, no una etapa (D9).",
   "pipelines": [
     {
       "key": "compradores",
       "name": "Compradores",
       "fase": 1,
       "stages": [
-        { "key": "nuevo_lead", "name": "Nuevo lead", "entra_cuando": "Contacto nuevo por WhatsApp, voz, portal, QR o chat web.", "tag": null },
-        { "key": "calificado", "name": "Calificado", "entra_cuando": "Hay operación, tipo, zona y (presupuesto o plazo).", "tag": "lead_calificado" },
-        { "key": "visita_agendada", "name": "Visita agendada", "entra_cuando": "Cita confirmada en el calendario 'Visitas privadas'.", "tag": "visita_agendada" },
-        { "key": "visita_realizada", "name": "Visita realizada", "entra_cuando": "El agente marca la visita como realizada.", "tag": null },
-        { "key": "negociacion", "name": "Negociación", "entra_cuando": "Hay oferta, contraoferta o trámite (fideicomiso, crédito).", "tag": null },
-        { "key": "cerrado", "name": "Cerrado", "entra_cuando": "Reserva o contrato firmado, o trato caído. Estado: Ganado / Perdido.", "tag": null }
+        {
+          "key": "nuevo_lead",
+          "name": "Nuevo lead",
+          "entra_cuando": "Contacto nuevo por WhatsApp, voz, portal, QR o chat web.",
+          "tag": null
+        },
+        {
+          "key": "calificado",
+          "name": "Calificado",
+          "entra_cuando": "Hay operación, tipo, zona y (presupuesto o plazo).",
+          "tag": "lead_calificado"
+        },
+        {
+          "key": "visita_agendada",
+          "name": "Visita agendada",
+          "entra_cuando": "Cita confirmada en el calendario 'Visitas privadas'.",
+          "tag": "visita_agendada"
+        },
+        {
+          "key": "visita_realizada",
+          "name": "Visita realizada",
+          "entra_cuando": "El agente marca la visita como realizada.",
+          "tag": null
+        },
+        {
+          "key": "negociacion",
+          "name": "Negociación",
+          "entra_cuando": "Hay oferta, contraoferta o trámite (fideicomiso, crédito).",
+          "tag": null
+        },
+        {
+          "key": "cerrado",
+          "name": "Cerrado",
+          "entra_cuando": "Reserva o contrato firmado, o trato caído. Estado: Ganado / Perdido.",
+          "tag": null
+        }
       ]
     },
     {
@@ -19,11 +49,36 @@
       "name": "Vendedores / Captación",
       "fase": 3,
       "stages": [
-        { "key": "nuevo_propietario", "name": "Nuevo propietario", "entra_cuando": "Propietario quiere listar.", "tag": "vendedor" },
-        { "key": "valoracion_agendada", "name": "Valoración agendada", "entra_cuando": "Visita de valoración confirmada.", "tag": null },
-        { "key": "propuesta_listado", "name": "Propuesta de listado", "entra_cuando": "Se presentó propuesta de precio y condiciones.", "tag": null },
-        { "key": "mandato_firmado", "name": "Mandato firmado", "entra_cuando": "Contrato de listado firmado.", "tag": null },
-        { "key": "publicado", "name": "Publicado", "entra_cuando": "Propiedad activa en inventario.", "tag": null }
+        {
+          "key": "nuevo_propietario",
+          "name": "Nuevo propietario",
+          "entra_cuando": "Propietario quiere listar.",
+          "tag": "vendedor"
+        },
+        {
+          "key": "valoracion_agendada",
+          "name": "Valoración agendada",
+          "entra_cuando": "Visita de valoración confirmada.",
+          "tag": null
+        },
+        {
+          "key": "propuesta_listado",
+          "name": "Propuesta de listado",
+          "entra_cuando": "Se presentó propuesta de precio y condiciones.",
+          "tag": null
+        },
+        {
+          "key": "mandato_firmado",
+          "name": "Mandato firmado",
+          "entra_cuando": "Contrato de listado firmado.",
+          "tag": null
+        },
+        {
+          "key": "publicado",
+          "name": "Publicado",
+          "entra_cuando": "Propiedad activa en inventario.",
+          "tag": null
+        }
       ]
     }
   ]
