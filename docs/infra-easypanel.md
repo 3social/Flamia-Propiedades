@@ -55,14 +55,15 @@ El token se carga como credencial `httpBearerAuth` en n8n (`GHL PIT - Ardenza`) 
 
 ## Estado del MCP de Ardenza (2026-10-19)
 
-Workflow `FLR · MCP GHL Ardenza` (n8n `07NdqtZhhLzfFlM4`), **creado e inactivo**. Tres herramientas genéricas sobre la API v2 de GHL con el PIT
-`GHL PIT - Ardenza`: `ghl_get`, `ghl_write` (POST/PUT/PATCH) y `ghl_delete`. Aceptan cabecera `Version` y query/body libres, así que cubren
-cualquier endpoint que el token permita (incluida la edición de la ubicación). Respuestas 4xx se devuelven al modelo (`neverError`).
+Workflow `FLR · MCP GHL Ardenza` (n8n `07NdqtZhhLzfFlM4`), **activo**. Replica el patrón de `MCP - GHL CRS_ana` (conector `MCP_CRC_ana`): nodo MCP Server
+**sin autenticación de entrada**, donde el único secreto es el path de la URL. Aquí el path es aleatorio, no un nombre adivinable.
 
-Para activarlo (pasos manuales en la UI de n8n, no se pueden hacer por API):
-1. En `ghl_get`, `ghl_write` y `ghl_delete`: elegir la credencial **GHL PIT - Ardenza** (Bearer).
-2. En el nodo `MCP Server Ardenza`: n8n le asignó automáticamente la credencial existente "Vapi" (cabecera). **Sustituirla** por una credencial
-   nueva de cabecera dedicada a este MCP; no mezclar secretos entre servicios.
-3. Activar el workflow y copiar la *Production URL* del nodo; registrarla como servidor MCP con la cabecera de acceso.
+Tres herramientas genéricas sobre la API v2 de GHL con el PIT `GHL PIT - Ardenza`: `ghl_get`, `ghl_write` (POST/PUT/PATCH), `ghl_delete`. Aceptan cabecera
+`Version`, query y body libres; cubren cualquier endpoint que el token permita. Los 4xx se devuelven al modelo (`neverError`).
 
-Sin autenticación en la entrada la URL sería pública y cualquiera podría escribir en la subcuenta: no activar antes del paso 2.
+La URL de producción **no se guarda en el repo**: se copia del nodo `MCP Server Ardenza` en n8n (Production URL) y se registra como conector. Tratarla como secreto.
+
+Riesgo aceptado: quien tenga la URL puede leer, escribir y borrar en Ardenza DEMO. Si se reutiliza el patrón con un cliente real, añadir autenticación de cabecera.
+
+Pendiente de verificar: la credencial `GHL PIT - Ardenza` en los 3 nodos HTTP (la API de n8n no la muestra). Prueba: una lectura `ghl_get` a
+`/locations/20Yv36Yd31saVEePDNwB/tags` desde un cliente que tenga el MCP registrado.
