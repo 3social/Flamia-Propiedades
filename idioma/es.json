@@ -406,5 +406,11 @@
     "via": "vía",
     "views": "vistas",
     "yd2": "yd²",
-    "© :year Botble Technologies. All right reserved.": "© :year Ardenza Propiedades · by FLAMIA Group. Todos los derechos reservados."
+    "© :year Botble Technologies. All right reserved.": "© :year Ardenza Propiedades · by FLAMIA Group. Todos los derechos reservados.",
+    "A fresh verification link has been sent to your email address.": "Te enviamos un nuevo enlace de verificación a tu correo.",
+    "Before proceeding, please check your email for a verification link.": "Antes de continuar, revisa tu correo: te enviamos un enlace de verificación.",
+    "If you did not receive the email": "Si no recibiste el correo",
+    "Verify Your Email Address": "Verifica tu correo electrónico",
+    "You don't have enough credit to renew this property!": "¡No tienes créditos suficientes para renovar esta propiedad!",
+    "click here to request another": "haz clic aquí para pedir otro"
 }

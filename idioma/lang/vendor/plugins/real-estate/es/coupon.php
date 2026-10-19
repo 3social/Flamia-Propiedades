@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'name' => 'Cupones',
+    'intro' => [
+        'button_text' => 'Crear cupón',
+        'title' => 'Administrar cupones',
+        'description' => 'Crea y administra cupones de descuento para tus clientes.',
+    ],
+    'types' => [
+        'percentage' => 'Porcentaje',
+        'fixed' => 'Monto fijo',
+    ],
+    'type' => 'Tipo',
+    'created_message' => 'Cupón creado.',
+    'expires_date' => 'Fecha de vencimiento',
+    'expires_time' => 'Hora de vencimiento',
+    'never_expired' => 'Sin vencimiento',
+    'save_button' => 'Guardar',
+    'coupon_code' => 'Código del cupón',
+    'coupon_code_placeholder' => 'Escribe el código del cupón',
+    'generate_code_button' => 'Generar código',
+    'value' => 'Valor',
+    'value_placeholder' => 'Escribe el valor del cupón',
+    'value_off' => ':value de descuento',
+    'total_used' => 'Usados',
+    'expired' => 'Vencido',
+    'active' => 'Activo',
+    'unlimited' => 'Cupón ilimitado',
+    'quantity' => 'Cantidad',
+    'quantity_placeholder' => 'Número de cupones',
+    'discount_amount' => 'Descuento',
+    'total' => 'Total',
+    'toggle_coupon_form_text' => '¿Tienes un código de cupón?',
+    'apply_coupon_code' => 'Aplicar',
+];

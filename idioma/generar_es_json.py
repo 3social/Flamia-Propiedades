@@ -418,6 +418,16 @@ T = {
     "© :year Botble Technologies. All right reserved.": "© :year Ardenza Propiedades · by FLAMIA Group. Todos los derechos reservados.",
 }
 
+# Textos de los módulos (panel del agente, verificación de correo) que no están en el en.json del tema.
+MODULOS = {
+    "A fresh verification link has been sent to your email address.": "Te enviamos un nuevo enlace de verificación a tu correo.",
+    "Before proceeding, please check your email for a verification link.": "Antes de continuar, revisa tu correo: te enviamos un enlace de verificación.",
+    "If you did not receive the email": "Si no recibiste el correo",
+    "Verify Your Email Address": "Verifica tu correo electrónico",
+    "You don't have enough credit to renew this property!": "¡No tienes créditos suficientes para renovar esta propiedad!",
+    "click here to request another": "haz clic aquí para pedir otro",
+}
+
 if __name__ == "__main__":
     en_path, out_path = sys.argv[1], sys.argv[2]
     en = json.load(open(en_path, encoding="utf-8"))
@@ -429,6 +439,7 @@ if __name__ == "__main__":
         print("faltan:", missing, "\nsobran:", extra, "\nmarcadores distintos:", bad)
         sys.exit(1)
     out = {k: T[k] for k in en}
+    out.update({k: v for k, v in MODULOS.items() if k not in out})
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=4)
         f.write("\n")
