@@ -34,3 +34,11 @@ Formato: contexto → decisión → consecuencia.
 |---|---|---|---|
 | D16 | Dónde se monta el sistema | Adoptada | Subcuenta **Ardenza DEMO** (`20Yv36Yd31saVEePDNwB`) dentro de la agencia Flamia. Sustituye a la "subcuenta demo" por crear; el token tiene todos los ámbitos (`scopeFilteredCount` 0) |
 | D17 | País, zona horaria y moneda de la subcuenta | Adoptada | **La demo es Puerto Vallarta** (`America/Mexico_City`, USD). Ardenza DEMO está creada como San José, CR / `America/Guatemala`: el MCP no expone la edición de la ubicación (hay operaciones filtradas por ámbito), así que la zona horaria y la moneda se corrigen a mano en *Settings → Business Profile* |
+
+## Infraestructura
+
+| # | Decisión | Estado | Resolución |
+|---|---|---|---|
+| D18 | MCP propio para Ardenza | Propuesta | MCP de n8n atado a una ubicación con PIT de todos los ámbitos y 3 herramientas genéricas (`ghl_get`, `ghl_write`, `ghl_delete`). Ver `docs/infra-easypanel.md`. Pendiente: Michael crea la credencial `GHL PIT - Ardenza` en n8n |
+| D19 | Supabase en EasyPanel, solo lo necesario | Adoptada | Postgres con pgvector + PostgREST (+ Kong/Studio opcionales). Sin Edge Functions: las herramientas son webhooks de n8n. Supersede la recomendación de proyecto gestionado |
+| D20 | Ubicación de la base | Propuesta | En `personaldev` junto a n8n (red interna); el proyecto `supabase` vacío queda para la Fase 2 o se reutiliza si Michael prefiere |
