@@ -33,4 +33,4 @@ Formato: contexto → decisión → consecuencia.
 | # | Decisión | Estado | Resolución |
 |---|---|---|---|
 | D16 | Dónde se monta el sistema | Adoptada | Subcuenta **Ardenza DEMO** (`20Yv36Yd31saVEePDNwB`) dentro de la agencia Flamia. Sustituye a la "subcuenta demo" por crear; el token tiene todos los ámbitos (`scopeFilteredCount` 0) |
-| D17 | País, zona horaria y moneda de la subcuenta | **Abierta** | La subcuenta está en San José, Costa Rica, zona `America/Guatemala`, sin moneda. La spec asume Puerto Vallarta (`America/Mexico_City`, USD). Hay que decidir si la demo es Vallarta o Costa Rica; afecta a zona horaria, horario de alertas, moneda, número de voz y datos seed |
+| D17 | País, zona horaria y moneda de la subcuenta | Adoptada | **La demo es Puerto Vallarta** (`America/Mexico_City`, USD). Ardenza DEMO está creada como San José, CR / `America/Guatemala`: el MCP no expone la edición de la ubicación (hay operaciones filtradas por ámbito), así que la zona horaria y la moneda se corrigen a mano en *Settings → Business Profile* |

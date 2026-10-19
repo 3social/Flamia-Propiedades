@@ -27,7 +27,7 @@
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "pendiente",
     "1_b_herramientas": "pendiente",
-    "1_c_ghl_snapshot": "en_curso: tags(17) y campos(22) aplicados; faltan custom values, calendario, pipeline (UI)",
+    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22) y custom values(19, plantilla con PENDIENTE) aplicados; faltan perfil/zona horaria (UI), calendario y pipeline (UI)",
     "1_d_agentes": "pendiente",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
