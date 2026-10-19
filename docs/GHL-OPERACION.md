@@ -36,3 +36,10 @@ Con el MCP propio (`FLR · MCP GHL Ardenza v3`, ver `docs/infra-easypanel.md`) v
 que el conector `MCP-Lead-GHL` no expone. Verificado: crear pipelines (hecho), listar `agent-studio`, `voice-ai`, `knowledge-bases`.
 Siguen sin poder hacerse con el token de subcuenta: editar la ubicación (401, exige agencia), crear subcuentas y `custom-menus` (sin ámbito).
 Telefonía: la subcuenta **no tiene sistema telefónico** (`/phone-system/numbers` → 404 "No Twilio account"); sin él no hay número para voz ni SMS.
+
+## Hallazgos 2026-10-19 (calendario y voz)
+
+- Calendarios: `PUT` reemplaza `slotDuration`/`slotInterval` si no se reenvían; `openHours` admite un solo día en `daysOfTheWeek` por entrada.
+- Voice AI: `language` válido es `es` (no `es-MX`); `GET /voice-ai/voices` rechaza `locationId` y `pageSize` > 20.
+- Un `POST` de prueba puede crear objetos reales (así nació el agente de voz). Probar en lectura primero.
+- Herramienta de contactos del MCP: el parámetro `tags` es texto separado por comas, no un arreglo JSON.

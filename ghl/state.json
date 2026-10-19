@@ -3,7 +3,7 @@
   "supabaseProjectRef": null,
   "demoClientId": null,
   "demoLocationId": "20Yv36Yd31saVEePDNwB",
-  "calendarId": null,
+  "calendarId": "BtGxfsUJVMjlqudnl0eM",
   "pipelines": {
     "compradores": {
       "pipelineId": "rS0oVeLwnZsT1FIsPYpv",
@@ -20,7 +20,8 @@
   },
   "agentes": {
     "texto_botId": null,
-    "voz_agentId": null
+    "voz_agentId": "6ad5929c4dd24333b8e4211f",
+    "_nota": "Voz: configurado por API (prompt ES, voz Daniela, language es, 360s). Sin número telefónico (la subcuenta no tiene sistema telefónico). Texto: pendiente (Agent Studio o UI)."
   },
   "n8nWorkflowIds": {
     "mcp_ghl_ardenza": "dq6t44jVjv81zPrp",
@@ -31,8 +32,8 @@
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "pendiente",
     "1_b_herramientas": "pendiente",
-    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22), custom values(19) y pipeline Compradores aplicados; faltan calendario Visitas privadas, perfil/zona horaria (D21) y workflows",
-    "1_d_agentes": "pendiente",
+    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22), custom values(19), pipeline Compradores y calendario Visitas privadas aplicados; faltan perfil/zona horaria (D21), números/telefonía y workflows (UI)",
+    "1_d_agentes": "en_curso: agente de voz configurado sin número; agente de texto pendiente",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
     "1_g_portal": "pendiente",
@@ -44,5 +45,6 @@
   "demoLocationName": "Ardenza DEMO",
   "n8nCredenciales": {
     "ghl_pit_ardenza": "RVXU4guLpA2rVXFu"
-  }
+  },
+  "calendarNombre": "Visitas privadas"
 }
