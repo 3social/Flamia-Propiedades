@@ -80,3 +80,13 @@ Medido con un workflow temporal (archivado) que llamó a la API de GHL con el PI
 - **`PUT /locations/{id}` → 401.** Editar la ubicación (zona horaria, moneda) no la permite un token de subcuenta; exige token de agencia.
   Zona horaria/moneda de Ardenza se corrigen a mano en *Settings → Business Profile* o con una credencial de agencia (ver `docs/decisiones.md`, D21).
 - Bug corregido en las tools del MCP: un objeto en `jsonQuery`/`jsonBody` llega como `[object Object]`; ahora se serializa con `JSON.stringify`.
+
+## MCP de Ardenza v2 (2026-10-19)
+
+Sustituye al v1 (archivado). Workflow `FLR · MCP GHL Ardenza v2` (n8n `3Ax4YAF2LOoMYrlU`), **activo**, construido sobre la plantilla de `MCP - GHL CRS_ana v2`:
+mismo trigger MCP v2 sin autenticación de entrada (path aleatorio, fuera del repo), herramientas HTTP v4.2 con `toolDescription`, cabecera `Version`, PIT `GHL PIT - Ardenza`
+y `locationId` fijo. 28 herramientas con nombre, agrupadas por tema (contactos, tags, custom fields y values, notas y tareas, pipelines y oportunidades,
+conversaciones de solo lectura, calendarios, workflows y usuarios) más `ghl_get`, `ghl_write` y `ghl_delete`, que cubren cualquier otro endpoint que el token permita.
+
+Diferencias con la plantilla de Ana: se añadieron `Crear_Tag`, `Crear_CustomField` y `Crear_CustomValue` (necesarias para montar el snapshot), y los cuerpos usan
+`JSON.stringify({...})` en lugar de JSON con `{{ }}` anidado, que en la plantilla original de tags era sintaxis inválida.

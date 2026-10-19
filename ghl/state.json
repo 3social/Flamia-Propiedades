@@ -23,7 +23,8 @@
     "voz_agentId": null
   },
   "n8nWorkflowIds": {
-    "mcp_ghl_ardenza": "07NdqtZhhLzfFlM4"
+    "mcp_ghl_ardenza": "3Ax4YAF2LOoMYrlU",
+    "mcp_ghl_ardenza_v1_archivado": "07NdqtZhhLzfFlM4"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
