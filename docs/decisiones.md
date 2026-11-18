@@ -53,3 +53,15 @@ permitía (D24). Los 5 flujos pasan a ser workflows nativos de GHL (`FLR · 1…
 **Por qué:** se disparan por eventos (contacto creado, tag, cita) en vez de un sondeo cada 5 min con ~1 min de atraso en la
 búsqueda; el cliente los ve y edita en su propia cuenta; desaparece la guarda anti-tarea duplicada.
 **Costo:** la calificación (operación + zonas + presupuesto/plazo) ya no se calcula sola; el flujo 2 depende del tag `lead_calificado`.
+
+## D26 — Modelo único de calificación (2026-11-17)
+**Estado:** decidido. Voz, texto y landing **solo capturan** datos en campos del contacto; un flujo central (GHL dispara,
+n8n calcula) escribe `Nivel Lead` y los tags `lead_calificado` / `lead_caliente` / `handoff_humano`. Detalle en `docs/calificacion.md`.
+Umbral VIP = custom value `Umbral VIP USD`, demo **1,000,000**: arriba de eso el ticket justifica humano inmediato.
+Campos nuevos: `Nivel Lead`, `Proposito`, `Residencia`.
+**Por qué:** un lead cruza canales; con la regla en un solo lugar no repite respuestas y el criterio se ajusta por cliente sin tocar prompts.
+
+## D27 — Landing por proyecto o propiedad, con la marca del cliente (2026-11-17)
+**Estado:** decidido. La landing lleva la **marca del cliente**, no la de FLAMIA. Una plantilla parametrizada por proyecto o
+propiedad. El diseño visual se define **por cliente** con wireframe aprobado antes de construir en GHL; FLAMIA aporta
+estructura, sistema de diseño luxury y la mecánica (multi-paso, calendario, WhatsApp con `ref`, QR, UTM, pixel, A/B).

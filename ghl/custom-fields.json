@@ -3,35 +3,166 @@
   "object": "contact",
   "grupos": {
     "perfil_comprador": [
-      { "name": "Idioma Preferido", "dataType": "SINGLE_OPTIONS", "options": ["es", "en"] },
-      { "name": "Operacion", "dataType": "SINGLE_OPTIONS", "options": ["Compra", "Renta"] },
-      { "name": "Presupuesto Minimo", "dataType": "MONETORY" },
-      { "name": "Presupuesto Maximo", "dataType": "MONETORY" },
-      { "name": "Moneda", "dataType": "SINGLE_OPTIONS", "options": ["USD", "MXN", "CRC"] },
-      { "name": "Zonas de Interes", "dataType": "TEXT" },
-      { "name": "Recamaras Minimas", "dataType": "NUMERICAL" },
-      { "name": "Tipos de Propiedad", "dataType": "TEXT" },
-      { "name": "Plazo de Decision", "dataType": "SINGLE_OPTIONS", "options": ["Inmediato", "1 a 3 meses", "3 a 6 meses", "Mas de 6 meses", "Solo explorando"] },
-      { "name": "Financiamiento", "dataType": "SINGLE_OPTIONS", "options": ["Contado", "Fideicomiso", "Credito", "Por definir"] },
-      { "name": "Preferencias", "dataType": "LARGE_TEXT", "_nota": "Texto libre: 'frente al mar, tranquilo, para rentar'" }
+      {
+        "name": "Idioma Preferido",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "es",
+          "en"
+        ]
+      },
+      {
+        "name": "Operacion",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Compra",
+          "Renta"
+        ]
+      },
+      {
+        "name": "Presupuesto Minimo",
+        "dataType": "MONETORY"
+      },
+      {
+        "name": "Presupuesto Maximo",
+        "dataType": "MONETORY"
+      },
+      {
+        "name": "Moneda",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "USD",
+          "MXN",
+          "CRC"
+        ]
+      },
+      {
+        "name": "Zonas de Interes",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Recamaras Minimas",
+        "dataType": "NUMERICAL"
+      },
+      {
+        "name": "Tipos de Propiedad",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Plazo de Decision",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Inmediato",
+          "1 a 3 meses",
+          "3 a 6 meses",
+          "Mas de 6 meses",
+          "Solo explorando"
+        ]
+      },
+      {
+        "name": "Financiamiento",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Contado",
+          "Fideicomiso",
+          "Credito",
+          "Por definir"
+        ]
+      },
+      {
+        "name": "Preferencias",
+        "dataType": "LARGE_TEXT",
+        "_nota": "Texto libre: 'frente al mar, tranquilo, para rentar'"
+      },
+      {
+        "name": "Proposito",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Vivir",
+          "Inversion",
+          "Vacacional"
+        ]
+      },
+      {
+        "name": "Residencia",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Nacional",
+          "Extranjero"
+        ]
+      }
     ],
     "consentimiento": [
-      { "name": "Opt-in WhatsApp", "dataType": "SINGLE_OPTIONS", "options": ["Si", "No"] },
-      { "name": "Fecha Opt-in", "dataType": "DATE" },
-      { "name": "Origen Opt-in", "dataType": "TEXT" }
+      {
+        "name": "Opt-in WhatsApp",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Si",
+          "No"
+        ]
+      },
+      {
+        "name": "Fecha Opt-in",
+        "dataType": "DATE"
+      },
+      {
+        "name": "Origen Opt-in",
+        "dataType": "TEXT"
+      }
     ],
     "atribucion": [
-      { "name": "Ref Propiedad Origen", "dataType": "TEXT", "_nota": "Ej. PV-0042, viene del enlace/QR" },
-      { "name": "UTM Source", "dataType": "TEXT" },
-      { "name": "UTM Medium", "dataType": "TEXT" },
-      { "name": "UTM Campaign", "dataType": "TEXT" }
+      {
+        "name": "Ref Propiedad Origen",
+        "dataType": "TEXT",
+        "_nota": "Ej. PV-0042, viene del enlace/QR"
+      },
+      {
+        "name": "UTM Source",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "UTM Medium",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "UTM Campaign",
+        "dataType": "TEXT"
+      }
     ],
     "alerta_coincidencia": [
-      { "name": "Alerta Titulo", "dataType": "TEXT", "_nota": "Variable de la plantilla de WhatsApp" },
-      { "name": "Alerta Zona", "dataType": "TEXT" },
-      { "name": "Alerta Precio", "dataType": "TEXT" },
-      { "name": "Alerta Enlace", "dataType": "TEXT" },
-      { "name": "Propiedad Sugerida Ref", "dataType": "TEXT" }
+      {
+        "name": "Alerta Titulo",
+        "dataType": "TEXT",
+        "_nota": "Variable de la plantilla de WhatsApp"
+      },
+      {
+        "name": "Alerta Zona",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Alerta Precio",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Alerta Enlace",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Propiedad Sugerida Ref",
+        "dataType": "TEXT"
+      }
+    ],
+    "calificacion": [
+      {
+        "name": "Nivel Lead",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Caliente",
+          "Tibio",
+          "Frio"
+        ],
+        "_nota": "Solo lo escribe el flujo central (D26)"
+      }
     ]
   }
 }

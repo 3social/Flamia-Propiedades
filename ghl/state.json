@@ -114,5 +114,22 @@
     "contacto_prueba_workflows_ghl_1": "xiD74V1hnfGFay489cYx",
     "oportunidad_prueba_workflows_ghl_1": "EFdRg8Q1ZHfD6EHK7B05",
     "contacto_prueba_workflows_ghl_2": "on6vneXKhAKljW44JdwF"
+  },
+  "calificacion": {
+    "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
+    "campos": {
+      "proposito": "p6MGGLJvf89R3Wh5m53P",
+      "residencia": "EgW2yD3n6FUSNUICAVf4",
+      "nivel_lead": "E8fG0YO2XxTklhyXJ5gI"
+    },
+    "customValue_umbral_vip_usd": "2Kk9KolkVmYu4mOIm6tb",
+    "tag_lead_caliente": "Mhb3TfMoWn38aCHDFvmW",
+    "pendiente": [
+      "n8n FLR · calificacion (regla §2)",
+      "GHL FLR · 0 Calificacion (contacto cambiado -> webhook, con reingreso)",
+      "GHL FLR · 6 Lead caliente (tarea 15 min)",
+      "acciones de los agentes para Proposito y Residencia",
+      "prompts de texto y voz con el orden de preguntas de §3"
+    ]
   }
 }

@@ -94,6 +94,12 @@
       "name": "Mensaje Error Herramienta EN",
       "value": "I can't check the inventory right now, and I'd rather not give you details I can't confirm. An advisor will contact you today with the information.",
       "required_input": false
+    },
+    {
+      "name": "Umbral VIP USD",
+      "value": "1000000",
+      "required_input": false,
+      "_nota": "D26: presupuesto máximo desde el cual el lead pasa a humano directo; ajustar por cliente"
     }
   ]
 }
