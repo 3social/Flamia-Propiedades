@@ -33,7 +33,7 @@ instalado en `inmobiliaria.flamiagroup.com` (Hostinger, cuenta `u783834143`).
 ## Dónde se aplica
 
 1. `/admin → Apariencia → Opciones del tema → General`: fuente, colores primarios y copyright.
-2. `/admin → Apariencia → CSS personalizado`: pegar `tema/ardenza-custom.css` completo.
+2. `/admin → Apariencia → CSS personalizado`: pegar `portal/tema/ardenza-custom.css` completo.
 3. Limpiar caché: Botble (Administración de la plataforma → Caché) y hPanel (Caché).
 
 ## Dominios candidatos (libres al 2026-10-14, sin comprar)

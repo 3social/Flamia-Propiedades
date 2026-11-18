@@ -24,7 +24,7 @@ Las rutas de imágenes (carpeta `propiedadesvip/`, `kosari-logo.png`) **no se to
    subir `marca/ardenza-logos-storage.zip` → clic derecho → Extraer. Debe quedar la carpeta `storage/ardenza/`.
 4. **Este script**: phpMyAdmin → SQL → pegar todo → Continuar.
    Al final: "Textos del demo que quedan" = 0 y una fila por país con su agente.
-5. **CSS**: `/admin → Apariencia → CSS personalizado` → pegar `tema/ardenza-custom.css`.
+5. **CSS**: `/admin → Apariencia → CSS personalizado` → pegar `portal/tema/ardenza-custom.css`.
 6. **Caché**: `/admin → Administración de la plataforma → Caché → Limpiar toda la caché`, y hPanel → Caché.
 
 Probado en MariaDB 10.11 con el esquema del sitio y casos trampa (rutas de imágenes con "propiedadesvip",
