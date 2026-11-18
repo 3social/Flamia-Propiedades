@@ -36,7 +36,9 @@
       "extract_recamaras": "6afcfe6076e8ac1b63bfad34",
       "extract_plazo": "6afd0318110393232dd476cf",
       "extract_tipo": "6afd0347e6a942eb06fcf184",
-      "extract_pago": "6afd034c96763e28505d478b"
+      "extract_pago": "6afd034c96763e28505d478b",
+      "extract_proposito": "6afd3ceca3285a8d2094cc0d",
+      "extract_residencia": "6afd3ced96763e31945d58d8"
     },
     "texto_actions": {
       "agendar_visita": "PdYQGn2mHGiEp5Gqijep",
@@ -49,7 +51,9 @@
       "campo_recamaras": "Eu3IuYo0m5Y0xmpW6TWY",
       "campo_plazo": "r2EtgiBvXHT9ZwzT3ABE",
       "campo_pago": "iKU01BXtTXgVkZ2wSI1j",
-      "pasar_a_asesor": "OeeIn4AqlJc9SMnsHZRm"
+      "pasar_a_asesor": "OeeIn4AqlJc9SMnsHZRm",
+      "campo_proposito": "7yE83u1POf7LwBBtuEJi",
+      "campo_residencia": "0lKDP7DgNDUbBL9Cw6Mv"
     }
   },
   "n8nWorkflowIds": {
@@ -60,7 +64,10 @@
     "ghl_automatizaciones_archivado": "0uitwrA4Z62FWckf",
     "ghl_automatizaciones_v1_sin_credencial": "vDRGGJiXKnvXMVTt",
     "ghl_automatizaciones_v2_sin_guarda": "CnZiQBozUkXLyE5F",
-    "ghl_automatizaciones_archivado_2026_11_17": "oaVq33tFfiEV2oGg"
+    "ghl_automatizaciones_archivado_2026_11_17": "oaVq33tFfiEV2oGg",
+    "calificacion": "PtU5gnp8hqaAJeb5",
+    "calificacion_v1_archivado": "Nqx7DqNvH63taXoE",
+    "lead_landing": "j33djngyFRlvpfZu"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
@@ -93,7 +100,8 @@
   "toolEndpoints": {
     "search_properties": "POST /webhook/flr-search-properties",
     "get_property": "POST /webhook/flr-get-property",
-    "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
+    "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients",
+    "lead_landing": "POST /webhook/flr-lead-landing (CORS *, honeypot 'website')"
   },
   "ghlWorkflowIds": {
     "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. Los 5 publicados y probados salvo el 3 (sin cita). Falta asignar el asesor en el paso de oportunidad (1-3). Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
@@ -113,7 +121,10 @@
     "oportunidad_prueba_flujos": "liK1041dC6bRzRyarI9b",
     "contacto_prueba_workflows_ghl_1": "xiD74V1hnfGFay489cYx",
     "oportunidad_prueba_workflows_ghl_1": "EFdRg8Q1ZHfD6EHK7B05",
-    "contacto_prueba_workflows_ghl_2": "on6vneXKhAKljW44JdwF"
+    "contacto_prueba_workflows_ghl_2": "on6vneXKhAKljW44JdwF",
+    "contacto_prueba3_caliente_vip": "1wlGwdD0TuqapT9eXDR7",
+    "contacto_prueba4_tibio": "JI94KFmy7eUAHlMi0T3U",
+    "contacto_prueba5_landing": "NGSivYJ15Hd3UZKhfr8W"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
@@ -125,11 +136,8 @@
     "customValue_umbral_vip_usd": "2Kk9KolkVmYu4mOIm6tb",
     "tag_lead_caliente": "Mhb3TfMoWn38aCHDFvmW",
     "pendiente": [
-      "n8n FLR · calificacion (regla §2)",
-      "GHL FLR · 0 Calificacion (contacto cambiado -> webhook, con reingreso)",
-      "GHL FLR · 6 Lead caliente (tarea 15 min)",
-      "acciones de los agentes para Proposito y Residencia",
-      "prompts de texto y voz con el orden de preguntas de §3"
+      "landing luxury de prueba (PV-0005) con el formulario multi-paso -> /webhook/flr-lead-landing y despliegue",
+      "prueba de punta a punta desde la landing"
     ]
   }
 }

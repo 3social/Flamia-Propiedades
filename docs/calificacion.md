@@ -83,3 +83,12 @@ Por qué la regla vive en n8n y no en if/else de GHL: son 7 campos con combinaci
   sin contadores ni urgencia falsa. Imágenes comprimidas (GHL se vuelve lento con fotos pesadas).
 - Herramientas de GHL a usar: funnel multi-paso, encuesta con lógica, calendario incrustado, botón WhatsApp con `ref`,
   trigger links y QR, UTM ocultos, pixel Meta/GA4, A/B, ES/EN.
+
+## 6. Estado (2026-11-17)
+- `FLR · calificacion` (n8n `PtU5gnp8hqaAJeb5`, cada 2 min) publicado. Probado: Prueba3 (USD 1.2M, inmediato, contado) → Caliente + VIP →
+  `handoff_humano` → FLR · 4 (ia_pausada + tarea) + tarea "contactar en 15 min"; Prueba4 → Tibio. También asigna el asesor a las
+  oportunidades abiertas (el builder de GHL no lo guarda). Rangos de la landing: VIP se mide con el mínimo del rango.
+- No se usa un workflow GHL "0 Calificación": los workflows de GHL no permiten reingreso por API; el sondeo de 2 min basta.
+- `FLR · lead-landing` (n8n `j33djngyFRlvpfZu`) publicado: valida, honeypot, upsert con calificación, opt-in, `ref` y UTM. Probado ✅.
+- Agentes: acciones para Propósito y Residencia en voz y texto; prompts con el orden de §3 aplicados.
+- **Falta:** la landing de prueba (PV-0005) y su despliegue.
