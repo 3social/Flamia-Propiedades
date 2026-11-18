@@ -13,8 +13,10 @@ Comprobado el 2026-10-14 contra el conector MCP `MCP-Lead-GHL` (conexión multi-
 | Pipelines / etapas | ✅ vía MCP propio (`POST /opportunities/pipelines`, con `stages[].position` numérica). El conector `MCP-Lead-GHL` solo lee | Corrección 2026-10-19: antes se creía que no existía |
 | Oportunidades | ✅ | `create-opportunity`, `Upsert-opportunity`, `update-opportunity` |
 | Agente de voz | ✅ | `voice-ai.create-agent`, `patch-agent`, `voice-ai.create-action` |
-| Agente de texto | Existe `/agent-studio/agents` (200, hoy vacío); `/conversation-ai/agents` no existe (404) | Por explorar con el MCP propio; si no alcanza, UI con `docs/prompts/texto.md` |
-| Plantillas de WhatsApp, números, workflows | ❌ | UI de GHL / Meta |
+| Agente de texto | ✅ `POST /conversation-ai/agents` (Version `2021-04-15`, sin `locationId`) y `POST /conversation-ai/agents/{id}/actions` vía MCP propio. El MCP master no expone `conversation-ai` ni crear en Agent Studio | Creado `83azuxebCYXuTNCMz5n3`. `humanHandOver` falla (400) mientras no haya usuarios |
+| Base de conocimiento + FAQs | ✅ MCP master (`createKnowledgeBase`, `create`) | 2 KB: FAQs (13) e Inventario (13 fichas) |
+| Acciones del agente de voz | ✅ MCP master (`voice-ai.create-action`) | 11 acciones; `CUSTOM_ACTION` responde 400 *Maximum call stack* pero **sí crea** la acción: leer de vuelta antes de reintentar |
+| Plantillas de WhatsApp, números, workflows | ❌ (workflows: solo lectura) | UI de GHL / Meta; specs en `ghl/workflows.md` |
 
 ## Pasos manuales previstos
 
@@ -43,3 +45,10 @@ Telefonía: la subcuenta **no tiene sistema telefónico** (`/phone-system/number
 - Voice AI: `language` válido es `es` (no `es-MX`); `GET /voice-ai/voices` rechaza `locationId` y `pageSize` > 20.
 - Un `POST` de prueba puede crear objetos reales (así nació el agente de voz). Probar en lectura primero.
 - Herramienta de contactos del MCP: el parámetro `tags` es texto separado por comas, no un arreglo JSON.
+
+## Hallazgos 2026-11-18 (MCP master)
+
+- `MCP-Lead-GHL` ya incluye Ardenza DEMO. Sirve para KB/FAQs y acciones de voz; **no** ofrece `conversation-ai`, crear agentes de Agent Studio, crear workflows ni editar la ubicación.
+- `APPOINTMENT_BOOKING` de voz acepta solo valores pequeños (3 días / 3 franjas / 1 h); con 5/2/2 da 422.
+- Acciones `updateContactField` de texto: campos TEXT y NUMERICAL exigen `contactUpdateExamples`.
+- Probar una herramienta desde este entorno: el proxy bloquea el host de n8n; se prueba con `execute_workflow` del MCP de n8n.

@@ -1,26 +1,26 @@
-# Checklist de la mañana — Ardenza DEMO (`20Yv36Yd31saVEePDNwB`)
+# Estado y pendientes — Ardenza DEMO (`20Yv36Yd31saVEePDNwB`)
 
-Estado al 2026-10-19. Lo hecho está verificado leyendo de vuelta desde GHL; ids en `ghl/state.json`.
+Actualizado 2026-11-18. Todo lo marcado hecho se verificó leyendo de vuelta desde GHL o n8n; ids en `ghl/state.json`.
 
-## Hecho en la subcuenta
-- 20 etiquetas, 22 campos de contacto, 19 custom values (plantilla de snapshot; los `required_input` quedan en PENDIENTE).
-- Pipeline **Compradores** (6 etapas) y calendario **Visitas privadas** (`BtGxfsUJVMjlqudnl0eM`: L–V 9–18, S 9–14, citas de 45 min, margen 15).
-- Custom value *Link Agendar Visita* apuntando al calendario.
-- Agente de voz (`6ad5929c4dd24333b8e4211f`): prompt en español, voz Daniela, idioma `es`, 6 min máx. Sin número aún.
-- MCP propio `FLR · MCP GHL Ardenza v3` en n8n (53 herramientas + genéricas).
-- 1 contacto ficticio (`demo.comprador.mar@example.com`) con etiquetas demo.
+## Hecho
+- **Base CRM:** 20 tags, 22 campos, 19 custom values, pipeline *Compradores*, calendario *Visitas privadas*. Zona horaria y moneda ya en `America/Mexico_City` / USD.
+- **Inventario demo:** 14 propiedades ficticias (1 privada) en la Data Table `flr_properties` de n8n (D22) + `flr_clients` con el hash del secreto.
+- **Herramientas:** `FLR · tool-properties` (`search_properties`, `get_property`) publicado; probado en producción (≈0.6 s, máx. 3 resultados, nunca la privada, 401 sin clave).
+- **Bases de conocimiento:** *Ardenza - Preguntas frecuentes* (13 FAQs sin precios ni datos legales) y *Ardenza - Inventario* (13 fichas públicas con fecha).
+- **Agente de voz** `Sofía (voz)`: prompt con regla de oro y 11 acciones — búsqueda e info de propiedad (n8n), FAQs, agenda en *Visitas privadas* y 7 extracciones a campos del contacto.
+- **Agente de texto** `Sofía (texto)` (Conversation AI, autopiloto, WhatsApp/SMS/chat web/FB/IG): KB de inventario y FAQs, agenda, baja con tag `no_contactar` y 8 acciones de guardar campos.
 
 ## Necesita tu intervención (en orden de impacto)
-1. **Zona horaria y moneda (D21)**: la subcuenta está como San José / `America/Guatemala`. Corregir en *Settings → Business Profile* (`America/Mexico_City`, USD) o aprobar usar la credencial de agencia. Afecta horarios del calendario y de los agentes.
-2. **Telefonía**: la subcuenta no tiene sistema telefónico (sin Twilio/LC Phone). Sin esto no hay número para voz ni SMS. Activarlo y comprar/asignar número al agente de voz.
-3. **Cuenta de Google**: conectar para sincronizar el calendario y la hoja de inventario demo.
-4. **WhatsApp / WABA (D11)**: canal, número y plantillas (`ghl/plantillas-whatsapp/plantillas.md`).
-5. **Usuarios**: la subcuenta no tiene usuarios; añadir al menos uno para asignar el calendario y el handoff.
-6. **Agente de texto**: Agent Studio por API no se pudo crear sin explorar el esquema (un POST de prueba puede crear objetos reales). Crearlo en la UI pegando `docs/prompts/texto.md`.
-7. **Escuchar y aprobar la voz** del agente (Daniela) y el guion.
-8. **Postgres**: confirmar crear el servicio en el proyecto `supabase` de EasyPanel y crear la credencial Postgres en n8n (necesaria para migraciones y herramientas `FLR · tool-*`).
-9. **Datos reales del cliente** para custom values pendientes (nombre D4, teléfono, web, horario).
-10. Opcional: rotar secretos expuestos en el volcado de variables de EasyPanel.
+1. **Telefonía**: la subcuenta sigue sin sistema telefónico. Activar LC Phone/Twilio y asignar un número al agente de voz → sin esto no hay llamadas ni SMS.
+2. **WhatsApp / WABA (D11)**: conectar el canal; el agente de texto ya está en autopiloto para WhatsApp y responderá en cuanto exista.
+3. **Usuarios**: añadir al menos un usuario. Luego: asignarlo al calendario y crear la acción *Pasar con un asesor* del agente de texto (la API la rechaza sin usuarios).
+4. **Workflows de GHL (≈30 min en la UI)**: los 5 de `ghl/workflows.md` (lead nuevo, calificado, visita agendada, pasar a humano, baja). La API no permite crearlos.
+5. **Probar** en *AI Agents*: llamada de prueba con el agente de voz y chat de prueba con el de texto; pasar `tests/agentes/preguntas-trampa.md`.
+6. **Postgres** en EasyPanel + credencial en n8n → migrar `flr_properties` a Supabase (el contrato de las herramientas no cambia).
+7. **Cuenta de Google**, datos reales del cliente para los custom values en PENDIENTE (D4), y voz Daniela aprobada.
+8. Opcional: retención de ejecuciones de `FLR · tool-properties` en "no guardar" (la clave queda en el historial) y rotar secretos expuestos.
 
-## Pendiente que sigo yo cuando haya (2) y (8)
-- Migraciones 0001–0005 + seed en `supabase/`, workflows `FLR · tool-*`, acciones del agente de voz, base de conocimiento y FAQs, workflows de GHL (no creables por API).
+## Lo siguiente que construyo cuando haya (1)–(4)
+- `FLR · sync-kb-inventario` (regenera la KB de inventario desde `flr_properties`, D23).
+- `FLR · alerta-coincidencia`, `FLR · resumen-diario-dueno` y `FLR · lead-portal-a-ghl` (ver `n8n/workflows/README.md`).
+- Acciones `WORKFLOW_TRIGGER` / `callEndWorkflowIds` del agente de voz apuntando a los workflows de la UI.

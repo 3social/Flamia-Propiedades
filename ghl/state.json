@@ -19,9 +19,9 @@
     }
   },
   "agentes": {
-    "texto_botId": null,
+    "texto_botId": "83azuxebCYXuTNCMz5n3",
     "voz_agentId": "6ad5929c4dd24333b8e4211f",
-    "_nota": "Voz: prompt ES con herramientas, 11 acciones (inventario n8n, FAQs, agenda, 7 extracciones a campos). Sin número telefónico. Texto: Conversation AI pendiente de crear.",
+    "_nota": "Voz: 11 acciones (inventario n8n, FAQs, agenda, 7 extracciones); sin número. Texto: Conversation AI en autopiloto (WhatsApp, SMS, chat web, FB, IG) con KB de inventario y FAQs y 10 acciones; falta humanHandOver (la API lo rechaza sin usuarios) y conectar canales.",
     "voz_actions": {
       "search_properties": "6afcfdeef1d6a33427a5c28e",
       "get_property": "6afcfe1396763e29b25d46ad",
@@ -34,6 +34,18 @@
       "extract_plazo": "6afd0318110393232dd476cf",
       "extract_tipo": "6afd0347e6a942eb06fcf184",
       "extract_pago": "6afd034c96763e28505d478b"
+    },
+    "texto_actions": {
+      "agendar_visita": "PdYQGn2mHGiEp5Gqijep",
+      "baja": "opVI41QlLzCKt5Wmy1Gn",
+      "campo_operacion": "WQFLEruwHGRNkSWbMYcd",
+      "campo_zonas": "kj2UucQF9kjpgHX2Zwm2",
+      "campo_presupuesto": "MdTGiKyH8hSQhTzwFXBP",
+      "campo_idioma": "VRACIxcsTSoAZUhuq9IQ",
+      "campo_tipo": "npFbJVMYEC0xcwmxEc8e",
+      "campo_recamaras": "Eu3IuYo0m5Y0xmpW6TWY",
+      "campo_plazo": "r2EtgiBvXHT9ZwzT3ABE",
+      "campo_pago": "iKU01BXtTXgVkZ2wSI1j"
     }
   },
   "n8nWorkflowIds": {
@@ -47,7 +59,7 @@
     "1_a_inventario": "demo: 14 propiedades ficticias en Data Table de n8n (D22); Supabase pendiente de Postgres",
     "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
     "1_c_ghl_snapshot": "hecho salvo workflows de GHL (no creables por API) y telefonía; zona horaria y moneda corregidas (D21 cerrada)",
-    "1_d_agentes": "voz configurado con herramientas; texto: Conversation AI en curso",
+    "1_d_agentes": "voz y texto creados por API y conectados a inventario, FAQs, calendario y campos; faltan número, canales y workflows de UI",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
     "1_g_portal": "pendiente",
@@ -74,5 +86,13 @@
     "search_properties": "POST /webhook/flr-search-properties",
     "get_property": "POST /webhook/flr-get-property",
     "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
+  },
+  "ghlWorkflowIds": {
+    "_nota": "Se crean en la UI según ghl/workflows.md",
+    "lead_nuevo": null,
+    "lead_calificado": null,
+    "visita_agendada": null,
+    "pasar_a_humano": null,
+    "baja": null
   }
 }

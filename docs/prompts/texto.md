@@ -1,6 +1,6 @@
 # Agente de texto — GHL Conversation AI (D7)
 
-Canales: WhatsApp (principal), chat web, redes. Creación manual en *AI Agents → Conversation AI*; el MCP no la expone.
+Canales: WhatsApp (principal), chat web, redes. **Creado por API** el 2026-11-18 como `Sofía (texto)` (`83azuxebCYXuTNCMz5n3`) con una versión adaptada de este prompt: como Conversation AI no llama webhooks, el inventario sale de la KB *Ardenza - Inventario* (D23) y las herramientas se sustituyen por acciones nativas (agenda, campos, baja).
 El chat web sigue en Sofía (n8n). Este prompt es el de GHL.
 
 ## Configuración
