@@ -67,7 +67,11 @@
     "ghl_automatizaciones_archivado_2026_11_17": "oaVq33tFfiEV2oGg",
     "calificacion": "PtU5gnp8hqaAJeb5",
     "calificacion_v1_archivado": "Nqx7DqNvH63taXoE",
-    "lead_landing": "j33djngyFRlvpfZu"
+    "lead_landing": "eC8OJNpTuYx9oA1W",
+    "lead_landing_v1_archivado": "j33djngyFRlvpfZu",
+    "lead_landing_v2_archivado": "0mSysVjjj6ZE8rPc",
+    "lead_google_form": "9GvtIyxNiai8Q9Il",
+    "lead_google_form_v1_archivado": "jPE6P43FDPKvQB5o"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
@@ -109,7 +113,9 @@
     "calificado": "7cf8aa8a-ed8d-4192-8580-0c3d132fbf36",
     "visita_agendada": "f1588eb7-28fe-478f-b600-dda6041e0168",
     "pasar_a_humano": "18942e51-18db-49a7-8681-b9057628d797",
-    "baja": "4c10faa9-dc19-4a4d-94fe-fdfd42f2313a"
+    "baja": "4c10faa9-dc19-4a4d-94fe-fdfd42f2313a",
+    "lead_meta_nativo": "03a99edf-c704-45d3-b61e-6a55766a2c1e",
+    "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3"
   },
   "usuarios": {
     "asesor_principal": "sq0EUpVWzXZU8VKIlfWc"
@@ -125,7 +131,8 @@
     "contacto_prueba3_caliente_vip": "1wlGwdD0TuqapT9eXDR7",
     "contacto_prueba4_tibio": "JI94KFmy7eUAHlMi0T3U",
     "contacto_prueba5_landing": "NGSivYJ15Hd3UZKhfr8W",
-    "contacto_prueba6_landing": "buscar por prueba6-landing-flr@example.com"
+    "contacto_prueba6_landing": "buscar por prueba6-landing-flr@example.com",
+    "contactos_atribucion": "prueba7-google-flr, prueba8-tiktok-flr, prueba9/prueba10-googleform-flr, prueba11-metaform-flr (@example.com)"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
@@ -144,7 +151,52 @@
     "pv-0005": {
       "url": "https://ardenza-pv-0005.vercel.app",
       "vercelProject": "prj_2XvrUVIkJ1gCtDTr5YSOIpbtN8Ty",
-      "deployment": "dpl_2qJfGq3Jz2sTQiVwu5E3r5mFDDE2"
+      "deployment": "dpl_AphoSn6pijFjYvGAr9zgoShfvhHY"
     }
+  },
+  "atribucion": {
+    "_nota": "D28, docs/atribucion.md. Creados 2026-11-18.",
+    "campos": {
+      "canal_origen": "ZKid0PLgouENEPuJw9ws",
+      "primer_canal": "UlA83oq28Nwf9XEpzcA9",
+      "fecha_primer_contacto": "LeTlBesjW1K4CXxauMdc",
+      "utm_content": "rmQF0Avl6qr30tYXfjal",
+      "utm_term": "5qDaPA3XGj6woYvSQslW",
+      "campana_id": "seOWjQYrlhEYmTJtQnte",
+      "grupo_anuncios_id": "Z8WSwT5fAhYHdndKDRxk",
+      "anuncio_id": "mGdVGdIIeCrduuswCNTT",
+      "google_click_id": "XHWBuCwkw8z74VVlurtB",
+      "gbraid": "9CV8eYRK1tOJuHEqvbzd",
+      "wbraid": "PeLxfZnDl2vk8vCXmauq",
+      "fbclid": "4h4v1mSTdmgHadY150qk",
+      "fbc": "OmYCdY7YeDQnCxPmRbkw",
+      "fbp": "m0r3g8PytZUV0vo1smVj",
+      "ttclid": "vypCKC4Fru1Xm7UyfcFh",
+      "landing_url": "UaA87Xb3gYpyR0J5lBVB",
+      "referrer": "0Qyk8jZ0Xny1YimBv4df"
+    },
+    "tags": {
+      "fuente_google": "w7lnvkEpet5Y8azMLqWN",
+      "fuente_meta": "zRvFVWevXM2zpKhn52BD",
+      "fuente_tiktok": "gGRMxorGClwpB8Wphggk",
+      "fuente_organico": "CIU6Xyy0I8pP7VeP5z8Y",
+      "fuente_directo": "gX3FCace2ybGzSFODD9c",
+      "formulario_nativo": "UPYRAqsh2rmcZWFAxMnj"
+    },
+    "ghlWorkflows": {
+      "lead_meta_nativo": "03a99edf-c704-45d3-b61e-6a55766a2c1e",
+      "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3"
+    },
+    "googleLeadForm": {
+      "webhook": "POST /webhook/flr-lead-google-form",
+      "clave": ".secrets/google-lead-form-key.txt (fuera de git); sha256 en el nodo Build Contact"
+    },
+    "pendiente_cliente": [
+      "conectar página de Facebook y TikTok en GHL Integrations",
+      "pegar URL + clave en el Lead Form de Google Ads",
+      "plantillas de URL final con UTM/IDs en cada plataforma",
+      "pixels Meta/TikTok/GA4 + consentimiento (Fase 2)"
+    ],
+    "fase2": "devolver conversiones (Meta CAPI, Google offline por gclid, TikTok Events API)"
   }
 }

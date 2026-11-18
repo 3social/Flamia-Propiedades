@@ -26,6 +26,15 @@
       "vendedor",
       "renta",
       "demo"
+    ],
+    "fuente": [
+      "fuente_google",
+      "fuente_meta",
+      "fuente_tiktok",
+      "fuente_organico",
+      "fuente_directo",
+      "formulario_nativo",
+      "landing"
     ]
   }
 }

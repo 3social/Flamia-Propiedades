@@ -65,3 +65,11 @@ Campos nuevos: `Nivel Lead`, `Proposito`, `Residencia`.
 **Estado:** decidido. La landing lleva la **marca del cliente**, no la de FLAMIA. Una plantilla parametrizada por proyecto o
 propiedad. El diseño visual se define **por cliente** con wireframe aprobado antes de construir en GHL; FLAMIA aporta
 estructura, sistema de diseño luxury y la mecánica (multi-paso, calendario, WhatsApp con `ref`, QR, UTM, pixel, A/B).
+
+## D28 — Atribución de Google, Meta y TikTok (2026-11-18)
+**Estado:** decidido. Cada lead guarda canal de último toque y de primer toque (este no se sobrescribe), UTM completos,
+IDs de campaña/grupo/anuncio y el click ID de cada plataforma (`gclid`/`gbraid`/`wbraid`, `fbclid`/`fbc`/`fbp`, `ttclid`).
+Dos entradas: landing (captura en el navegador, 90 días de primer toque) y formularios nativos (Google por webhook a n8n;
+Meta y TikTok por la integración de GHL + tag de fuente). Detalle en `docs/atribucion.md`.
+**Por qué:** en lujo el ciclo dura meses; sin primer toque se le atribuye la venta al último anuncio. Los click IDs permiten
+devolver conversiones (Fase 2) para que cada plataforma optimice hacia compradores reales, no hacia formularios.

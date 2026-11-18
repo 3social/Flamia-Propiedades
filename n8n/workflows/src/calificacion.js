@@ -5,7 +5,8 @@ const PIPELINE = 'rS0oVeLwnZsT1FIsPYpv';
 const ADVISOR = 'sq0EUpVWzXZU8VKIlfWc';
 const F = {
   operacion: 'v9nuA3BYnMMgQmTY1hJ0', zonas: 'W5wnJnAm5tuhnhFrb53C', presupuesto: 'DkYitRLjPWXFvVWerdPp', presupuestoMin: 'UJCK7exwHkzNHtn1TdSv',
-  plazo: 'oEqdidKzwuhs9YGssBTl', pago: 'N7i0mqlEVl78v2OgwtD0', nivel: 'E8fG0YO2XxTklhyXJ5gI'
+  plazo: 'oEqdidKzwuhs9YGssBTl', pago: 'N7i0mqlEVl78v2OgwtD0', nivel: 'E8fG0YO2XxTklhyXJ5gI',
+  canal: 'ZKid0PLgouENEPuJw9ws', primerCanal: 'UlA83oq28Nwf9XEpzcA9', fechaPrimer: 'LeTlBesjW1K4CXxauMdc'
 };
 const API = 'https://services.leadconnectorhq.com';
 const umbral = Number((($('Get Umbral').first().json || {}).customValue || {}).value) || 1000000;
@@ -16,6 +17,7 @@ const contacts = ($('Search Contacts').first().json.contacts || [])
 const calls = [];
 const call = (rule, contactId, method, path, body) =>
   calls.push({ json: { rule, contactId, method, url: API + path, body: body || {} } });
+const CANAL_TAG = { fuente_google: 'Google Ads', fuente_meta: 'Meta Ads', fuente_tiktok: 'TikTok Ads' };
 const has = v => v !== undefined && v !== null && String(v).trim() !== '';
 
 for (const c of contacts) {
@@ -37,9 +39,16 @@ for (const c of contacts) {
            (['Contado', 'Fideicomiso', 'Credito'].includes(pago) || tags.has('visita_agendada'))) nivel = 'Caliente';
   else if (calificado) nivel = 'Tibio';
 
-  if (nivel && cf[F.nivel] !== nivel) {
-    call('nivel', c.id, 'PUT', '/contacts/' + c.id, { customFields: [{ id: F.nivel, field_value: nivel }] });
+  const upd = [];
+  if (nivel && cf[F.nivel] !== nivel) upd.push({ id: F.nivel, field_value: nivel });
+  // Formularios nativos (Meta Lead Ads, TikTok Lead Gen): GHL solo pone el tag de fuente; aquí se completa el canal (D28).
+  const fuente = Object.keys(CANAL_TAG).find(t => tags.has(t));
+  if (fuente && !has(cf[F.canal])) upd.push({ id: F.canal, field_value: CANAL_TAG[fuente] });
+  if (fuente && !has(cf[F.primerCanal])) {
+    upd.push({ id: F.primerCanal, field_value: CANAL_TAG[fuente] });
+    upd.push({ id: F.fechaPrimer, field_value: String(c.dateAdded || new Date().toISOString()).slice(0, 10) });
   }
+  if (upd.length) call('campos', c.id, 'PUT', '/contacts/' + c.id, { customFields: upd });
 
   const add = [];
   if (calificado && !tags.has('lead_calificado')) add.push('lead_calificado');

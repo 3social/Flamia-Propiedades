@@ -380,7 +380,35 @@ form.querySelectorAll('.opts').forEach(g => g.addEventListener('click', e => {
 }));
 back.onclick = () => go(Math.max(1, cur - 1));
 
+// Atribución (docs/atribucion.md): parámetros del anuncio, cookies de pixel y primer toque.
 const qs = new URLSearchParams(location.search);
+const ATTR = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','campaign_id','adset_id','adgroup_id','ad_id','creative_id','gclid','gbraid','wbraid','fbclid','ttclid'];
+const cookie = n => { try { return (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1] || ''; } catch (_) { return ''; } };
+const store = { get(k){ try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (_) { return null; } },
+                set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} } };
+const touch = {};
+ATTR.forEach(k => { const v = qs.get(k); if (v) touch[k] = v.slice(0, 200); });
+const ref = document.referrer && !document.referrer.startsWith(location.origin) ? document.referrer.slice(0, 300) : '';
+const hasAd = Object.keys(touch).length > 0;
+const DAY = 864e5, now = Date.now();
+const visit = Object.assign({}, touch, { landing_url: location.href.split('#')[0].slice(0, 500), referrer: ref, ts: now });
+const first = store.get('flr_ft');
+if (!first || now - first.ts > 90 * DAY) store.set('flr_ft', visit);
+if (hasAd) store.set('flr_lt', visit);
+function attribution(){
+  const lt = store.get('flr_lt');
+  const last = hasAd ? visit : (lt && now - lt.ts < 30 * DAY ? lt : visit);
+  const ft = store.get('flr_ft') || visit;
+  const fbclid = last.fbclid || '';
+  const a = Object.assign({}, last, {
+    fbc: cookie('_fbc') || (fbclid ? 'fb.1.' + last.ts + '.' + fbclid : ''),
+    fbp: cookie('_fbp'), ttp: cookie('_ttp'),
+    first_touch: { utm_source: ft.utm_source || '', utm_medium: ft.utm_medium || '', gclid: ft.gclid || ft.gbraid || ft.wbraid || '',
+                   fbclid: ft.fbclid || '', ttclid: ft.ttclid || '', referrer: ft.referrer || '', ts: ft.ts }
+  });
+  delete a.ts; return a;
+}
+
 form.addEventListener('submit', async e => {
   e.preventDefault(); err.textContent = '';
   const f = new FormData(form);
@@ -390,8 +418,7 @@ form.addEventListener('submit', async e => {
   if (!email && telefono.replace(/\D/g, '').length < 8) return err.textContent = en ? 'Leave a WhatsApp number or an email.' : 'Deje un WhatsApp o un correo.';
   const btn = document.getElementById('send'); btn.disabled = true; btn.style.opacity = .6;
   const body = { nombre, email, telefono, website: f.get('website') || '', opt_in: f.get('opt_in') === 'on',
-    operacion: 'Compra', zona: ZONA, ref: REF, idioma: lang, ...answers,
-    utm_source: qs.get('utm_source') || '', utm_medium: qs.get('utm_medium') || '', utm_campaign: qs.get('utm_campaign') || '' };
+    operacion: 'Compra', zona: ZONA, ref: REF, idioma: lang, ...answers, ...attribution() };
   try {
     const r = await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     if (!r.ok) throw new Error(r.status);

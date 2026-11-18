@@ -127,6 +127,95 @@
       {
         "name": "UTM Campaign",
         "dataType": "TEXT"
+      },
+      {
+        "name": "UTM Content",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "UTM Term",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Canal Origen",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Google Ads",
+          "Meta Ads",
+          "TikTok Ads",
+          "Organico",
+          "Referido",
+          "Directo",
+          "Otro"
+        ],
+        "_nota": "último toque (D28)"
+      },
+      {
+        "name": "Primer Canal",
+        "dataType": "SINGLE_OPTIONS",
+        "options": [
+          "Google Ads",
+          "Meta Ads",
+          "TikTok Ads",
+          "Organico",
+          "Referido",
+          "Directo",
+          "Otro"
+        ],
+        "_nota": "no se sobrescribe"
+      },
+      {
+        "name": "Fecha Primer Contacto",
+        "dataType": "DATE"
+      },
+      {
+        "name": "Campana ID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Grupo Anuncios ID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Anuncio ID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Google Click ID",
+        "dataType": "TEXT",
+        "_nota": "'GCLID' choca con el campo estándar contact.gclid de GHL"
+      },
+      {
+        "name": "GBRAID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "WBRAID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "FBCLID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "FBC",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "FBP",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "TTCLID",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Landing URL",
+        "dataType": "TEXT"
+      },
+      {
+        "name": "Referrer",
+        "dataType": "TEXT"
       }
     ],
     "alerta_coincidencia": [

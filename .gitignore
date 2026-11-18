@@ -1,1 +1,4 @@
 __pycache__/
+
+# Secretos locales (nunca al repo)
+.secrets/
