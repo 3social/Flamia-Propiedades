@@ -66,7 +66,7 @@
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "demo: 14 propiedades ficticias en Data Table de n8n (D22); Supabase pendiente de Postgres",
     "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
-    "1_c_ghl_snapshot": "hecho; workflows 1-4 publicados en GHL, 5 (Baja) en borrador por la opción DND; telefonía pendiente",
+    "1_c_ghl_snapshot": "hecho; 5 workflows de GHL publicados (falta asesor asignado en oportunidades); telefonía pendiente",
     "1_d_agentes": "voz y texto creados por API y conectados a inventario, FAQs, calendario y campos; faltan número, canales y workflows de UI",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
@@ -96,7 +96,7 @@
     "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
   },
   "ghlWorkflowIds": {
-    "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. 1-4 publicados; 5 (Baja) en borrador: falta elegir la opción DND en la UI. Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
+    "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. Los 5 publicados y probados salvo el 3 (sin cita). Falta asignar el asesor en el paso de oportunidad (1-3). Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
     "lead_nuevo": "e5ecdb97-3e19-4d2a-9c66-4c8c16767053",
     "calificado": "7cf8aa8a-ed8d-4192-8580-0c3d132fbf36",
     "visita_agendada": "f1588eb7-28fe-478f-b600-dda6041e0168",

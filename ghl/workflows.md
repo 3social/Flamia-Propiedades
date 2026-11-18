@@ -69,15 +69,16 @@ Estado (2026-11-17) y pruebas con contactos ficticios (`demoPruebas` en `state.j
 | 2 Calificado | publicado | ✅ pasa a *Calificado* |
 | 3 Visita agendada | publicado | sin probar (requiere cita real en el calendario) |
 | 4 Pasar a humano | publicado | ✅ `ia_pausada` + tarea asignada al asesor. Vence al día siguiente: GHL rechaza `unit: hours` por API |
-| 5 Baja | **borrador** | no publica: el paso `dnd_contact` pide una "opción de DND" cuyo campo no se encontró por API |
+| 5 Baja | publicado | ✅ DND activo en Call, SMS, Email, WhatsApp, FB y GMB · quita `opt_in_whatsapp` · nota |
 
 Aprendido sobre el builder (para no repetir intentos):
-- DND = tipo `dnd_contact` (no `dnd`). Su campo obligatorio no es `dnd`, `dnd_option`, `dndOption`, `option`, `action`, `value` ni `dnd_status`.
+- DND = tipo `dnd_contact` con `attributes: {dnd_contact: "enable", dnd_direction: "outbound"}` (forma leída de lo que guarda la UI). Sin canal = todos.
 - Tarea = `task_notification` con `assignedTo` y `dueDate: {duration, unit: "days", time, skipWeekends}`; `hours`/`hour` dan "Due Date is invalid".
 - Los workflows tienen `allowMultiple: false`: un contacto no vuelve a entrar al mismo flujo; para repetir una prueba se necesita otro contacto.
 
-Pendiente en la UI de GHL (5 min):
-1. **FLR · 5 Baja** → paso DND → elegir "Activar DND, todos los canales" → publicar. Hasta entonces la baja no corta envíos automáticamente.
-2. **FLR · 1 Lead nuevo** y **2 / 3** → paso de oportunidad → asignar al asesor.
-3. Opcional: **FLR · 4** → vencimiento de la tarea en 2 h.
-4. Luego, leer de vuelta con `get_workflow_full` y anotar aquí la forma del campo DND.
+Pendiente:
+1. **Asesor en la oportunidad (flujos 1-3):** tras editar en la UI, el paso `create_opportunity` sigue sin usuario
+   (solo se guardó `opportunity_status: open`). En el paso, campo *Assigned to* → asesor → guardar → publicar. Luego leer
+   de vuelta con `get_workflow_full` y anotar aquí el nombre del atributo.
+2. Opcional: **FLR · 4** → vencimiento de la tarea en 2 h (por API solo acepta días).
+3. Probar el flujo 3 con una cita real en *Visitas privadas*.
