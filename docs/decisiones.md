@@ -46,3 +46,10 @@ Formato: contexto → decisión → consecuencia.
 | D22 | Inventario de la demo mientras no hay Postgres | Adoptada | Data Tables de n8n `flr_properties` y `flr_clients` (mismo esquema mínimo que `properties`/`tool_secrets`). Las herramientas `FLR · tool-properties` leen de ahí con el tenant resuelto por secreto (D10). Al crear Postgres se cambian solo los dos nodos de lectura; el contrato de las herramientas no cambia |
 | D23 | Cómo consulta inventario el agente de texto | Adoptada (provisional) | Conversation AI no puede llamar webhooks, solo leer bases de conocimiento. Para la demo, la KB **Ardenza - Inventario** guarda una copia de las fichas públicas con su fecha de actualización. Choca con el principio 1 (una sola fuente): mitigación = la copia se regenera desde `flr_properties` (pendiente `FLR · sync-kb-inventario`) y el prompt obliga a citar referencia y fecha. Salida definitiva: Agent Studio con nodo HTTP a las herramientas cuando su API de versiones esté documentada |
 | D24 | Dónde viven los flujos del CRM | Adoptada | En n8n (`FLR · ghl-automatizaciones`, sondeo cada 5 min) porque la API de workflows de GHL no está habilitada para la subcuenta. Si GHL la habilita o se hace snapshot con workflows de UI, se puede migrar; las reglas quedan documentadas en `ghl/workflows.md` |
+
+## D25 — Flujos del CRM en GHL, no en n8n (2026-11-17)
+**Estado:** decidido. El MCP `ghl-master` crea y publica workflows con el builder interno de GHL, lo que la API pública no
+permitía (D24). Los 5 flujos pasan a ser workflows nativos de GHL (`FLR · 1…5`) y `FLR · ghl-automatizaciones` de n8n se archiva.
+**Por qué:** se disparan por eventos (contacto creado, tag, cita) en vez de un sondeo cada 5 min con ~1 min de atraso en la
+búsqueda; el cliente los ve y edita en su propia cuenta; desaparece la guarda anti-tarea duplicada.
+**Costo:** la calificación (operación + zonas + presupuesto/plazo) ya no se calcula sola; el flujo 2 depende del tag `lead_calificado`.

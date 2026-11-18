@@ -1,5 +1,8 @@
 # Flujos del CRM (lead nuevo, calificado, visita, humano, baja)
 
+> **Desde 2026-11-17 los flujos viven en GHL** (sección *Workflows nativos en GHL*, al final). El flujo de n8n
+> `FLR · ghl-automatizaciones` y sus 2 versiones anteriores quedaron **archivados** (D25). Lo que sigue describe la versión de n8n.
+
 GHL responde `403 WORKFLOW_API_NOT_ENABLED_FOR_LOCATION` a la API de workflows: *"no es un problema de token ni de ámbitos;
 la API está disponible solo para algunas subcuentas y agencias"*. Verificado de nuevo el 2026-11-18 con el MCP master
 (`MCP-Lead-GHL`: solo expone lectura de workflows) y con el MCP de Ardenza. Por eso los 5 flujos viven en **n8n**:
@@ -58,8 +61,23 @@ Diferencias con n8n:
   Alguien tiene que poner el tag: el agente de texto, el asesor o la regla 2 de n8n.
 - La guarda anti-tarea duplicada no hace falta: GHL ejecuta el workflow una vez por cada vez que se agrega el tag.
 
-Antes de publicar:
-1. Abrir **FLR · 5 Baja** en la UI y confirmar que el paso DND muestra "todos los canales" (la forma del paso DND se
-   armó a mano; el verificador la acepta pero no la contrastó con un ejemplo de la UI).
-2. Revisar en la UI que el paso de tarea del flujo 4 muestra vencimiento de 2 h y el asesor asignado.
-3. Decidir n8n **o** GHL para las reglas 1, 3, 4 y 5: si ambos están activos, se duplican tareas y notas.
+Estado (2026-11-17) y pruebas con contactos ficticios (`demoPruebas` en `state.json`):
+
+| Workflow | Estado | Prueba |
+|---|---|---|
+| 1 Lead nuevo | publicado | ✅ oportunidad en *Nuevo lead* + tag `comprador`. ⚠️ **sin asesor asignado** (el builder descarta el usuario) |
+| 2 Calificado | publicado | ✅ pasa a *Calificado* |
+| 3 Visita agendada | publicado | sin probar (requiere cita real en el calendario) |
+| 4 Pasar a humano | publicado | ✅ `ia_pausada` + tarea asignada al asesor. Vence al día siguiente: GHL rechaza `unit: hours` por API |
+| 5 Baja | **borrador** | no publica: el paso `dnd_contact` pide una "opción de DND" cuyo campo no se encontró por API |
+
+Aprendido sobre el builder (para no repetir intentos):
+- DND = tipo `dnd_contact` (no `dnd`). Su campo obligatorio no es `dnd`, `dnd_option`, `dndOption`, `option`, `action`, `value` ni `dnd_status`.
+- Tarea = `task_notification` con `assignedTo` y `dueDate: {duration, unit: "days", time, skipWeekends}`; `hours`/`hour` dan "Due Date is invalid".
+- Los workflows tienen `allowMultiple: false`: un contacto no vuelve a entrar al mismo flujo; para repetir una prueba se necesita otro contacto.
+
+Pendiente en la UI de GHL (5 min):
+1. **FLR · 5 Baja** → paso DND → elegir "Activar DND, todos los canales" → publicar. Hasta entonces la baja no corta envíos automáticamente.
+2. **FLR · 1 Lead nuevo** y **2 / 3** → paso de oportunidad → asignar al asesor.
+3. Opcional: **FLR · 4** → vencimiento de la tarea en 2 h.
+4. Luego, leer de vuelta con `get_workflow_full` y anotar aquí la forma del campo DND.
