@@ -1,7 +1,7 @@
 {
   "_nota": "IDs reales. Se llenan al aplicar cada frente. No guardar secretos aquí.",
   "supabaseProjectRef": null,
-  "demoClientId": null,
+  "demoClientId": "ardenza-demo",
   "demoLocationId": "20Yv36Yd31saVEePDNwB",
   "calendarId": "BtGxfsUJVMjlqudnl0eM",
   "pipelines": {
@@ -21,19 +21,33 @@
   "agentes": {
     "texto_botId": null,
     "voz_agentId": "6ad5929c4dd24333b8e4211f",
-    "_nota": "Voz: configurado por API (prompt ES, voz Daniela, language es, 360s). Sin número telefónico (la subcuenta no tiene sistema telefónico). Texto: pendiente (Agent Studio o UI)."
+    "_nota": "Voz: prompt ES con herramientas, 11 acciones (inventario n8n, FAQs, agenda, 7 extracciones a campos). Sin número telefónico. Texto: Conversation AI pendiente de crear.",
+    "voz_actions": {
+      "search_properties": "6afcfdeef1d6a33427a5c28e",
+      "get_property": "6afcfe1396763e29b25d46ad",
+      "kb_faqs": "6afcfe1cc9c46173902014f2",
+      "agendar_visita": "6afcfe3883d6b732b690efb8",
+      "extract_operacion": "6afcfe4f83d6b73bd090efbc",
+      "extract_zonas": "6afcfe5596763e23e75d46b9",
+      "extract_presupuesto": "6afcfe5af1d6a39a67a5c2aa",
+      "extract_recamaras": "6afcfe6076e8ac1b63bfad34",
+      "extract_plazo": "6afd0318110393232dd476cf",
+      "extract_tipo": "6afd0347e6a942eb06fcf184",
+      "extract_pago": "6afd034c96763e28505d478b"
+    }
   },
   "n8nWorkflowIds": {
     "mcp_ghl_ardenza": "dq6t44jVjv81zPrp",
     "mcp_ghl_ardenza_v1_archivado": "07NdqtZhhLzfFlM4",
-    "mcp_ghl_ardenza_v2_archivado": "3Ax4YAF2LOoMYrlU"
+    "mcp_ghl_ardenza_v2_archivado": "3Ax4YAF2LOoMYrlU",
+    "tool_properties": "4JKBnDhPOGO8ryR0"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
-    "1_a_inventario": "pendiente",
-    "1_b_herramientas": "pendiente",
-    "1_c_ghl_snapshot": "en_curso: tags(17), campos(22), custom values(19), pipeline Compradores y calendario Visitas privadas aplicados; faltan perfil/zona horaria (D21), números/telefonía y workflows (UI)",
-    "1_d_agentes": "en_curso: agente de voz configurado sin número; agente de texto pendiente",
+    "1_a_inventario": "demo: 14 propiedades ficticias en Data Table de n8n (D22); Supabase pendiente de Postgres",
+    "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
+    "1_c_ghl_snapshot": "hecho salvo workflows de GHL (no creables por API) y telefonía; zona horaria y moneda corregidas (D21 cerrada)",
+    "1_d_agentes": "voz configurado con herramientas; texto: Conversation AI en curso",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
     "1_g_portal": "pendiente",
@@ -46,5 +60,19 @@
   "n8nCredenciales": {
     "ghl_pit_ardenza": "RVXU4guLpA2rVXFu"
   },
-  "calendarNombre": "Visitas privadas"
+  "calendarNombre": "Visitas privadas",
+  "knowledgeBases": {
+    "faqs": "37rrVKo9NQ4z2wOuoHZC",
+    "inventario": "E7jRFfwXwGHgVOK2BnWW"
+  },
+  "n8nDataTables": {
+    "flr_properties": "rHlITcsGJtwVkiaw",
+    "flr_clients": "QVv9u66YJv8UoT99",
+    "projectId": "Y9LBnhVuIJMJ4jpX"
+  },
+  "toolEndpoints": {
+    "search_properties": "POST /webhook/flr-search-properties",
+    "get_property": "POST /webhook/flr-get-property",
+    "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "_nota": "FAQs de la base 'Ardenza - Preguntas frecuentes'. Regla: ningún precio, disponibilidad, rendimiento ni dato legal específico; eso sale de herramientas o de un asesor humano. Aplicado en Ardenza DEMO (id en state.json).",
+  "name": "Ardenza - Preguntas frecuentes",
+  "faqs": [
+    {"q": "¿Qué zonas atienden?", "a": "Atendemos Puerto Vallarta y la Riviera Nayarit: Marina Vallarta, Zona Romántica, Centro, Conchas Chinas, Amapas, Versalles, Nuevo Vallarta, Bucerías y Punta de Mita, entre otras. La disponibilidad real de cada zona se consulta en el inventario actualizado."},
+    {"q": "¿Cómo agendo una visita a una propiedad?", "a": "Las visitas son privadas y con cita. Duran unos 45 minutos y se agendan de lunes a viernes de 9:00 a 18:00 y sábados de 9:00 a 14:00 (hora del Pacífico de México). Te confirmamos por mensaje y puedes reprogramar o cancelar respondiendo a esa confirmación."},
+    {"q": "¿Puedo ver una propiedad por videollamada?", "a": "Sí. Si estás fuera de Vallarta, un asesor puede hacer un recorrido por videollamada. Solicítalo al agendar y un asesor confirmará el horario."},
+    {"q": "¿Los precios que me dan están actualizados?", "a": "Solo compartimos precios y disponibilidad tal como aparecen en nuestro inventario, con su fecha de actualización. Si un dato no está confirmado, un asesor lo valida contigo antes de cualquier decisión."},
+    {"q": "¿Un extranjero puede comprar propiedad en Puerto Vallarta?", "a": "Sí, es habitual. En zonas costeras la compra por extranjeros suele hacerse mediante una figura legal específica. Las condiciones de cada caso las explica un notario público y tu asesor; nosotros no damos asesoría legal ni fiscal."},
+    {"q": "¿Ofrecen financiamiento?", "a": "No otorgamos crédito. Muchos compradores pagan de contado y otros usan crédito de su banco. Tu asesor puede orientarte sobre el proceso y ponerte en contacto con especialistas, pero no damos asesoría financiera."},
+    {"q": "¿Cuánto rinde una propiedad en renta vacacional?", "a": "No prometemos rendimientos ni plusvalía. Si te interesa rentar la propiedad, tu asesor puede compartirte información de referencia del mercado y conectarte con administradores locales."},
+    {"q": "¿También tienen propiedades en renta?", "a": "Sí, manejamos renta de largo plazo y algunas opciones de temporada. Dinos fechas, zona, recámaras y presupuesto y te mostramos lo disponible."},
+    {"q": "¿Me pueden avisar cuando salga algo que me interese?", "a": "Sí. Con tu autorización te enviamos alertas cuando entra una propiedad que coincide con lo que buscas, como máximo dos por semana y nunca de noche. Puedes darte de baja en cualquier momento escribiendo BAJA."},
+    {"q": "¿Cómo dejo de recibir mensajes?", "a": "Escribe BAJA o STOP y dejaremos de enviarte mensajes de inmediato."},
+    {"q": "¿Puedo hablar con una persona?", "a": "Claro. Pídelo en cualquier momento y un asesor te contacta personalmente, normalmente el mismo día."},
+    {"q": "Quiero vender o rentar mi propiedad, ¿me ayudan?", "a": "Sí. Agendamos una visita de valoración con un asesor, que te propone precio y condiciones de listado. No damos un precio estimado sin ver la propiedad."},
+    {"q": "Do you speak English?", "a": "Yes. Our assistants and advisors attend in Spanish and English. Just write or speak in English and we will continue in English."}
+  ]
+}
