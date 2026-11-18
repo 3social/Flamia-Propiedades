@@ -40,3 +40,26 @@ y `addNode` con `httpBearerAuth` en nodos HTTP, pero `create_workflow_from_code`
 2. Borrar el contacto y la oportunidad de prueba (`ghl/state.json` → `demoPruebas`) y las 2 tareas que creó.
 3. Publicar `oaVq33tFfiEV2oGg`; archivar `vDRGGJiXKnvXMVTt` y `CnZiQBozUkXLyE5F` (ninguno está activo).
 4. Recordatorios de cita y confirmación por WhatsApp/SMS: se activan en el calendario de GHL (*Notifications*) cuando haya canal.
+
+## Workflows nativos en GHL (2026-11-17, MCP `ghl-master`)
+El MCP `ghl-master` usa el builder interno de GHL (no la API pública), así que **sí puede crear workflows** en Ardenza DEMO.
+Creados en **borrador**; IDs en `ghl/state.json` → `ghlWorkflowIds`. Los 5 pasan `verify_workflow` y `validate_workflow`.
+
+| Workflow | Disparador | Pasos |
+|---|---|---|
+| FLR · 1 Lead nuevo | Contacto creado | Oportunidad en *Compradores / Nuevo lead* asignada al asesor (sin duplicar) · tag `comprador` |
+| FLR · 2 Calificado | Tag `lead_calificado` agregado | Mueve la oportunidad a *Calificado* (no retrocede) |
+| FLR · 3 Visita agendada | Cita en el calendario *Visitas privadas* | Tag `visita_agendada` · mueve a *Visita agendada* |
+| FLR · 4 Pasar a humano | Tag `handoff_humano` agregado | Tag `ia_pausada` · tarea "Contactar hoy" al asesor (2 h) |
+| FLR · 5 Baja | Tag `no_contactar` agregado | DND en todos los canales · quita `opt_in_whatsapp` y `alerta_pendiente` · nota |
+
+Diferencias con n8n:
+- El flujo 2 se dispara con el tag `lead_calificado`; GHL no calcula por sí solo "operación + zonas + presupuesto/plazo".
+  Alguien tiene que poner el tag: el agente de texto, el asesor o la regla 2 de n8n.
+- La guarda anti-tarea duplicada no hace falta: GHL ejecuta el workflow una vez por cada vez que se agrega el tag.
+
+Antes de publicar:
+1. Abrir **FLR · 5 Baja** en la UI y confirmar que el paso DND muestra "todos los canales" (la forma del paso DND se
+   armó a mano; el verificador la acepta pero no la contrastó con un ejemplo de la UI).
+2. Revisar en la UI que el paso de tarea del flujo 4 muestra vencimiento de 2 h y el asesor asignado.
+3. Decidir n8n **o** GHL para las reglas 1, 3, 4 y 5: si ambos están activos, se duplican tareas y notas.

@@ -66,7 +66,7 @@
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "demo: 14 propiedades ficticias en Data Table de n8n (D22); Supabase pendiente de Postgres",
     "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
-    "1_c_ghl_snapshot": "hecho salvo workflows de GHL (no creables por API) y telefonía; zona horaria y moneda corregidas (D21 cerrada)",
+    "1_c_ghl_snapshot": "hecho; 5 workflows de GHL creados en borrador con ghl-master (falta revisar en UI y publicar); telefonía pendiente",
     "1_d_agentes": "voz y texto creados por API y conectados a inventario, FAQs, calendario y campos; faltan número, canales y workflows de UI",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
@@ -96,7 +96,12 @@
     "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
   },
   "ghlWorkflowIds": {
-    "_nota": "La API de workflows de GHL no está habilitada para la subcuenta (403 WORKFLOW_API_NOT_ENABLED_FOR_LOCATION, verificado de nuevo el 2026-11-18 con MCP-Lead-GHL y el MCP de Ardenza). Los 5 flujos viven en n8n: FLR · ghl-automatizaciones (D24)."
+    "_nota": "Creados el 2026-11-17 con el MCP ghl-master (builder interno) en Ardenza DEMO, como BORRADOR. Duplican las reglas de n8n FLR · ghl-automatizaciones: no publicar ambos a la vez.",
+    "lead_nuevo": "e5ecdb97-3e19-4d2a-9c66-4c8c16767053",
+    "calificado": "7cf8aa8a-ed8d-4192-8580-0c3d132fbf36",
+    "visita_agendada": "f1588eb7-28fe-478f-b600-dda6041e0168",
+    "pasar_a_humano": "18942e51-18db-49a7-8681-b9057628d797",
+    "baja": "4c10faa9-dc19-4a4d-94fe-fdfd42f2313a"
   },
   "usuarios": {
     "asesor_principal": "sq0EUpVWzXZU8VKIlfWc"
