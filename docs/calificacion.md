@@ -91,4 +91,5 @@ Por qué la regla vive en n8n y no en if/else de GHL: son 7 campos con combinaci
 - No se usa un workflow GHL "0 Calificación": los workflows de GHL no permiten reingreso por API; el sondeo de 2 min basta.
 - `FLR · lead-landing` (n8n `j33djngyFRlvpfZu`) publicado: valida, honeypot, upsert con calificación, opt-in, `ref` y UTM. Probado ✅.
 - Agentes: acciones para Propósito y Residencia en voz y texto; prompts con el orden de §3 aplicados.
-- **Falta:** la landing de prueba (PV-0005) y su despliegue.
+- Landing de prueba PV-0005 desplegada en https://ardenza-pv-0005.vercel.app (`apps/landings/pv-0005`). Probado: CORS desde el dominio,
+  envío → contacto en GHL → Tibio + VIP → handoff; el honeypot no crea contacto; sin tareas duplicadas tras varias corridas.

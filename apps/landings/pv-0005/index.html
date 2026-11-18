@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Villa Conchas Chinas · Ardenza</title>
+<meta name="description" content="Villa con acceso privado a la playa en Conchas Chinas, Puerto Vallarta. Agenda una visita privada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Marca del cliente (D27): cambiar solo estas variables para vestir la plantilla. */
+:root{
+  --ink:#16140F; --paper:#F6F2EB; --paper-2:#EDE6DA; --stone:#857D70; --line:rgba(22,20,15,.14);
+  --accent:#9A7648; --accent-ink:#FFFFFF;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --gutter:clamp(16px,5vw,72px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:300 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font:500 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--stone)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.05}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:16px 30px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  font:500 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* Nav */
+nav{position:fixed;inset:0 0 auto;z-index:20;transition:background .4s,color .4s;color:#fff}
+nav.solid{background:rgba(246,242,235,.94);backdrop-filter:blur(8px);color:var(--ink);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font:400 26px/1 var(--serif);letter-spacing:.32em;text-decoration:none}
+.nav-r{display:flex;align-items:center;gap:22px}
+.lang{background:none;border:0;color:inherit;font:500 11px/1 var(--sans);letter-spacing:.2em;cursor:pointer;opacity:.85}
+.lang b{font-weight:500;border-bottom:1px solid currentColor}
+nav .btn{padding:12px 20px;background:transparent;color:inherit;border-color:currentColor}
+nav .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Hero */
+.hero{position:relative;height:100svh;min-height:620px;color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;transform:scale(1.06);animation:settle 2.4s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,9,7,.4) 0%,rgba(10,9,7,0) 28%,rgba(10,9,7,.28) 52%,rgba(10,9,7,.78) 100%)}
+.hero .wrap{text-shadow:0 1px 18px rgba(0,0,0,.25)}
+.hero .wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,8vh,88px)}
+.hero .eyebrow{color:rgba(255,255,255,.8);margin-bottom:22px}
+.hero h1{font-size:clamp(44px,7.4vw,108px);max-width:11ch}
+.hero h1 em{font-style:italic}
+.hero-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:36px}
+.price{font:400 clamp(26px,3vw,38px)/1 var(--serif)}
+.price small{display:block;font:400 11px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:10px}
+
+/* Facts */
+.facts{border-bottom:1px solid var(--line)}
+.facts ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.facts li{padding:34px 0;text-align:center;border-left:1px solid var(--line)}
+.facts li:first-child{border-left:0}
+.facts strong{display:block;font:400 40px/1 var(--serif)}
+.facts span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
+
+/* Story */
+section{padding:clamp(72px,11vw,150px) 0}
+.story{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,7vw,110px);align-items:center}
+.story h2{font-size:clamp(36px,4.6vw,64px);margin:22px 0 28px}
+.story p{color:#3b3830;max-width:46ch}
+.story p+p{margin-top:16px}
+.story figure{aspect-ratio:4/5;overflow:hidden}
+.hl{list-style:none;margin-top:36px;border-top:1px solid var(--line)}
+.hl li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;font-size:15px}
+.hl li::before{content:"";flex:none;width:18px;height:1px;background:var(--accent);margin-top:13px}
+
+/* Gallery */
+.gallery{background:var(--ink);color:var(--paper)}
+.gallery .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px}
+.gallery h2{font-size:clamp(34px,4vw,56px)}
+.gallery .eyebrow{color:rgba(246,242,235,.55)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(140px,18vw,260px);gap:12px}
+.grid figure{overflow:hidden}
+.grid img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.grid figure:hover img{transform:scale(1.04)}
+.g1{grid-column:span 7;grid-row:span 2}.g2{grid-column:span 5}.g3{grid-column:span 5}.g4{grid-column:span 12;grid-row:span 1}
+.note{margin-top:18px;font-size:12px;color:rgba(246,242,235,.5)}
+
+/* Location */
+.loc{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,90px);align-items:center}
+.loc h2{font-size:clamp(34px,4vw,56px);margin:22px 0 24px}
+.loc p{color:#3b3830;max-width:44ch}
+.map{aspect-ratio:4/3;border:1px solid var(--line);filter:grayscale(1) contrast(.95)}
+.map iframe{width:100%;height:100%;border:0}
+
+/* Form */
+.contact{background:var(--paper-2)}
+.contact .inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px)}
+.contact h2{font-size:clamp(36px,4.4vw,60px);margin:22px 0 24px}
+.contact .lead{color:#3b3830;max-width:40ch}
+.advisor{display:flex;gap:18px;align-items:center;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.advisor .av{width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:400 22px/1 var(--serif);flex:none}
+.advisor b{display:block;font-weight:500}
+.advisor small{color:var(--stone)}
+.card{background:var(--paper);padding:clamp(26px,4vw,52px);border:1px solid var(--line);min-height:520px;display:flex;flex-direction:column}
+.progress{display:flex;gap:6px;margin-bottom:34px}
+.progress i{flex:1;height:2px;background:var(--line);transition:background .4s}
+.progress i.on{background:var(--accent)}
+.step{display:none;flex:1;flex-direction:column;animation:fade .5s ease}
+.step.on{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.step h3{font-size:clamp(26px,2.6vw,34px);margin:14px 0 26px}
+.opts{display:grid;gap:10px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt{text-align:left;padding:18px 20px;background:transparent;border:1px solid var(--line);font:400 15px/1.3 var(--sans);color:var(--ink);cursor:pointer;transition:.25s}
+.opt:hover{border-color:var(--ink)}
+.opt.sel{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+label.f{display:block;margin-bottom:16px}
+label.f span{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:8px}
+input[type=text],input[type=email],input[type=tel]{width:100%;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;font:400 17px/1.4 var(--sans);color:var(--ink);outline:none;transition:border-color .3s}
+input:focus{border-color:var(--ink)}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:#4a463d;margin:8px 0 22px;cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--ink);width:16px;height:16px;flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nav-steps{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:26px}
+.back{background:none;border:0;font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);cursor:pointer;visibility:hidden}
+.back.on{visibility:visible}
+.err{color:#9b2c2c;font-size:13px;min-height:20px;margin-top:6px}
+.legal{font-size:11px;color:var(--stone);margin-top:14px}
+.done iframe{width:100%;min-height:620px;border:0;background:#fff;margin-top:8px}
+.done p{color:#3b3830}
+
+footer{padding:48px 0;font-size:12px;color:var(--stone);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.demo{display:inline-block;padding:4px 10px;border:1px solid var(--line);letter-spacing:.14em;text-transform:uppercase;font-size:10px}
+
+.sticky{display:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .story,.loc,.contact .inner{grid-template-columns:1fr}
+  .story figure{aspect-ratio:4/3;order:-1}
+  .facts ul{grid-template-columns:1fr 1fr}
+  .facts li:nth-child(3){border-left:0}
+  .facts li:nth-child(n+3){border-top:1px solid var(--line)}
+  .grid{grid-auto-rows:150px}.g1{grid-column:span 12}.g2,.g3{grid-column:span 6}.g4{grid-column:span 12}
+  nav .btn{display:none}
+  .sticky{display:flex;position:fixed;inset:auto 0 0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(246,242,235,.96);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s}
+  .sticky.show{transform:none}
+  .sticky .btn{width:100%;justify-content:center}
+  .opts.two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">ARDENZA</a>
+    <div class="nav-r">
+      <button class="lang" id="lang" aria-label="Cambiar idioma"><b>ES</b> / EN</button>
+      <a class="btn" href="#agendar" data-i="cta">Agendar visita privada</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=72&auto=format" alt="Villa con alberca infinita" fetchpriority="high">
+  <div class="wrap">
+    <p class="eyebrow" data-i="loc">Conchas Chinas · Puerto Vallarta</p>
+    <h1 data-i="h1" data-html>Villa con acceso <em>privado</em> a la playa</h1>
+    <div class="hero-row">
+      <p class="price">USD 3,400,000<small data-i="upd">Precio actualizado el 17 de noviembre de 2026 · Ref. PV-0005</small></p>
+      <a class="btn ghost" href="#agendar" data-i="cta2">Solicitar visita privada</a>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <ul>
+      <li><strong>5</strong><span data-i="f1">Recámaras</span></li>
+      <li><strong>6</strong><span data-i="f2">Baños</span></li>
+      <li><strong>620</strong><span data-i="f3">m² de construcción</span></li>
+      <li><strong>1</strong><span data-i="f4">Casa de huéspedes</span></li>
+    </ul>
+  </div>
+</div>
+
+<section>
+  <div class="wrap story">
+    <div class="reveal">
+      <p class="eyebrow" data-i="s_e">La residencia</p>
+      <h2 data-i="s_h" data-html>Entre la selva y el <em>Pacífico</em></h2>
+      <p data-i="s_p1">En las colinas de Conchas Chinas, a minutos de la Zona Romántica, esta villa reúne lo que se busca en Vallarta: privacidad, vista abierta al mar y un camino propio hasta la arena.</p>
+      <p data-i="s_p2">La alberca infinita se funde con el horizonte y la casa de huéspedes permite recibir a la familia sin renunciar a la calma.</p>
+      <ul class="hl">
+        <li data-i="h1l">Acceso privado a la playa</li>
+        <li data-i="h2l">Alberca infinita</li>
+        <li data-i="h3l">Casa de huéspedes independiente</li>
+      </ul>
+    </div>
+    <figure class="reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1400&q=70&auto=format" alt="Terraza y alberca"></figure>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><p class="eyebrow" data-i="g_e">Galería</p><h2 data-i="g_h">Cada espacio, una vista</h2></div>
+      <a class="btn ghost" href="#agendar" data-i="cta3">Verla en persona</a>
+    </div>
+    <div class="grid reveal">
+      <figure class="g1"><img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=70&auto=format" alt="Sala"></figure>
+      <figure class="g2"><img loading="lazy" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1000&q=70&auto=format" alt="Recámara"></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=70&auto=format" alt="Interior"></figure>
+      <figure class="g4"><img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2000&q=70&auto=format" alt="Playa al atardecer"></figure>
+    </div>
+    <p class="note" data-i="g_n">Imágenes ilustrativas.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap loc">
+    <div class="reveal">
+      <p class="eyebrow" data-i="l_e">Ubicación</p>
+      <h2 data-i="l_h">Conchas Chinas</h2>
+      <p data-i="l_p">Una de las zonas residenciales más buscadas de Puerto Vallarta: calas de roca y arena, calles tranquilas y el centro a diez minutos. La ubicación exacta se comparte al confirmar la visita.</p>
+    </div>
+    <div class="map reveal">
+      <iframe title="Mapa de Conchas Chinas" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-105.2520%2C20.5730%2C-105.2280%2C20.5960&amp;layer=mapnik"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="agendar">
+  <div class="wrap inner">
+    <div class="reveal">
+      <p class="eyebrow" data-i="c_e">Visita privada</p>
+      <h2 data-i="c_h" data-html>Conózcala con un <em>asesor</em></h2>
+      <p class="lead" data-i="c_p">Tres preguntas breves para preparar su visita. Le respondemos por WhatsApp en minutos y usted elige el horario.</p>
+      <div class="advisor">
+        <div class="av">A</div>
+        <div><b data-i="a_n">Asesor Ardenza</b><small data-i="a_r">Especialista en Conchas Chinas y Amapas</small></div>
+      </div>
+    </div>
+
+    <form class="card reveal" id="form" novalidate>
+      <div class="progress"><i class="on"></i><i></i><i></i><i></i></div>
+
+      <div class="step on" data-s="1">
+        <p class="eyebrow" data-i="q">Pregunta 1 de 3</p>
+        <h3 data-i="q1">¿Qué presupuesto contempla?</h3>
+        <div class="opts" data-name="rango">
+          <button type="button" class="opt" data-v="hasta_500k" data-i="r1">Hasta USD 500 mil</button>
+          <button type="button" class="opt" data-v="500k_1m" data-i="r2">USD 500 mil – 1 millón</button>
+          <button type="button" class="opt" data-v="1m_2m" data-i="r3">USD 1 – 2 millones</button>
+          <button type="button" class="opt" data-v="mas_2m" data-i="r4">Más de USD 2 millones</button>
+        </div>
+      </div>
+
+      <div class="step" data-s="2">
+        <p class="eyebrow" data-i="q2e">Pregunta 2 de 3</p>
+        <h3 data-i="q2">¿Para cuándo piensa decidir?</h3>
+        <div class="opts two" data-name="plazo">
+          <button type="button" class="opt" data-v="Inmediato" data-i="p1">Lo antes posible</button>
+          <button type="button" class="opt" data-v="1 a 3 meses" data-i="p2">En 1 a 3 meses</button>
+          <button type="button" class="opt" data-v="3 a 6 meses" data-i="p3">En 3 a 6 meses</button>
+          <button type="button" class="opt" data-v="Mas de 6 meses" data-i="p4">En más de 6 meses</button>
+          <button type="button" class="opt" data-v="Solo explorando" data-i="p5">Solo estoy explorando</button>
+        </div>
+      </div>
+
+      <div class="step" data-s="3">
+        <p class="eyebrow" data-i="q3e">Pregunta 3 de 3</p>
+        <h3 data-i="q3">¿Cómo la disfrutaría?</h3>
+        <div class="opts" data-name="proposito">
+          <button type="button" class="opt" data-v="Vivir" data-i="u1">Para vivir</button>
+          <button type="button" class="opt" data-v="Vacacional" data-i="u2">Casa vacacional</button>
+          <button type="button" class="opt" data-v="Inversion" data-i="u3">Inversión</button>
+        </div>
+      </div>
+
+      <div class="step" data-s="4">
+        <p class="eyebrow" data-i="d_e">Último paso</p>
+        <h3 data-i="d_h">¿A quién contactamos?</h3>
+        <label class="f"><span data-i="d1">Nombre completo</span><input type="text" name="nombre" autocomplete="name" required></label>
+        <label class="f"><span data-i="d2">WhatsApp</span><input type="tel" name="telefono" autocomplete="tel" placeholder="+52 322 000 0000"></label>
+        <label class="f"><span data-i="d3">Correo electrónico</span><input type="email" name="email" autocomplete="email"></label>
+        <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="check"><input type="checkbox" name="opt_in"><span data-i="d4">Acepto recibir información de esta y otras propiedades por WhatsApp. Puedo darme de baja cuando quiera.</span></label>
+        <button class="btn" type="submit" id="send" data-i="d5">Solicitar visita privada</button>
+        <p class="err" id="err" role="alert"></p>
+        <p class="legal" data-i="d6">Sus datos se usan solo para atender esta solicitud.</p>
+      </div>
+
+      <div class="step done" data-s="5">
+        <p class="eyebrow" data-i="t_e">Solicitud recibida</p>
+        <h3 data-i="t_h">Gracias. Elija el horario de su visita.</h3>
+        <p data-i="t_p">Un asesor le escribirá en breve. Si prefiere, reserve ahora mismo:</p>
+        <iframe id="cal" title="Calendario de visitas privadas" loading="lazy"></iframe>
+      </div>
+
+      <div class="nav-steps"><button type="button" class="back" id="back" data-i="bk">← Atrás</button><span></span></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ardenza Propiedades · Puerto Vallarta</span>
+    <span class="demo" data-i="demo">Demostración · propiedad ficticia</span>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn" href="#agendar" data-i="cta">Agendar visita privada</a></div>
+
+<script>
+const WEBHOOK = 'https://personaldev-n8n.aaqnec.easypanel.host/webhook/flr-lead-landing';
+const CALENDAR = 'https://api.leadconnectorhq.com/widget/booking/BtGxfsUJVMjlqudnl0eM';
+const REF = 'PV-0005', ZONA = 'Conchas Chinas';
+
+const EN = {
+  cta:'Book a private viewing', cta2:'Request a private viewing', cta3:'See it in person', loc:'Conchas Chinas · Puerto Vallarta',
+  h1:'Villa with <em>private</em> beach access', upd:'Price updated November 17, 2026 · Ref. PV-0005',
+  f1:'Bedrooms', f2:'Bathrooms', f3:'m² built', f4:'Guest house',
+  s_e:'The residence', s_h:'Between the jungle and the <em>Pacific</em>',
+  s_p1:'On the hills of Conchas Chinas, minutes from the Romantic Zone, this villa brings together what people come to Vallarta for: privacy, open ocean views and a private path to the sand.',
+  s_p2:'The infinity pool blends into the horizon, and the guest house lets you host family without giving up the calm.',
+  h1l:'Private beach access', h2l:'Infinity pool', h3l:'Separate guest house',
+  g_e:'Gallery', g_h:'Every room, a view', g_n:'Illustrative images.',
+  l_e:'Location', l_h:'Conchas Chinas', l_p:'One of Puerto Vallarta’s most sought-after residential areas: rocky coves and sand, quiet streets and downtown ten minutes away. The exact location is shared once your viewing is confirmed.',
+  c_e:'Private viewing', c_h:'Discover it with an <em>advisor</em>', c_p:'Three short questions to prepare your viewing. We reply on WhatsApp within minutes and you choose the time.',
+  a_n:'Ardenza advisor', a_r:'Conchas Chinas & Amapas specialist',
+  q:'Question 1 of 3', q1:'What budget do you have in mind?', r1:'Up to USD 500K', r2:'USD 500K – 1M', r3:'USD 1 – 2M', r4:'Over USD 2M',
+  q2e:'Question 2 of 3', q2:'When do you plan to decide?', p1:'As soon as possible', p2:'In 1 to 3 months', p3:'In 3 to 6 months', p4:'In more than 6 months', p5:'Just exploring',
+  q3e:'Question 3 of 3', q3:'How would you enjoy it?', u1:'To live in', u2:'Vacation home', u3:'Investment',
+  d_e:'Last step', d_h:'Who should we contact?', d1:'Full name', d2:'WhatsApp', d3:'Email',
+  d4:'I agree to receive information about this and other properties on WhatsApp. I can unsubscribe at any time.',
+  d5:'Request a private viewing', d6:'Your details are only used to handle this request.',
+  t_e:'Request received', t_h:'Thank you. Choose your viewing time.', t_p:'An advisor will message you shortly. If you prefer, book now:',
+  bk:'← Back', demo:'Demo · fictitious property'
+};
+const ES = {};
+document.querySelectorAll('[data-i]').forEach(el => { ES[el.dataset.i] = el.dataset.html !== undefined ? el.innerHTML : el.textContent; });
+let lang = (new URLSearchParams(location.search).get('lang') || (navigator.language || 'es')).slice(0,2) === 'en' ? 'en' : 'es';
+function applyLang(){
+  const d = lang === 'en' ? EN : ES;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i]').forEach(el => { const v = d[el.dataset.i]; if (v === undefined) return;
+    if (el.dataset.html !== undefined) el.innerHTML = v; else el.textContent = v; });
+  document.getElementById('lang').innerHTML = lang === 'en' ? 'ES / <b>EN</b>' : '<b>ES</b> / EN';
+}
+document.getElementById('lang').onclick = () => { lang = lang === 'en' ? 'es' : 'en'; applyLang(); };
+applyLang();
+
+// Nav sólida y CTA fija en móvil al pasar el hero
+const nav = document.getElementById('nav'), sticky = document.getElementById('sticky'), agendar = document.getElementById('agendar');
+let formVisible = false;
+new IntersectionObserver(([e]) => { formVisible = e.isIntersecting; onScroll(); }, { threshold: 0 }).observe(agendar);
+function onScroll(){ const past = scrollY > innerHeight * .7; nav.classList.toggle('solid', scrollY > 40); sticky.classList.toggle('show', past && !formVisible); }
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Formulario multi-paso
+const form = document.getElementById('form'), steps = [...form.querySelectorAll('.step')], bars = [...form.querySelectorAll('.progress i')];
+const back = document.getElementById('back'), err = document.getElementById('err');
+const answers = {}; let cur = 1;
+function go(n){ cur = n; steps.forEach(s => s.classList.toggle('on', +s.dataset.s === n));
+  bars.forEach((b, i) => b.classList.toggle('on', i < Math.min(n, 4)));
+  back.classList.toggle('on', n > 1 && n < 5); }
+form.querySelectorAll('.opts').forEach(g => g.addEventListener('click', e => {
+  const b = e.target.closest('.opt'); if (!b) return;
+  g.querySelectorAll('.opt').forEach(o => o.classList.toggle('sel', o === b));
+  answers[g.dataset.name] = b.dataset.v; setTimeout(() => go(cur + 1), 260);
+}));
+back.onclick = () => go(Math.max(1, cur - 1));
+
+const qs = new URLSearchParams(location.search);
+form.addEventListener('submit', async e => {
+  e.preventDefault(); err.textContent = '';
+  const f = new FormData(form);
+  const nombre = (f.get('nombre') || '').trim(), email = (f.get('email') || '').trim(), telefono = (f.get('telefono') || '').trim();
+  const en = lang === 'en';
+  if (!nombre) return err.textContent = en ? 'Please enter your name.' : 'Escriba su nombre.';
+  if (!email && telefono.replace(/\D/g, '').length < 8) return err.textContent = en ? 'Leave a WhatsApp number or an email.' : 'Deje un WhatsApp o un correo.';
+  const btn = document.getElementById('send'); btn.disabled = true; btn.style.opacity = .6;
+  const body = { nombre, email, telefono, website: f.get('website') || '', opt_in: f.get('opt_in') === 'on',
+    operacion: 'Compra', zona: ZONA, ref: REF, idioma: lang, ...answers,
+    utm_source: qs.get('utm_source') || '', utm_medium: qs.get('utm_medium') || '', utm_campaign: qs.get('utm_campaign') || '' };
+  try {
+    const r = await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error(r.status);
+    document.getElementById('cal').src = CALENDAR;
+    go(5);
+  } catch (_) {
+    err.textContent = en ? 'We could not send your request. Please try again.' : 'No pudimos enviar su solicitud. Intente de nuevo.';
+    btn.disabled = false; btn.style.opacity = 1;
+  }
+});
+</script>
+</body>
+</html>

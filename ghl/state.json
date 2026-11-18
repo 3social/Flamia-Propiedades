@@ -124,7 +124,8 @@
     "contacto_prueba_workflows_ghl_2": "on6vneXKhAKljW44JdwF",
     "contacto_prueba3_caliente_vip": "1wlGwdD0TuqapT9eXDR7",
     "contacto_prueba4_tibio": "JI94KFmy7eUAHlMi0T3U",
-    "contacto_prueba5_landing": "NGSivYJ15Hd3UZKhfr8W"
+    "contacto_prueba5_landing": "NGSivYJ15Hd3UZKhfr8W",
+    "contacto_prueba6_landing": "buscar por prueba6-landing-flr@example.com"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
@@ -136,8 +137,14 @@
     "customValue_umbral_vip_usd": "2Kk9KolkVmYu4mOIm6tb",
     "tag_lead_caliente": "Mhb3TfMoWn38aCHDFvmW",
     "pendiente": [
-      "landing luxury de prueba (PV-0005) con el formulario multi-paso -> /webhook/flr-lead-landing y despliegue",
-      "prueba de punta a punta desde la landing"
+      "landing: fotos, asesor y marca reales del cliente; dominio, pixel y aviso de privacidad"
     ]
+  },
+  "landings": {
+    "pv-0005": {
+      "url": "https://ardenza-pv-0005.vercel.app",
+      "vercelProject": "prj_2XvrUVIkJ1gCtDTr5YSOIpbtN8Ty",
+      "deployment": "dpl_2qJfGq3Jz2sTQiVwu5E3r5mFDDE2"
+    }
   }
 }
