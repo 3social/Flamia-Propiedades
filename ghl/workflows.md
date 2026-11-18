@@ -1,16 +1,19 @@
-# Workflows de GHL (se arman en la UI)
+# Flujos del CRM (lead nuevo, calificado, visita, humano, baja)
 
-La API pública de GHL solo **lee** workflows (`search-workflows`, `get-workflow-definition`); no los crea. Ni el MCP master
-(`MCP-Lead-GHL`) ni el MCP propio pueden hacerlo. Estos cinco se construyen a mano en *Automation → Workflows* de Ardenza DEMO
-(≈30 min en total) y luego se registran sus ids en `ghl/state.json` → `ghlWorkflowIds`.
+GHL responde `403 WORKFLOW_API_NOT_ENABLED_FOR_LOCATION` a la API de workflows: *"no es un problema de token ni de ámbitos;
+la API está disponible solo para algunas subcuentas y agencias"*. Por eso los 5 flujos viven en **n8n**:
+`FLR · ghl-automatizaciones` (`vDRGGJiXKnvXMVTt`), cada 5 minutos (D24). Reglas en `n8n/workflows/src/ghl-automatizaciones.js`.
 
-| # | Nombre | Disparador | Acciones | Para qué |
-|---|---|---|---|---|
-| 1 | `FLR · Lead nuevo` | Contact Created | Crear oportunidad en **Compradores / Nuevo lead** (si no existe); tag del canal según `source`; nota "Origen: …" | Todo lead entra al pipeline (criterio de aceptación de la demo) |
-| 2 | `FLR · Lead calificado` | Contact Changed: `Operacion` y `Zonas de Interes` no vacíos **y** (`Presupuesto Maximo` o `Plazo de Decision` no vacío) | Tag `lead_calificado`; mover oportunidad a **Calificado** | Regla "calificado" de `docs/prompts/texto.md` |
-| 3 | `FLR · Visita agendada` | Appointment Status = booked, calendario **Visitas privadas** | Tag `visita_agendada`; mover a **Visita agendada**; mensaje de confirmación (SMS/WhatsApp cuando haya canal); recordatorio 24 h y 2 h antes | Cierra el ciclo del agente que agenda |
-| 4 | `FLR · Pasar a humano` | Tag añadido `handoff_humano` | Tag `ia_pausada`; apagar Conversation AI para el contacto; notificación interna al usuario asignado (o al admin); tarea "Contactar hoy" | Sustituye la acción *humanHandOver* del agente de texto, que la API rechaza mientras la subcuenta no tenga usuarios |
-| 5 | `FLR · Baja` | Tag añadido `no_contactar` (lo pone la acción *stopBot*) | Activar DND en todos los canales; quitar de workflows de marketing; nota con fecha | Principio 4: la baja corta todo envío |
+| # | Flujo | Condición (leída del estado de GHL) | Acción |
+|---|---|---|---|
+| 1 | Lead nuevo | Contacto sin oportunidad en *Compradores* | Crea oportunidad en **Nuevo lead**, asignada al asesor |
+| 2 | Calificado | `Operacion` + `Zonas de Interes` + (`Presupuesto Maximo` o `Plazo de Decision`) | Tag `lead_calificado`; sube a **Calificado** |
+| 3 | Visita agendada | Cita no cancelada en *Visitas privadas* (−1 a +60 días) | Tag `visita_agendada`; sube a **Visita agendada** |
+| 4 | Pasar a humano | Tag `handoff_humano` (lo pone el agente de texto) sin `ia_pausada` | Tag `ia_pausada` + tarea "Contactar hoy" al asesor, vence en 2 h |
+| 5 | Baja | Tag `no_contactar` | DND en todos los canales; no se aplica ninguna otra regla |
 
-Después de crear el #4 se puede sumar como `callEndWorkflowIds` del agente de voz un `FLR · Fin de llamada` (nota + tarea si quedó
-sin visita) y como acción `WORKFLOW_TRIGGER` del agente de voz para "pasar con un asesor".
+- **Idempotente:** cada corrida compara contra el estado actual y solo envía lo que falta; las etapas solo avanzan, nunca retroceden.
+- Excluye los contactos de ejemplo de GHL (`(Example) …`). Lee los 100 contactos actualizados más recientes.
+- Probado con datos fijados (lead nuevo, calificado + humano, contacto de ejemplo ignorado) y el payload de oportunidad validado contra la API real.
+- **Pendiente manual (1 min):** en n8n, abrir el flujo y elegir la credencial `GHL PIT - Ardenza` en los 3 nodos HTTP; luego *Publish*. El MCP de n8n no permite adjuntar credenciales a nodos HTTP.
+- Recordatorios de cita y confirmación por WhatsApp/SMS: se activan en el calendario de GHL (*Notifications*) cuando haya canal.

@@ -15,13 +15,16 @@
         "negociacion": "337b0436-a238-49df-a3f5-d31262930ce5",
         "cerrado": "73f3c3fa-0a47-475e-8453-2c7241e606c2"
       },
-      "_nota": "Creado por API (POST /opportunities/pipelines). La subcuenta conserva el 'Marketing Pipeline' por defecto (p3AUar7OCFUcGJ7vHU40)."
+      "_nota": "Creado por API (POST /opportunities/pipelines). La subcuenta conserva el 'Marketing Pipeline' por defecto (p3AUar7OCFUcGJ7vHU40).",
+      "oportunidadesDemo": {
+        "demo_comprador_mar": "Cqgi5biq0n2vzpjcyyfn"
+      }
     }
   },
   "agentes": {
     "texto_botId": "83azuxebCYXuTNCMz5n3",
     "voz_agentId": "6ad5929c4dd24333b8e4211f",
-    "_nota": "Voz: 11 acciones (inventario n8n, FAQs, agenda, 7 extracciones); sin número. Texto: Conversation AI en autopiloto (WhatsApp, SMS, chat web, FB, IG) con KB de inventario y FAQs y 10 acciones; falta humanHandOver (la API lo rechaza sin usuarios) y conectar canales.",
+    "_nota": "Voz: 11 acciones (inventario n8n, FAQs, agenda, 7 extracciones); sin número. Texto: Conversation AI en autopiloto (WhatsApp, SMS, chat web, FB, IG) con KB de inventario y FAQs y 10 acciones; pase a humano = stopBot con tag handoff_humano (humanHandOver da 400 por API). Falta conectar canales.",
     "voz_actions": {
       "search_properties": "6afcfdeef1d6a33427a5c28e",
       "get_property": "6afcfe1396763e29b25d46ad",
@@ -45,14 +48,17 @@
       "campo_tipo": "npFbJVMYEC0xcwmxEc8e",
       "campo_recamaras": "Eu3IuYo0m5Y0xmpW6TWY",
       "campo_plazo": "r2EtgiBvXHT9ZwzT3ABE",
-      "campo_pago": "iKU01BXtTXgVkZ2wSI1j"
+      "campo_pago": "iKU01BXtTXgVkZ2wSI1j",
+      "pasar_a_asesor": "OeeIn4AqlJc9SMnsHZRm"
     }
   },
   "n8nWorkflowIds": {
     "mcp_ghl_ardenza": "dq6t44jVjv81zPrp",
     "mcp_ghl_ardenza_v1_archivado": "07NdqtZhhLzfFlM4",
     "mcp_ghl_ardenza_v2_archivado": "3Ax4YAF2LOoMYrlU",
-    "tool_properties": "4JKBnDhPOGO8ryR0"
+    "tool_properties": "4JKBnDhPOGO8ryR0",
+    "ghl_automatizaciones": "vDRGGJiXKnvXMVTt",
+    "ghl_automatizaciones_archivado": "0uitwrA4Z62FWckf"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
@@ -88,11 +94,10 @@
     "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
   },
   "ghlWorkflowIds": {
-    "_nota": "Se crean en la UI según ghl/workflows.md",
-    "lead_nuevo": null,
-    "lead_calificado": null,
-    "visita_agendada": null,
-    "pasar_a_humano": null,
-    "baja": null
-  }
+    "_nota": "La API de workflows de GHL no está habilitada para la subcuenta (403 WORKFLOW_API_NOT_ENABLED_FOR_LOCATION). Los 5 flujos viven en n8n: FLR · ghl-automatizaciones (D24)."
+  },
+  "usuarios": {
+    "asesor_principal": "sq0EUpVWzXZU8VKIlfWc"
+  },
+  "calendarNota": "Calendario pasado a round_robin con el asesor como miembro (requisito de GHL para asignar usuario); horario L-V 9-18, S 9-14"
 }

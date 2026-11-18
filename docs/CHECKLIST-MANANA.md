@@ -13,8 +13,8 @@ Actualizado 2026-11-18. Todo lo marcado hecho se verificó leyendo de vuelta des
 ## Necesita tu intervención (en orden de impacto)
 1. **Telefonía**: la subcuenta sigue sin sistema telefónico. Activar LC Phone/Twilio y asignar un número al agente de voz → sin esto no hay llamadas ni SMS.
 2. **WhatsApp / WABA (D11)**: conectar el canal; el agente de texto ya está en autopiloto para WhatsApp y responderá en cuanto exista.
-3. **Usuarios**: añadir al menos un usuario. Luego: asignarlo al calendario y crear la acción *Pasar con un asesor* del agente de texto (la API la rechaza sin usuarios).
-4. **Workflows de GHL (≈30 min en la UI)**: los 5 de `ghl/workflows.md` (lead nuevo, calificado, visita agendada, pasar a humano, baja). La API no permite crearlos.
+3. ~~Usuarios~~ hecho: asesor asignado al calendario (ahora round-robin) y pase a humano en el agente de texto.
+4. **Flujos del CRM (1 min)**: ya creados en n8n (`FLR · ghl-automatizaciones`). Falta elegir la credencial `GHL PIT - Ardenza` en sus 3 nodos HTTP y publicarlo (ver `ghl/workflows.md`).
 5. **Probar** en *AI Agents*: llamada de prueba con el agente de voz y chat de prueba con el de texto; pasar `tests/agentes/preguntas-trampa.md`.
 6. **Postgres** en EasyPanel + credencial en n8n → migrar `flr_properties` a Supabase (el contrato de las herramientas no cambia).
 7. **Cuenta de Google**, datos reales del cliente para los custom values en PENDIENTE (D4), y voz Daniela aprobada.
