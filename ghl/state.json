@@ -65,19 +65,20 @@
     "ghl_automatizaciones_v1_sin_credencial": "vDRGGJiXKnvXMVTt",
     "ghl_automatizaciones_v2_sin_guarda": "CnZiQBozUkXLyE5F",
     "ghl_automatizaciones_archivado_2026_11_17": "oaVq33tFfiEV2oGg",
-    "calificacion": "PtU5gnp8hqaAJeb5",
     "calificacion_v1_archivado": "Nqx7DqNvH63taXoE",
     "lead_landing": "eC8OJNpTuYx9oA1W",
     "lead_landing_v1_archivado": "j33djngyFRlvpfZu",
     "lead_landing_v2_archivado": "0mSysVjjj6ZE8rPc",
     "lead_google_form": "9GvtIyxNiai8Q9Il",
-    "lead_google_form_v1_archivado": "jPE6P43FDPKvQB5o"
+    "lead_google_form_v1_archivado": "jPE6P43FDPKvQB5o",
+    "calificacion_archivado_d29": "PtU5gnp8hqaAJeb5",
+    "_nota_d29": "D29: la calificación y la landing viven en GHL. lead_landing (eC8OJNpTuYx9oA1W) y lead_google_form siguen activos hasta migrarlos"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
     "1_a_inventario": "demo: 14 propiedades ficticias en Data Table de n8n (D22); Supabase pendiente de Postgres",
     "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
-    "1_c_ghl_snapshot": "hecho; 5 workflows de GHL publicados (falta asesor asignado en oportunidades); telefonía pendiente",
+    "1_c_ghl_snapshot": "hecho; calificación, landing y atribución en workflows nativos de GHL (D29); falta asesor asignado en oportunidades; telefonía pendiente",
     "1_d_agentes": "voz y texto creados por API y conectados a inventario, FAQs, calendario y campos; faltan número, canales y workflows de UI",
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
@@ -115,7 +116,14 @@
     "pasar_a_humano": "18942e51-18db-49a7-8681-b9057628d797",
     "baja": "4c10faa9-dc19-4a4d-94fe-fdfd42f2313a",
     "lead_meta_nativo": "03a99edf-c704-45d3-b61e-6a55766a2c1e",
-    "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3"
+    "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3",
+    "calificacion": "6a228735-e504-42f4-b871-f6d9ff52d50a",
+    "vip_a_humano": "6bfa7ea2-25d3-4d75-92a2-4bc25d88c429",
+    "landing_rango_presupuesto": "933cc0eb-d300-4240-9b15-d0a3c71a82d0",
+    "landing_canal_origen": "e40c59f2-ad83-4296-8034-fdfd1de98e71",
+    "landing_tags_optin": "3b6d4d24-c17b-4e5d-98db-c85d2c105c8d",
+    "primer_canal": "47e61d39-595c-43de-af1b-434af81f1222",
+    "_reentrada": "0, 0b, 9a, 9b, 9c y 10 con 'Permitir reentrada' activo. Se activa SOLO en la UI (Configuración); cada update_workflow_actions por MCP lo apaga y hay que reactivarlo y Guardar"
   },
   "usuarios": {
     "asesor_principal": "sq0EUpVWzXZU8VKIlfWc"
@@ -132,7 +140,10 @@
     "contacto_prueba4_tibio": "JI94KFmy7eUAHlMi0T3U",
     "contacto_prueba5_landing": "NGSivYJ15Hd3UZKhfr8W",
     "contacto_prueba6_landing": "buscar por prueba6-landing-flr@example.com",
-    "contactos_atribucion": "prueba7-google-flr, prueba8-tiktok-flr, prueba9/prueba10-googleform-flr, prueba11-metaform-flr (@example.com)"
+    "contactos_atribucion": "prueba7-google-flr, prueba8-tiktok-flr, prueba9/prueba10-googleform-flr, prueba11-metaform-flr (@example.com)",
+    "contacto_prueba12_calificacion_ghl": "b56IEPf3nKC5uFwN5yhe",
+    "contacto_prueba13_landing_ghl": "vjFhINx3GLjGL0roJc6a",
+    "encuesta_vacia_borrar": "07euJUVEGgyMV28GApFd"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
@@ -145,13 +156,30 @@
     "tag_lead_caliente": "Mhb3TfMoWn38aCHDFvmW",
     "pendiente": [
       "landing: fotos, asesor y marca reales del cliente; dominio, pixel y aviso de privacidad"
-    ]
+    ],
+    "campo_rango_presupuesto": "WaqFFMNSfGMXPQjLyxXE",
+    "customValues_landing": {
+      "_nota": "26 custom values landing_* (marca, propiedad, fotos, asesor, destacados)",
+      "landing_prop_operacion": "zH8vS7fkuBtFS3pbGLpr",
+      "landing_prop_zona": "LOMYdWlnigVJdb3HEHfv"
+    }
   },
   "landings": {
     "pv-0005": {
-      "url": "https://ardenza-pv-0005.vercel.app",
-      "vercelProject": "prj_2XvrUVIkJ1gCtDTr5YSOIpbtN8Ty",
-      "deployment": "dpl_AphoSn6pijFjYvGAr9zgoShfvhHY"
+      "ghl": {
+        "funnelId": "5dT5h0j6AVM49BI2DvBl",
+        "stepId": "22e297e3-8f7d-46a8-955a-6dfb4293ed77",
+        "pageId": "7KjndMMOo6f9znLp9KqA",
+        "path": "/pv-0005-page",
+        "preview": "https://app.flamiagroup.com/preview/7KjndMMOo6f9znLp9KqA",
+        "formId": "alfV7H8SLGq44ocnNnTT",
+        "_nota": "Landing oficial (D29): elementos nativos + custom values landing_*; parámetros de URL llenan campos ocultos"
+      },
+      "vercel_reemplazada": {
+        "url": "https://ardenza-pv-0005.vercel.app",
+        "vercelProject": "prj_2XvrUVIkJ1gCtDTr5YSOIpbtN8Ty",
+        "deployment": "dpl_AphoSn6pijFjYvGAr9zgoShfvhHY"
+      }
     }
   },
   "atribucion": {

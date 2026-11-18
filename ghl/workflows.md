@@ -82,3 +82,21 @@ Pendiente:
    de vuelta con `get_workflow_full` y anotar aquí el nombre del atributo.
 2. Opcional: **FLR · 4** → vencimiento de la tarea en 2 h (por API solo acepta días).
 3. Probar el flujo 3 con una cita real en *Visitas privadas*.
+
+## Calificación, landing y atribución en GHL (D29, 2026-11-18)
+| Workflow | Disparador | Qué hace |
+|---|---|---|
+| FLR · 0 Calificación | Contacto creado · cambio en Operacion, Zonas, Presupuesto Min/Max, Plazo, Financiamiento · tag `visita_agendada` | Nivel Frio / Caliente / Tibio + `lead_calificado`; 1.ª vez caliente → `lead_caliente` + tarea hoy |
+| FLR · 0b VIP a humano | Cambio en Presupuesto Max | ≥ `{{custom_values.umbral_vip_usd}}` → `handoff_humano` |
+| FLR · 9a Landing: rango a presupuesto | Envío del formulario de la landing | Rango → min/max USD (sin tope = 100,000,000) |
+| FLR · 9b Landing: canal de origen | Envío del formulario | Canal Origen + tag de fuente (UTM primero, `docs/atribucion.md` §3) |
+| FLR · 9c Landing: tags y opt-in | Envío del formulario | `landing`, opt-in + Origen Opt-in, Operacion y Zonas desde custom values |
+| FLR · 10 Primer canal | Cambio en Canal Origen | Primer Canal = Canal Origen si está vacío |
+
+FLR · 7 y 8 también escriben Canal y Primer Canal. Todos publicados con reentrada activa.
+
+Aprendido del builder:
+- if/else por API: **2 ramas** (sí / no); varias opciones = cadena anidada en la rama "no".
+- Condición: `{conditionType: contact_detail, conditionSubType: <fieldId|tags>, conditionOperator: ==|>|has_value|index-of-true…}`; acepta `{{custom_values.x}}`.
+- **Reentrada** solo en la UI (Configuración → Permitir reentrada → Guardar). Cada `update_workflow_actions` la apaga.
+- La UI no publica un `update_contact_field` con valor vacío.

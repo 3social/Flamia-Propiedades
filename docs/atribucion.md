@@ -28,27 +28,28 @@ el tag de fuente igual que B.
 
 Además tags `fuente_google`, `fuente_meta`, `fuente_tiktok`, `fuente_organico`, `fuente_directo` (para filtros y workflows).
 
-## 3. Regla de canal (en el orden en que se evalúa)
+## 3. Regla de canal (en el orden en que se evalúa; GHL `FLR · 9b`)
 
-1. `gclid`, `gbraid`, `wbraid` o `utm_source` ∈ {google, adwords, youtube} → **Google Ads**
-2. `fbclid`/`fbc` o `utm_source` ∈ {facebook, fb, instagram, ig, meta} → **Meta Ads**
-3. `ttclid` o `utm_source` = tiktok → **TikTok Ads**
-4. `utm_source` presente (otro) → **Otro**
-5. Referrer de buscador (google., bing., duckduckgo., yahoo.) → **Organico**
-6. Referrer de otro sitio → **Referido**
-7. Nada → **Directo**
+**Manda el `utm_source` de la visita actual.** Los click IDs quedan guardados en el contacto desde visitas anteriores, así
+que solo deciden cuando la visita no trae UTM (si no, un `gclid` viejo marcaría Google en una visita de Meta).
 
-Formularios nativos: el workflow de GHL pone el tag de fuente y `FLR · calificacion` completa `Canal Origen`/`Primer
-Canal` desde el tag si están vacíos.
+1. `utm_source` ∈ {google, youtube, adwords} → **Google Ads**
+2. `utm_source` ∈ {meta, facebook, fb, instagram, ig} → **Meta Ads**
+3. `utm_source` = tiktok → **TikTok Ads**
+4. Otro `utm_source` → **Otro**
+5. Sin UTM: `gclid`/`gbraid`/`wbraid` → Google Ads · `fbclid` → Meta Ads · `ttclid` → TikTok Ads
+6. Nada → **Directo**
 
-**Primer toque:** la landing guarda el primer toque del navegador (90 días) y n8n solo escribe `Primer Canal` si el
-contacto no lo tiene (se consulta antes del upsert).
+Por eso **toda plantilla de URL debe llevar `utm_source`** (§4). Orgánico / referido lo registra la atribución nativa de
+GHL (`attributionSource.sessionSource`), no este campo.
+
+**Primer toque:** `FLR · 10` copia `Canal Origen` a `Primer Canal` solo si está vacío.
 
 ## 4. Configuración que hace el cliente en cada plataforma (una vez)
 
 - **URL final con parámetros** (plantilla de seguimiento):
   - Google: `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}&campaign_id={campaignid}&adgroup_id={adgroupid}&ad_id={creative}` (auto-tagging activo para `gclid`).
-  - Meta: `utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&campaign_id={{campaign.id}}&adset_id={{adset.id}}&ad_id={{ad.id}}`.
+  - Meta: `utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&campaign_id={{campaign.id}}&adgroup_id={{adset.id}}&ad_id={{ad.id}}`.
   - TikTok: `utm_source=tiktok&utm_medium=paid_social&utm_campaign=__CAMPAIGN_NAME__&utm_content=__CID_NAME__&campaign_id=__CAMPAIGN_ID__&adgroup_id=__AID__&ad_id=__CID__`.
 - **Google Lead Form:** URL del webhook `https://personaldev-n8n.aaqnec.easypanel.host/webhook/flr-lead-google-form` y la clave
   (`google_key`) guardada fuera del repo (`.secrets/google-lead-form-key.txt`).
@@ -74,3 +75,14 @@ Lecciones:
 - **El upsert de GHL reemplaza los tags**: nunca mandar `tags` en `/contacts/upsert` (borraría `no_contactar`); se agregan con `POST /contacts/{id}/tags`.
 - UTM e IDs de campaña se reemplazan completos en cada toque (no se mezclan); los click IDs se conservan por plataforma.
 - `GCLID` no se puede crear como campo: choca con el estándar `contact.gclid`.
+
+### Migración a GHL (D29, 2026-11-18)
+La landing ahora es un funnel nativo de GHL; los campos ocultos del formulario se llenan desde la URL con estas llaves:
+`ref`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `campaign_id`, `adgroup_id`, `ad_id`, `gclid`,
+`gbraid`, `wbraid`, `fbclid`, `ttclid` (por eso Meta usa `adgroup_id={{adset.id}}`). Un parámetro vacío no borra el valor
+anterior. GHL además guarda su atribución nativa (`attributionSource` / `lastAttributionSource`, con `fbp`).
+
+| Pieza | ID | Prueba |
+|---|---|---|
+| `FLR · 9b Landing: canal de origen` | `e40c59f2-…` | ✅ visita de Meta con gclid viejo → Meta Ads |
+| `FLR · 10 Primer canal` | `47e61d39-…` | ✅ Primer Canal no se sobrescribe |

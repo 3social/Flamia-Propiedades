@@ -5,7 +5,19 @@ variables de `:root` (colores, tipografías) y el logotipo; la estructura y la m
 
 | Landing | Propiedad | URL de prueba | Estado |
 |---|---|---|---|
-| `pv-0005` | Villa ficticia en Conchas Chinas, USD 3.4M | https://ardenza-pv-0005.vercel.app | Demo (noindex, "propiedad ficticia") |
+| `pv-0005` (GHL) | Villa ficticia en Conchas Chinas, USD 3.4M | https://app.flamiagroup.com/preview/7KjndMMOo6f9znLp9KqA | **Oficial (D29)** |
+| `pv-0005/` (esta carpeta) | igual | https://ardenza-pv-0005.vercel.app | Reemplazada; queda como referencia de diseño |
+
+## En GHL (D29, lo que se entrega en el snapshot)
+- Funnel `FLR · Propiedad PV-0005 (luxury)` (`5dT5h0j6AVM49BI2DvBl`), página `7KjndMMOo6f9znLp9KqA`, hecha con elementos
+  nativos (builder AI de GHL con un brief) y textos/fotos en **custom values `landing_*`**: para otra propiedad se cambian
+  los custom values, no la página.
+- Formulario nativo `FLR · Landing propiedad (visita privada)` (`alfV7H8SLGq44ocnNnTT`): rango, plazo, propósito, nombre,
+  WhatsApp, correo, opt-in + campos ocultos desde la URL (ver `docs/atribucion.md`).
+- Workflows: `FLR · 9a` rango → presupuesto, `9b` canal, `9c` tags/opt-in/operación/zona, `10` primer canal; luego `0` y `0b`.
+- Pendiente: país por defecto del teléfono = México; página de gracias con calendario; popup de salida (opcional); dominio.
+
+## Vercel (reemplazada)
 
 ## Mecánica
 - Formulario multi-paso: rango de presupuesto → plazo → propósito → nombre, WhatsApp, correo y opt-in.

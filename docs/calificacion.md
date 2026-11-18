@@ -59,19 +59,20 @@ Regla común: **nunca preguntar lo que ya está en un campo**. Cada dato se guar
 - Página de gracias con calendario *Visitas privadas* incrustado: si agenda, sube a caliente.
 - Luego el agente de texto continúa con lo que ya sabe.
 
-## 4. Flujo central (diseño; ver estado en `ghl/workflows.md`)
+## 4. Flujo central (en GHL desde D29; ver `ghl/workflows.md`)
 
 ```
-Cambio en campos del contacto (agente de voz, de texto, formulario)
-  └─ GHL · FLR · 0 Calificación  (disparador: contacto cambiado; permite reingreso)
-       └─ webhook → n8n · FLR · calificacion  (regla de §2 en código, idempotente: solo escribe si cambia)
-            ├─ escribe Nivel Lead
-            ├─ tags lead_calificado / lead_caliente / handoff_humano (VIP)
-            └─ los workflows 2, 4 y 6 reaccionan a esos tags
+Cambio en Operacion, Zonas, Presupuesto Min/Max, Plazo, Financiamiento · contacto creado · tag visita_agendada
+  └─ GHL · FLR · 0 Calificación  (if/else nativos, reentrada activa)
+       ├─ no_contactar → no hace nada
+       ├─ Solo explorando → Nivel = Frio
+       ├─ Caliente (regla §2) → Nivel = Caliente + lead_calificado; 1.ª vez: lead_caliente + tarea 15 min
+       └─ Calificado → Nivel = Tibio + lead_calificado
+  └─ GHL · FLR · 0b VIP a humano (Presupuesto Max ≥ {{custom_values.umbral_vip_usd}}) → handoff_humano
 ```
 
-Por qué la regla vive en n8n y no en if/else de GHL: son 7 campos con combinaciones; en código se prueba con casos
-(`tests/agentes`), y el builder de GHL por API solo arma condiciones por tag. GHL sigue siendo quien reacciona (D25).
+Cada regla es una condición de GHL que el cliente puede abrir y editar; el umbral VIP es un custom value. Antes vivía en
+n8n (`FLR · calificacion`, archivado): el cliente paga GHL, no n8n (D29).
 
 ## 5. Landing / funnel (D27)
 
@@ -84,12 +85,12 @@ Por qué la regla vive en n8n y no en if/else de GHL: son 7 campos con combinaci
 - Herramientas de GHL a usar: funnel multi-paso, encuesta con lógica, calendario incrustado, botón WhatsApp con `ref`,
   trigger links y QR, UTM ocultos, pixel Meta/GA4, A/B, ES/EN.
 
-## 6. Estado (2026-11-17)
-- `FLR · calificacion` (n8n `PtU5gnp8hqaAJeb5`, cada 2 min) publicado. Probado: Prueba3 (USD 1.2M, inmediato, contado) → Caliente + VIP →
-  `handoff_humano` → FLR · 4 (ia_pausada + tarea) + tarea "contactar en 15 min"; Prueba4 → Tibio. También asigna el asesor a las
-  oportunidades abiertas (el builder de GHL no lo guarda). Rangos de la landing: VIP se mide con el mínimo del rango.
-- No se usa un workflow GHL "0 Calificación": los workflows de GHL no permiten reingreso por API; el sondeo de 2 min basta.
-- `FLR · lead-landing` (n8n `j33djngyFRlvpfZu`) publicado: valida, honeypot, upsert con calificación, opt-in, `ref` y UTM. Probado ✅.
-- Agentes: acciones para Propósito y Residencia en voz y texto; prompts con el orden de §3 aplicados.
-- Landing de prueba PV-0005 desplegada en https://ardenza-pv-0005.vercel.app (`apps/landings/pv-0005`). Probado: CORS desde el dominio,
-  envío → contacto en GHL → Tibio + VIP → handoff; el honeypot no crea contacto; sin tareas duplicadas tras varias corridas.
+## 6. Estado (2026-11-18, D29)
+- `FLR · 0` y `FLR · 0b` publicados. Probado con Prueba12: Caliente + VIP → `lead_caliente`, tarea 15 min, `handoff_humano`,
+  `ia_pausada`; al cambiar el plazo a "3 a 6 meses" reentra y queda Tibio, sin tareas duplicadas.
+- Landing nativa en GHL (funnel `FLR · Propiedad PV-0005 (luxury)`), ver `apps/landings/README.md`. Probado con Prueba13:
+  Google (gclid) → Google Ads; segunda visita con UTM de Meta → Canal = Meta Ads, Primer Canal sigue Google Ads;
+  "Más de USD 2 millones" → min 2M / max 100M (sin tope) → VIP.
+- Desde la landing un lead con plazo corto queda **Tibio** hasta que agende (no se pregunta forma de pago): la página de
+  gracias con calendario lo sube a Caliente. Pendiente construirla.
+- n8n `FLR · lead-landing` y la landing de Vercel quedan reemplazados; se archivan tras confirmar la de GHL.

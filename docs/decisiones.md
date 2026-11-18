@@ -73,3 +73,19 @@ Dos entradas: landing (captura en el navegador, 90 días de primer toque) y form
 Meta y TikTok por la integración de GHL + tag de fuente). Detalle en `docs/atribucion.md`.
 **Por qué:** en lujo el ciclo dura meses; sin primer toque se le atribuye la venta al último anuncio. Los click IDs permiten
 devolver conversiones (Fase 2) para que cada plataforma optimice hacia compradores reales, no hacia formularios.
+
+## D29 — Todo dentro de GHL: calificación, landing y atribución (2026-11-18)
+**Estado:** decidido (pedido de Michael). El producto se entrega como **snapshot de GHL**: el cliente paga GHL y no paga n8n,
+así que lo que el cliente usa todos los días vive en workflows, formularios, funnels y custom values de su subcuenta.
+- **Calificación**: `FLR · 0 Calificación` (if/else nativos; se dispara al cambiar operación, zonas, presupuesto, plazo,
+  pago o al agendar) y `FLR · 0b VIP a humano` (presupuesto ≥ `{{custom_values.umbral_vip_usd}}`). Supersede la parte
+  "n8n calcula" de D26; n8n `FLR · calificacion` archivado.
+- **Landing**: funnel de GHL con elementos nativos y custom values `landing_*` (marca, propiedad, fotos, asesor). Formulario
+  nativo con campos ocultos llenados desde la URL (`ref`, UTM, IDs, click IDs). Supersede la landing de Vercel (D27 sigue
+  vigente en lo de marca del cliente y plantilla por propiedad).
+- **Atribución**: `FLR · 9a/9b/9c` (rango → presupuesto, canal, tags y opt-in) y `FLR · 10 Primer canal` en GHL.
+- n8n queda solo para lo que GHL no puede: herramientas de inventario y (temporal) el webhook del Lead Form de Google.
+
+**Por qué:** un snapshot replica todo en una subcuenta nueva sin infraestructura extra; el cliente ve y ajusta sus reglas.
+**Costos aceptados:** el if/else de GHL solo tiene 2 ramas por API (cadenas anidadas); "Permitir reentrada" se activa a mano
+en la UI tras cada edición por MCP; un campo monetario no se puede dejar vacío desde un workflow (sin tope = 100,000,000).
