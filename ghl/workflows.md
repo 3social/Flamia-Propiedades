@@ -41,7 +41,7 @@ y `addNode` con `httpBearerAuth` en nodos HTTP, pero `create_workflow_from_code`
 ## Pendiente
 1. Cerrar la prueba de la guarda (quitar `ia_pausada`, esperar 1 min, correr: debe poner el tag y **no** crear tarea).
 2. Borrar el contacto y la oportunidad de prueba (`ghl/state.json` → `demoPruebas`) y las 2 tareas que creó.
-3. Publicar `oaVq33tFfiEV2oGg`; archivar `vDRGGJiXKnvXMVTt` y `CnZiQBozUkXLyE5F` (ninguno está activo).
+3. ~~Publicar/archivar versiones de n8n~~: todas archivadas (2026-11-19). Los flujos del CRM viven en GHL (D25, D29).
 4. Recordatorios de cita y confirmación por WhatsApp/SMS: se activan en el calendario de GHL (*Notifications*) cuando haya canal.
 
 ## Workflows nativos en GHL (2026-11-17, MCP `ghl-master`)

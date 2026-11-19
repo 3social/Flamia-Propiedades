@@ -72,7 +72,8 @@
     "calificacion_archivado_d29": "PtU5gnp8hqaAJeb5",
     "_nota_d29": "D29/D30: calificación, landing y formularios nativos viven en GHL. En n8n solo quedan las herramientas de inventario",
     "lead_landing_archivado_d29": "eC8OJNpTuYx9oA1W",
-    "lead_google_form_archivado_d30": "9GvtIyxNiai8Q9Il"
+    "lead_google_form_archivado_d30": "9GvtIyxNiai8Q9Il",
+    "_activos_2026_11_19": "Solo quedan activos: tool_properties (inventario para los agentes) y mcp_ghl_ardenza (herramienta interna de FLAMIA, no del cliente). Todo lo demás archivado"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
