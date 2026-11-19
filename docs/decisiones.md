@@ -89,3 +89,11 @@ así que lo que el cliente usa todos los días vive en workflows, formularios, f
 **Por qué:** un snapshot replica todo en una subcuenta nueva sin infraestructura extra; el cliente ve y ajusta sus reglas.
 **Costos aceptados:** el if/else de GHL solo tiene 2 ramas por API (cadenas anidadas); "Permitir reentrada" se activa a mano
 en la UI tras cada edición por MCP; un campo monetario no se puede dejar vacío desde un workflow (sin tope = 100,000,000).
+
+## D30 — Google Lead Form con el disparador nativo de GHL (2026-11-19)
+**Estado:** decidido. `FLR · 6 Lead Google (formulario nativo)` usa el disparador *Google lead form submitted* de GHL
+(igual que Meta y TikTok en FLR · 7 y 8): tags `fuente_google` + `formulario_nativo`, Canal Origen y Primer Canal = Google Ads.
+n8n `FLR · lead-google-form` (webhook + clave) y `FLR · lead-landing` se archivan.
+**Por qué:** sin webhook ni clave que custodiar, sin n8n que pagar, y viaja en el snapshot.
+**Costo:** el disparador exige elegir la cuenta de Google Ads conectada, así que en el snapshot va **en borrador sin
+disparador**; se completa en el alta del cliente (runbook). Hasta entonces no hay prueba con un lead real.

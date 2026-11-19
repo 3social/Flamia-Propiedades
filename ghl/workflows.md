@@ -93,7 +93,9 @@ Pendiente:
 | FLR · 9c Landing: tags y opt-in | Envío del formulario | `landing`, opt-in + Origen Opt-in, Operacion y Zonas desde custom values |
 | FLR · 10 Primer canal | Cambio en Canal Origen | Primer Canal = Canal Origen si está vacío |
 
-FLR · 7 y 8 también escriben Canal y Primer Canal. Todos publicados con reentrada activa.
+| FLR · 6 Lead Google (formulario nativo) | *Google lead form submitted* (cuenta de Google Ads del cliente) | Tags `fuente_google` + `formulario_nativo`, Canal y Primer Canal = Google Ads. **Borrador sin disparador** hasta conectar Google Ads (D30) |
+
+FLR · 7 y 8 también escriben Canal y Primer Canal. Todos (salvo 6) publicados con reentrada activa.
 
 Aprendido del builder:
 - if/else por API: **2 ramas** (sí / no); varias opciones = cadena anidada en la rama "no".

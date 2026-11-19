@@ -66,13 +66,13 @@
     "ghl_automatizaciones_v2_sin_guarda": "CnZiQBozUkXLyE5F",
     "ghl_automatizaciones_archivado_2026_11_17": "oaVq33tFfiEV2oGg",
     "calificacion_v1_archivado": "Nqx7DqNvH63taXoE",
-    "lead_landing": "eC8OJNpTuYx9oA1W",
     "lead_landing_v1_archivado": "j33djngyFRlvpfZu",
     "lead_landing_v2_archivado": "0mSysVjjj6ZE8rPc",
-    "lead_google_form": "9GvtIyxNiai8Q9Il",
     "lead_google_form_v1_archivado": "jPE6P43FDPKvQB5o",
     "calificacion_archivado_d29": "PtU5gnp8hqaAJeb5",
-    "_nota_d29": "D29: la calificación y la landing viven en GHL. lead_landing (eC8OJNpTuYx9oA1W) y lead_google_form siguen activos hasta migrarlos"
+    "_nota_d29": "D29/D30: calificación, landing y formularios nativos viven en GHL. En n8n solo quedan las herramientas de inventario",
+    "lead_landing_archivado_d29": "eC8OJNpTuYx9oA1W",
+    "lead_google_form_archivado_d30": "9GvtIyxNiai8Q9Il"
   },
   "fases": {
     "0_descubrimiento": "en_curso",
@@ -105,8 +105,7 @@
   "toolEndpoints": {
     "search_properties": "POST /webhook/flr-search-properties",
     "get_property": "POST /webhook/flr-get-property",
-    "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients",
-    "lead_landing": "POST /webhook/flr-lead-landing (CORS *, honeypot 'website')"
+    "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
   },
   "ghlWorkflowIds": {
     "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. Los 5 publicados y probados salvo el 3 (sin cita). Falta asignar el asesor en el paso de oportunidad (1-3). Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
@@ -123,7 +122,9 @@
     "landing_canal_origen": "e40c59f2-ad83-4296-8034-fdfd1de98e71",
     "landing_tags_optin": "3b6d4d24-c17b-4e5d-98db-c85d2c105c8d",
     "primer_canal": "47e61d39-595c-43de-af1b-434af81f1222",
-    "_reentrada": "0, 0b, 9a, 9b, 9c y 10 con 'Permitir reentrada' activo. Se activa SOLO en la UI (Configuración); cada update_workflow_actions por MCP lo apaga y hay que reactivarlo y Guardar"
+    "_reentrada": "0, 0b, 9a, 9b, 9c y 10 con 'Permitir reentrada' activo. Se activa SOLO en la UI (Configuración); cada update_workflow_actions por MCP lo apaga y hay que reactivarlo y Guardar",
+    "lead_google_nativo": "449bc82e-6faa-4265-b328-c5b45aaf857f",
+    "_lead_google_nativo": "BORRADOR sin disparador: 'Google lead form submitted' exige filtro de cuenta de Google Ads conectada. En el alta: conectar Google Ads → disparador → publicar → reentrada"
   },
   "usuarios": {
     "asesor_principal": "sq0EUpVWzXZU8VKIlfWc"
@@ -213,15 +214,16 @@
     },
     "ghlWorkflows": {
       "lead_meta_nativo": "03a99edf-c704-45d3-b61e-6a55766a2c1e",
-      "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3"
+      "lead_tiktok_nativo": "9631a7a8-af05-4650-98e9-a58eec0f8fc3",
+      "lead_google_nativo": "449bc82e-6faa-4265-b328-c5b45aaf857f"
     },
     "googleLeadForm": {
-      "webhook": "POST /webhook/flr-lead-google-form",
-      "clave": ".secrets/google-lead-form-key.txt (fuera de git); sha256 en el nodo Build Contact"
+      "_nota": "D30: disparador nativo de GHL 'Google lead form submitted' (sin webhook ni clave). El webhook de n8n está archivado",
+      "n8n_archivado": "9GvtIyxNiai8Q9Il"
     },
     "pendiente_cliente": [
-      "conectar página de Facebook y TikTok en GHL Integrations",
-      "pegar URL + clave en el Lead Form de Google Ads",
+      "conectar Google Ads, página de Facebook y TikTok en GHL (OAuth del cliente)",
+      "FLR · 6: elegir la cuenta de Google Ads en el disparador y publicar",
       "plantillas de URL final con UTM/IDs en cada plataforma",
       "pixels Meta/TikTok/GA4 + consentimiento (Fase 2)"
     ],

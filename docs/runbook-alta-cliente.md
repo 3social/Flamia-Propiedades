@@ -36,3 +36,9 @@ Borrador; se afina con el primer cliente real tras la demo.
 ## 5. Reglas permanentes
 - Honestidad comercial: se reportan métricas controlables (tiempo de respuesta, % contactados, visitas agendadas), no ventas garantizadas.
 - Retención de datos de compradores: 24 meses por defecto hasta revisión legal (D15).
+
+## Formularios nativos de anuncios (D30)
+1. El cliente conecta en su subcuenta Google Ads, la página de Facebook y TikTok (*Settings → Integrations*).
+2. `FLR · 6 Lead Google`: *Añadir activador* → *Google lead form submitted* → elegir su cuenta → Guardar → publicar →
+   Configuración → Permitir reentrada → Guardar.
+3. Enviar un lead de prueba desde la vista previa de cada formulario y revisar Canal Origen, Primer Canal y tags.

@@ -8,7 +8,7 @@ información sirva después para devolver conversiones a cada plataforma (Fase 2
 | Camino | Google Ads | Meta Ads | TikTok Ads |
 |---|---|---|---|
 | **A. Clic → landing** (`apps/landings/*`) | `gclid` / `gbraid` / `wbraid` + UTM | `fbclid` (+ cookies `_fbp`/`_fbc` si hay pixel) + UTM | `ttclid` (+ cookie `_ttp` si hay pixel) + UTM |
-| **B. Formulario nativo** | Lead Form Asset → webhook → n8n `FLR · lead-google-form` | Lead Ads → integración nativa de GHL (página de Facebook conectada) | Lead Generation → integración nativa de GHL (TikTok conectado) |
+| **B. Formulario nativo** | Lead Form Asset → integración nativa de GHL (Google Ads conectado) → `FLR · 6` | Lead Ads → integración nativa de GHL (página de Facebook conectada) | Lead Generation → integración nativa de GHL (TikTok conectado) |
 
 Click-to-WhatsApp / Messenger / Instagram DM: GHL registra el anuncio de origen en la conversación; se marca con
 el tag de fuente igual que B.
@@ -51,9 +51,9 @@ GHL (`attributionSource.sessionSource`), no este campo.
   - Google: `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}&campaign_id={campaignid}&adgroup_id={adgroupid}&ad_id={creative}` (auto-tagging activo para `gclid`).
   - Meta: `utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}&campaign_id={{campaign.id}}&adgroup_id={{adset.id}}&ad_id={{ad.id}}`.
   - TikTok: `utm_source=tiktok&utm_medium=paid_social&utm_campaign=__CAMPAIGN_NAME__&utm_content=__CID_NAME__&campaign_id=__CAMPAIGN_ID__&adgroup_id=__AID__&ad_id=__CID__`.
-- **Google Lead Form:** URL del webhook `https://personaldev-n8n.aaqnec.easypanel.host/webhook/flr-lead-google-form` y la clave
-  (`google_key`) guardada fuera del repo (`.secrets/google-lead-form-key.txt`).
-- **Meta Lead Ads y TikTok Lead Gen:** conectar la página / cuenta en GHL → *Settings → Integrations* (manual, OAuth del cliente).
+- **Google Lead Form, Meta Lead Ads y TikTok Lead Gen:** conectar la cuenta de Google Ads, la página y TikTok en GHL
+  (*Settings → Integrations* / Ad Manager; OAuth del cliente). Luego en `FLR · 6` elegir la cuenta de Google Ads en el
+  disparador *Google lead form submitted*, publicar y activar reentrada (D30). Ya no hay webhook ni clave.
 - **Pixels** (Meta, TikTok, GA4 / Google tag) en la landing: Fase 2, con el ID de cada cliente y banner de consentimiento.
 
 ## 5. Fase 2 (no construido): devolver conversiones
@@ -86,3 +86,5 @@ anterior. GHL además guarda su atribución nativa (`attributionSource` / `lastA
 |---|---|---|
 | `FLR · 9b Landing: canal de origen` | `e40c59f2-…` | ✅ visita de Meta con gclid viejo → Meta Ads |
 | `FLR · 10 Primer canal` | `47e61d39-…` | ✅ Primer Canal no se sobrescribe |
+| `FLR · 6 Lead Google (formulario nativo)` | `449bc82e-…` | borrador: falta el disparador (requiere Google Ads conectado) |
+| n8n `FLR · lead-landing` y `FLR · lead-google-form` | `eC8OJNpTuYx9oA1W`, `9GvtIyxNiai8Q9Il` | archivados (D29/D30) |
