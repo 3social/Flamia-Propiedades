@@ -91,6 +91,6 @@ n8n (`FLR · calificacion`, archivado): el cliente paga GHL, no n8n (D29).
 - Landing nativa en GHL (funnel `FLR · Propiedad PV-0005 (luxury)`), ver `apps/landings/README.md`. Probado con Prueba13:
   Google (gclid) → Google Ads; segunda visita con UTM de Meta → Canal = Meta Ads, Primer Canal sigue Google Ads;
   "Más de USD 2 millones" → min 2M / max 100M (sin tope) → VIP.
-- Desde la landing un lead con plazo corto queda **Tibio** hasta que agende (no se pregunta forma de pago): la página de
-  gracias con calendario lo sube a Caliente. Pendiente construirla.
+- Desde la landing un lead con plazo corto queda **Tibio** hasta que agende (no se pregunta forma de pago); la página de
+  gracias con calendario lo sube a **Caliente** (probado 2026-11-24 con Prueba16: cita → `visita_agendada` → Caliente).
 - n8n `FLR · lead-landing` y la landing de Vercel quedan reemplazados; se archivan tras confirmar la de GHL.

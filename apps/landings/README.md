@@ -15,7 +15,18 @@ variables de `:root` (colores, tipografías) y el logotipo; la estructura y la m
 - Formulario nativo `FLR · Landing propiedad (visita privada)` (`alfV7H8SLGq44ocnNnTT`): rango, plazo, propósito, nombre,
   WhatsApp, correo, opt-in + campos ocultos desde la URL (ver `docs/atribucion.md`).
 - Workflows: `FLR · 9a` rango → presupuesto, `9b` canal, `9c` tags/opt-in/operación/zona, `10` primer canal; luego `0` y `0b`.
-- Pendiente: país por defecto del teléfono = México; página de gracias con calendario; popup de salida (opcional); dominio.
+- **Página de gracias** (paso *Gracias*, página `HoVqbpXxiVRsvHun4oji`): titular, texto con custom values y el **calendario nativo**
+  *Visitas privadas* (no código personalizado). El formulario redirige a `{{custom_values.landing_url_gracias}}` (GHL resuelve el
+  custom value en la URL de redirección; en cada cliente se cambia ese valor, no el formulario).
+- Probado 2026-11-24: landing → gracias (conserva UTM) → cita → *FLR · 3* (`visita_agendada`, etapa *Visita agendada*) → *FLR · 0*
+  sube el nivel a **Caliente** + `lead_caliente`.
+- Aprendido: el builder AI de GHL a veces mete *Custom Code* (calendario falso, adornos) o fija textos de marca; revisar cada
+  elemento y pedirle variables literales. `{{contact.first_name}}` no se resuelve en la vista previa: el titular no lo usa.
+- Pendiente: país por defecto del teléfono = México (Perfil de la empresa de la subcuenta, lo hace Michael); dominio (sin dominio
+  no se puede *Publicar*, la vista previa sirve lo guardado); título SEO de la página fijo con "Ardenza"; comprobar con dominio
+  real que el calendario prellena los datos del lead; popup de salida (opcional).
+- Ojo: el formulario actualiza el contacto que el navegador ya tiene identificado (cookie de GHL). En pruebas, usar ventana
+  privada para no pisar otro contacto.
 
 ## Vercel (reemplazada)
 

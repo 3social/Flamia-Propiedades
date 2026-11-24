@@ -146,7 +146,8 @@
     "contacto_prueba12_calificacion_ghl": "b56IEPf3nKC5uFwN5yhe",
     "contacto_prueba13_landing_ghl": "vjFhINx3GLjGL0roJc6a",
     "encuesta_vacia_borrar": "07euJUVEGgyMV28GApFd",
-    "contactos_asesor_flr1": "Prueba14 Xwd3a4uAFmiNcxvawW6x (antes del arreglo, sin asesor), Prueba15 30GdfA6ZMUqEKOauiYG1 (con asesor)"
+    "contactos_asesor_flr1": "Prueba14 Xwd3a4uAFmiNcxvawW6x (antes del arreglo, sin asesor), Prueba15 30GdfA6ZMUqEKOauiYG1 (con asesor)",
+    "prueba16_gracias": "Contacto vjFhINx3GLjGL0roJc6a (el mismo de Prueba13: el formulario actualizó el contacto reconocido por cookie del navegador); cita MUTbB77eOe3X4FoVlwCm 2026-11-24 15:00"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",
@@ -164,7 +165,8 @@
     "customValues_landing": {
       "_nota": "26 custom values landing_* (marca, propiedad, fotos, asesor, destacados)",
       "landing_prop_operacion": "zH8vS7fkuBtFS3pbGLpr",
-      "landing_prop_zona": "LOMYdWlnigVJdb3HEHfv"
+      "landing_prop_zona": "LOMYdWlnigVJdb3HEHfv",
+      "landing_url_gracias": "PktWBdjujdVlYh3cCrj9"
     }
   },
   "landings": {
@@ -176,7 +178,14 @@
         "path": "/pv-0005-page",
         "preview": "https://app.flamiagroup.com/preview/7KjndMMOo6f9znLp9KqA",
         "formId": "alfV7H8SLGq44ocnNnTT",
-        "_nota": "Landing oficial (D29): elementos nativos + custom values landing_*; parámetros de URL llenan campos ocultos"
+        "_nota": "Landing oficial (D29): elementos nativos + custom values landing_*; parámetros de URL llenan campos ocultos",
+        "gracias": {
+          "stepId": "79464350-26bc-494b-9370-c7b400cf5fa5",
+          "pageId": "HoVqbpXxiVRsvHun4oji",
+          "path": "/pv-0005-gracias-page",
+          "preview": "https://app.flamiagroup.com/preview/HoVqbpXxiVRsvHun4oji",
+          "_nota": "Calendario nativo Visitas privadas; el formulario redirige a {{custom_values.landing_url_gracias}}"
+        }
       },
       "vercel_reemplazada": {
         "url": "https://ardenza-pv-0005.vercel.app",
