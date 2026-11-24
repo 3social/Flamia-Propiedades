@@ -2,3 +2,6 @@ __pycache__/
 
 # Secretos locales (nunca al repo)
 .secrets/
+
+# Grafo de contexto local (/graphify); se regenera
+graphify-out/

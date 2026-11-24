@@ -109,7 +109,7 @@
     "_auth": "encabezado x-flr-key; el valor vive solo en la acción de GHL y su sha256 en flr_clients"
   },
   "ghlWorkflowIds": {
-    "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. Los 5 publicados y probados salvo el 3 (sin cita). Falta asignar el asesor en el paso de oportunidad (1-3). Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
+    "_nota": "Creados el 2026-11-17 con ghl-master (builder interno) en Ardenza DEMO. Los 5 publicados y probados salvo el 3 (sin cita). Sustituyen a n8n FLR · ghl-automatizaciones (archivado, D25).",
     "lead_nuevo": "e5ecdb97-3e19-4d2a-9c66-4c8c16767053",
     "calificado": "7cf8aa8a-ed8d-4192-8580-0c3d132fbf36",
     "visita_agendada": "f1588eb7-28fe-478f-b600-dda6041e0168",
@@ -145,7 +145,8 @@
     "contactos_atribucion": "prueba7-google-flr, prueba8-tiktok-flr, prueba9/prueba10-googleform-flr, prueba11-metaform-flr (@example.com)",
     "contacto_prueba12_calificacion_ghl": "b56IEPf3nKC5uFwN5yhe",
     "contacto_prueba13_landing_ghl": "vjFhINx3GLjGL0roJc6a",
-    "encuesta_vacia_borrar": "07euJUVEGgyMV28GApFd"
+    "encuesta_vacia_borrar": "07euJUVEGgyMV28GApFd",
+    "contactos_asesor_flr1": "Prueba14 Xwd3a4uAFmiNcxvawW6x (antes del arreglo, sin asesor), Prueba15 30GdfA6ZMUqEKOauiYG1 (con asesor)"
   },
   "calificacion": {
     "_nota": "D26, docs/calificacion.md. Creados 2026-11-17 con ghl-master.",

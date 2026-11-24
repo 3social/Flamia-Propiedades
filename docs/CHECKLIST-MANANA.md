@@ -14,7 +14,7 @@ Actualizado 2026-11-18. Todo lo marcado hecho se verificó leyendo de vuelta des
 1. **Telefonía**: la subcuenta sigue sin sistema telefónico. Activar LC Phone/Twilio y asignar un número al agente de voz → sin esto no hay llamadas ni SMS.
 2. **WhatsApp / WABA (D11)**: conectar el canal; el agente de texto ya está en autopiloto para WhatsApp y responderá en cuanto exista.
 3. ~~Usuarios~~ hecho: asesor asignado al calendario (ahora round-robin) y pase a humano en el agente de texto.
-4. **Flujos del CRM**: 5 workflows nativos de GHL publicados y probados (D25, FLA-42). Falta asignar el asesor en el paso de oportunidad de los flujos 1–3 y probar el 3 con una cita.
+4. **Flujos del CRM**: 5 workflows nativos de GHL publicados y probados (D25, FLA-42). Asesor asignado en la oportunidad (FLR · 1, probado 2026-11-23). Falta probar el 3 con una cita.
 5. **Probar** en *AI Agents*: llamada de prueba con el agente de voz y chat de prueba con el de texto; pasar `tests/agentes/preguntas-trampa.md`.
 6. **Postgres** en EasyPanel + credencial en n8n → migrar `flr_properties` a Supabase (el contrato de las herramientas no cambia).
 7. **Cuenta de Google**, datos reales del cliente para los custom values en PENDIENTE (D4), y voz Daniela aprobada.

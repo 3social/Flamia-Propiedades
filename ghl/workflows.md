@@ -77,7 +77,7 @@ Aprendido sobre el builder (para no repetir intentos):
 - Los workflows tienen `allowMultiple: false`: un contacto no vuelve a entrar al mismo flujo; para repetir una prueba se necesita otro contacto.
 
 Pendiente:
-1. **Asesor en la oportunidad (flujos 1-3):** tras editar en la UI, el paso `create_opportunity` sigue sin usuario
+1. ~~**Asesor en la oportunidad (flujos 1-3):**~~ Resuelto 2026-11-23: solo el 1 crea la oportunidad; se agregaron *Find opportunity* (pipeline Compradores) + *Add owner to opportunity* (asesor). `create_opportunity` (obsoleta) no tiene campo de usuario y *Add owner* sin *Find opportunity* se salta ("use Find opportunity"). Probado con Prueba15 → `assignedTo` = asesor. En el snapshot el usuario se elige en el alta. Texto original: tras editar en la UI, el paso `create_opportunity` sigue sin usuario
    (solo se guardó `opportunity_status: open`). En el paso, campo *Assigned to* → asesor → guardar → publicar. Luego leer
    de vuelta con `get_workflow_full` y anotar aquí el nombre del atributo.
 2. Opcional: **FLR · 4** → vencimiento de la tarea en 2 h (por API solo acepta días).
