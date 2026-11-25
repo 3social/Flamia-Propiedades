@@ -115,3 +115,17 @@ calcula coincidencias con `match_buyers_for_property`; llama al webhook de entra
 `FLR · alerta-coincidencia`, que aplica las reglas de envío (opt-in, 08:00–21:00, máx. 2/semana, sin repetir, 2–3
 propiedades por mensaje) y envía; se registra en `alerts_sent`. Sin n8n (D29). Mientras no haya WhatsApp, se prueba por
 correo/SMS con un contacto ficticio. **Se retoma cuando:** Supabase tenga el inventario real sincronizado (frente F).
+
+## D33 — Jev (TypeSafe) como candidato para Fases 2–3, sin integrar (2026-11-25)
+**Estado:** candidato (Michael). Jev es un modelo "System One" de TypeSafe: recibe texto y devuelve decisiones
+estructuradas (opción de una lista o puntuación) con confianza calibrada; no genera texto ni procesa audio. Según el
+anuncio (https://typesafe.ai/blog/introducing-system-one-models-and-jev, evals propias): 70–500 ms, muy barato,
+acceso anticipado con lista de espera.
+**Dónde encaja:** puntuar llamadas y conversaciones (Fase 3, scoring y motor conductual); extraer plazo, presupuesto,
+forma de pago y nivel de mensajes libres (Fase 2); verificar que el agente no cite precios fuera de herramienta
+(criterio 5); elegir 2–3 propiedades por alerta (frente E, D32); ruteo de VIP a asesor (Fase 3).
+**Dónde no:** atención por texto/voz, atribución de canal.
+**Por qué no ahora:** servicio externo fuera del snapshot (D29) y solo vía webhook personalizado; idioma español sin
+confirmar; PII de leads hacia un proveedor en acceso anticipado (revisar privacidad/DPA); servidores en la costa oeste
+de EE. UU. **Se evalúa cuando:** haya acceso. Prueba de 1–2 h: 20 mensajes ficticios en español, clasificar
+`Nivel Lead` y comparar contra lo que decide GHL hoy.
