@@ -6,7 +6,7 @@
 <title>Sistema Inmobiliario Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --violeta:#7C3AED; --magenta:#D946EF; --navy:#0A0E1A;
@@ -26,8 +26,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:"Syne",sans-serif;line-height:1.1;letter-spacing:-.01em}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Plus Jakarta Sans",sans-serif;line-height:1.1;letter-spacing:-.01em}
 .slide{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;padding:72px 16px;border-bottom:1px solid var(--line)}
 .wrap{width:100%;max-width:1080px;margin:0 auto}
 .eyebrow{display:inline-flex;gap:10px;align-items:center;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violeta)}
@@ -43,7 +43,7 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 .cover .wrap{position:relative;z-index:1}
 .cover h1{font-size:clamp(40px,7vw,84px);margin:20px 0 24px;max-width:900px}
 .cover .lead{color:#C9CBE0}
-.brand{font-family:"Syne";font-weight:800;letter-spacing:.2em;font-size:14px;color:#E9D5FF}
+.brand{font-family:"Plus Jakarta Sans";font-weight:800;letter-spacing:.2em;font-size:14px;color:#E9D5FF}
 .hint{margin-top:44px;font-size:14px;color:#9EA2BF}
 
 /* Tarjetas */
@@ -59,7 +59,7 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 /* Recorrido */
 .journey{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px;counter-reset:s}
 .journey li{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px;position:relative}
-.journey li b{display:block;font-family:"Syne";font-size:17px;margin:8px 0 4px}
+.journey li b{display:block;font-family:"Plus Jakarta Sans";font-size:17px;margin:8px 0 4px}
 .journey li span{color:var(--muted);font-size:15px}
 .journey li::before{counter-increment:s;content:counter(s);background:var(--grad);color:#fff;font-weight:700;border-radius:999px;width:28px;height:28px;display:grid;place-items:center;font-size:14px}
 
@@ -87,12 +87,12 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .kpi{border:1px solid var(--line);border-radius:14px;padding:14px}
 .kpi small{color:var(--muted);font-size:13px;display:block}
-.kpi strong{font-family:"Syne";font-size:20px}
+.kpi strong{font-family:"Plus Jakarta Sans";font-size:20px}
 .bar{height:8px;border-radius:99px;background:var(--line);margin-top:8px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--grad)}
 .stages{display:flex;gap:8px;flex-wrap:wrap}
 .stage{flex:1 1 110px;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13px;color:var(--muted)}
-.stage strong{display:block;font-family:"Syne";font-size:22px;color:var(--ink)}
+.stage strong{display:block;font-family:"Plus Jakarta Sans";font-size:22px;color:var(--ink)}
 .prop{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .prop:last-child{border-bottom:0}
 .thumb{width:54px;height:54px;border-radius:12px;background:var(--grad);opacity:.85;flex:0 0 54px}
@@ -116,7 +116,7 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 /* Pasos finales */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
 .steps li{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px}
-.steps li strong{font-family:"Syne";font-size:34px;display:block;line-height:1}
+.steps li strong{font-family:"Plus Jakarta Sans";font-size:34px;display:block;line-height:1}
 .steps li b{display:block;margin:10px 0 4px}
 .steps li span{color:var(--muted);font-size:15px}
 .close{background:var(--navy);color:#fff}
@@ -128,7 +128,7 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 .tops{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
 .topc{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px}
 .topc.big{grid-row:span 2;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--violeta)}
-.topc strong{font-family:"Syne";font-size:clamp(34px,4.4vw,52px);display:block;line-height:1}
+.topc strong{font-family:"Plus Jakarta Sans";font-size:clamp(34px,4.4vw,52px);display:block;line-height:1}
 .topc.big strong{font-size:clamp(48px,7vw,88px)}
 .topc b{display:block;font-size:19px;margin:12px 0 4px}
 .topc span{color:var(--muted);font-size:15px}
@@ -141,6 +141,36 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 .ahead h3{font-size:22px}
 .agent .checks li{font-size:16px}
 .agent .checks b{color:var(--ink)}
+
+/* Gráficos dinámicos */
+:root{--c-serie:#7C3AED;--c-hot:#DB2777;--c-warm:#D97706;--c-cold:#2563EB;--c-grid:#ECE9F4;--c-axis:#8A8FA6;--c-band:rgba(124,58,237,.10)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c-serie:#A78BFA;--c-hot:#EC4899;--c-warm:#D97706;--c-cold:#3B82F6;--c-grid:#232A40;--c-axis:#8C91AB;--c-band:rgba(167,139,250,.14)}}
+:root[data-theme="dark"]{--c-serie:#A78BFA;--c-hot:#EC4899;--c-warm:#D97706;--c-cold:#3B82F6;--c-grid:#232A40;--c-axis:#8C91AB;--c-band:rgba(167,139,250,.14)}
+.ctitle{font-size:16px;margin-bottom:10px}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:"Inter",sans-serif;fill:var(--muted);font-size:12px}
+.chart text.v{fill:var(--ink);font-weight:600}
+.grow{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.in .grow{transform:scaleX(1)}
+.pop{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .4s,transform .5s cubic-bezier(.3,1.6,.5,1)}
+.in .pop{opacity:1;transform:scale(1)}
+.fade{opacity:0;transition:opacity .6s}
+.in .fade{opacity:1}
+.line{fill:none;stroke:var(--c-serie);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend b{color:var(--ink);font-weight:600}
+.tip{position:fixed;pointer-events:none;z-index:50;background:var(--navy);color:#fff;font-size:13px;padding:7px 10px;border-radius:8px;opacity:0;transition:opacity .12s;box-shadow:0 8px 20px -8px rgba(0,0,0,.5);white-space:nowrap}
+.tip.on{opacity:1}
+.hit{fill:transparent;cursor:default}
+.flow{height:4px;border-radius:99px;background:var(--line);margin-top:30px;overflow:hidden}
+.flow i{display:block;height:100%;width:0;background:var(--grad);transition:width .6s ease}
+.journey{margin-top:16px}
+.journey li{transition:border-color .3s,box-shadow .3s,transform .3s}
+.journey li.act{border-color:var(--violeta);box-shadow:0 14px 30px -18px rgba(124,58,237,.7);transform:translateY(-3px)}
+.journey li.done::before{background:var(--violeta)}
+@media (prefers-reduced-motion: reduce){.grow,.pop,.fade,.flow i,.journey li{transition:none!important}}
 
 /* Navegación */
 .dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:10}
@@ -215,7 +245,8 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
     <span class="eyebrow">La solución, de punta a punta</span>
     <h2>Un solo recorrido, desde el anuncio hasta la firma</h2>
     <p class="lead">El sistema acompaña a cada comprador en ocho pasos. La inteligencia artificial hace el trabajo repetitivo; tu asesor humano se concentra en cerrar.</p>
-    <ol class="journey">
+    <div class="flow" aria-hidden="true"><i></i></div>
+    <ol class="journey" id="journey">
       <li><b>Captación</b><span>Páginas por propiedad, formularios de anuncios y códigos QR.</span></li>
       <li><b>Origen</b><span>Sabes de qué anuncio y canal llegó cada persona.</span></li>
       <li><b>Respuesta inmediata</b><span>Asistente por chat y por voz, 24/7, en español e inglés.</span></li>
@@ -266,12 +297,9 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
       <div class="pains"><b>Dolor que resuelve</b>Invertir en anuncios sin saber cuál funciona.</div>
     </div>
     <div class="panel">
-      <h3 style="font-size:17px;margin-bottom:12px">Compradores calificados por canal</h3>
-      <div class="row" style="display:block"><span>Buscadores</span><div class="bar"><i style="width:78%"></i></div></div>
-      <div class="row" style="display:block"><span>Redes sociales · video</span><div class="bar"><i style="width:52%"></i></div></div>
-      <div class="row" style="display:block"><span>Redes sociales · imagen</span><div class="bar"><i style="width:34%"></i></div></div>
-      <div class="row" style="display:block"><span>Letreros con QR</span><div class="bar"><i style="width:22%"></i></div></div>
-      <p style="font-size:12px;color:var(--muted);margin-top:10px">Datos ilustrativos.</p>
+      <h3 class="ctitle">Compradores calificados por canal · último mes</h3>
+      <div class="chart" id="chCanal" role="img" aria-label="Compradores calificados por canal: Buscadores 31, Redes sociales video 21, Redes sociales imagen 14, Letreros con QR 9"></div>
+      <p class="note">Datos ilustrativos. Pasa el cursor sobre cada barra.</p>
     </div>
   </div>
 </section>
@@ -357,7 +385,9 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
       <div class="row"><span>James T. · 4–6 M · 6 meses · crédito</span><span class="lvl warm">Tibio</span></div>
       <div class="row"><span>Luis R. · hasta 2 M · sin fecha</span><span class="lvl cold">Frío</span></div>
       <div class="row"><span>Sofía G. · más de 20 M · ya</span><span class="lvl hot">VIP → asesor</span></div>
-      <p style="font-size:12px;color:var(--muted);margin-top:10px">Contactos ficticios. Montos en MXN.</p>
+      <h3 class="ctitle" style="margin-top:18px">Así se reparten 16 leads nuevos</h3>
+      <div class="chart" id="chNivel" role="img" aria-label="16 leads: 4 calientes, 7 tibios, 5 fríos"></div>
+      <p class="note">Contactos ficticios. Montos en MXN.</p>
     </div>
   </div>
 </section>
@@ -452,7 +482,9 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
       <div class="status"><span class="badge pend">Se activa con tu inventario real</span></div>
     </div>
     <div class="panel">
-      <div class="time">Martes · 10:15</div>
+      <h3 class="ctitle">Cuándo puede salir una alerta</h3>
+      <div class="chart" id="chHorario" role="img" aria-label="Las alertas solo salen entre 08:00 y 21:00; una alerta a las 22:40 se pospone a las 08:00; máximo 2 alertas por semana"></div>
+      <div class="time" style="margin-top:14px">Martes · 10:15</div>
       <div class="msg out">Hola James, la Villa Mar que te interesó bajó de precio: ahora $10.9 M MXN. ¿Quieres verla esta semana?</div>
       <div class="msg in">¡Sí! ¿El jueves?</div>
       <div class="time">Alerta 1 de 2 esta semana · con permiso del comprador</div>
@@ -479,7 +511,7 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
       <div class="kpi"><small>Visitas agendadas</small><strong>3</strong></div>
       <div class="kpi"><small>Calientes</small><strong>4</strong></div>
       <div class="kpi"><small>Pases a humano</small><strong>2</strong></div>
-      <div class="kpi" style="grid-column:1/-1"><small>Compradores por etapa</small><div class="bar"><i style="width:64%"></i></div></div>
+      <div class="kpi" style="grid-column:1/-1"><small>Leads nuevos por día · últimas 2 semanas</small><div class="chart" id="chLeads" role="img" aria-label="Leads nuevos por día en 14 días, de 6 a 16, con tendencia al alza"></div></div>
       <p style="font-size:12px;color:var(--muted);grid-column:1/-1">Datos ilustrativos.</p>
     </div>
   </div>
@@ -569,6 +601,116 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
     if(k==='ArrowUp'||k==='PageUp'||k==='ArrowLeft') n=Math.max(cur-1,0);
     if(n!==null){ e.preventDefault(); slides[n].scrollIntoView({behavior:'smooth'}); }
   });
+})();
+
+/* ---------- Gráficos dinámicos ---------- */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function s(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+  function t(x,y,txt,attrs,parent){var e=s('text',Object.assign({x:x,y:y},attrs||{}),parent);e.textContent=txt;return e;}
+  var tip=document.createElement('div');tip.className='tip';document.body.appendChild(tip);
+  function showTip(ev,html){tip.innerHTML=html;tip.classList.add('on');var x=ev.clientX+14,y=ev.clientY-38;if(x+tip.offsetWidth>innerWidth-8)x=ev.clientX-tip.offsetWidth-14;tip.style.left=x+'px';tip.style.top=Math.max(8,y)+'px';}
+  function hideTip(){tip.classList.remove('on');}
+  function hover(el,html){el.addEventListener('mousemove',function(e){showTip(e,html)});el.addEventListener('mouseleave',hideTip);}
+  function reveal(el,cb){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){el.classList.add('in');if(cb)cb();io.disconnect();}})},{threshold:.35});io.observe(el);}
+
+  /* 1. Barras por canal */
+  var c1=document.getElementById('chCanal');
+  if(c1){
+    var d=[['Buscadores',31],['Redes · video',21],['Redes · imagen',14],['Letreros con QR',9]];
+    var W=Math.max(300,c1.clientWidth),L=112,R=34,rowH=40,H=d.length*rowH,max=35;
+    var g=s('svg',{viewBox:'0 0 '+W+' '+H},c1);
+    d.forEach(function(r,i){
+      var y=i*rowH+10,w=(W-L-R)*r[1]/max;
+      t(L-10,y+13,r[0],{'text-anchor':'end'},g);
+      var b=s('rect',{x:L,y:y,width:w,height:18,rx:4,fill:'var(--c-serie)',class:'grow'},g);
+      b.style.transitionDelay=(i*120)+'ms';
+      var v=t(L+w+8,y+13,r[1],{class:'v fade'},g);v.style.transitionDelay=(600+i*120)+'ms';
+      hover(s('rect',{x:0,y:i*rowH,width:W,height:rowH,class:'hit'},g),'<b>'+r[0]+'</b>: '+r[1]+' compradores calificados');
+    });
+    reveal(c1);
+  }
+
+  /* 2. Barra apilada por nivel */
+  var c2=document.getElementById('chNivel');
+  if(c2){
+    var lv=[['Caliente',4,'var(--c-hot)'],['Tibio',7,'var(--c-warm)'],['Frío',5,'var(--c-cold)']],tot=16,W2=Math.max(300,c2.clientWidth),gap=2,x=0;
+    var g2=s('svg',{viewBox:'0 0 '+W2+' 22'},c2);
+    lv.forEach(function(r,i){
+      var w=(W2-gap*(lv.length-1))*r[1]/tot;
+      var seg=s('rect',{x:x,y:0,width:w,height:22,rx:4,fill:r[2],class:'grow'},g2);
+      seg.style.transitionDelay=(i*250)+'ms';
+      hover(seg,'<b>'+r[0]+'</b>: '+r[1]+' de '+tot+' leads');
+      x+=w+gap;
+    });
+    var lg=document.createElement('div');lg.className='legend';
+    lg.innerHTML=lv.map(function(r){return '<span><i style="background:'+r[2]+'"></i>'+r[0]+' <b>'+r[1]+'</b></span>'}).join('');
+    c2.appendChild(lg);
+    reveal(c2);
+  }
+
+  /* 3. Ventana horaria y tope semanal */
+  var c3=document.getElementById('chHorario');
+  if(c3){
+    var W3=Math.max(300,c3.clientWidth),X=function(h){return 10+(W3-20)*h/24};
+    var g3=s('svg',{viewBox:'0 0 '+W3+' 150'},c3);
+    s('rect',{x:X(0),y:18,width:X(24)-X(0),height:34,rx:6,fill:'var(--c-grid)'},g3);
+    var band=s('rect',{x:X(8),y:18,width:X(21)-X(8),height:34,rx:6,fill:'var(--c-band)',stroke:'var(--c-serie)','stroke-width':1.5,class:'grow'},g3);
+    t((X(8)+X(21))/2,11,'Envíos permitidos 08:00–21:00',{'text-anchor':'middle',class:'v fade'},g3).style.transitionDelay='700ms';
+    t(X(3.5),40,'Silencio',{'text-anchor':'middle'},g3);
+    [0,8,21].forEach(function(h){t(X(h),68,(h<10?'0':'')+h+':00',{'text-anchor':h===0?'start':'middle'},g3);});
+    var ok=s('circle',{cx:X(10.25),cy:35,r:7,fill:'var(--c-serie)',stroke:'var(--bg2)','stroke-width':2,class:'pop'},g3);ok.style.transitionDelay='900ms';
+    hover(ok,'<b>10:15</b> · alerta enviada');
+    var no=s('circle',{cx:X(22.67),cy:35,r:7,fill:'none',stroke:'var(--c-axis)','stroke-width':2,'stroke-dasharray':'3 2',class:'pop'},g3);no.style.transitionDelay='1100ms';
+    hover(no,'<b>22:40</b> · fuera de horario, se pospone a las 08:00');
+    /* semana */
+    t(10,98,'Alertas por comprador esta semana (máx. 2)',{},g3);
+    var days=['L','M','M','J','V','S','D'],sent={1:1,4:1};
+    days.forEach(function(dn,i){
+      var cx=24+i*((W3-48)/6);
+      var c=s('circle',{cx:cx,cy:122,r:9,fill:sent[i]?'var(--c-serie)':'none',stroke:sent[i]?'var(--bg2)':'var(--c-grid)','stroke-width':2,class:'pop'},g3);
+      c.style.transitionDelay=(1300+i*90)+'ms';
+      t(cx,145,dn,{'text-anchor':'middle'},g3);
+      hover(c,sent[i]?'Alerta enviada':'Sin alerta');
+    });
+    reveal(c3);
+  }
+
+  /* 4. Línea de leads por día */
+  var c4=document.getElementById('chLeads');
+  if(c4){
+    var v=[6,8,7,9,11,10,12,9,13,14,12,15,14,16],W4=Math.max(300,c4.clientWidth),H4=130,pl=22,pr=26,pt=12,pb=20,mx=20;
+    var px=function(i){return pl+(W4-pl-pr)*i/(v.length-1)},py=function(y){return pt+(H4-pt-pb)*(1-y/mx)};
+    var g4=s('svg',{viewBox:'0 0 '+W4+' '+H4},c4);
+    [0,10,20].forEach(function(y){s('line',{x1:pl,x2:W4-pr,y1:py(y),y2:py(y),stroke:'var(--c-grid)'},g4);t(pl-6,py(y)+4,y,{'text-anchor':'end'},g4);});
+    t(pl,H4-4,'hace 14 días',{},g4);t(W4-pr,H4-4,'ayer',{'text-anchor':'end'},g4);
+    var dpath=v.map(function(y,i){return (i?'L':'M')+px(i).toFixed(1)+' '+py(y).toFixed(1)}).join(' ');
+    var area=s('path',{d:dpath+' L'+px(v.length-1)+' '+py(0)+' L'+px(0)+' '+py(0)+'Z',fill:'var(--c-band)',class:'fade'},g4);area.style.transitionDelay='900ms';
+    var ln=s('path',{d:dpath,class:'line'},g4);
+    var last=s('circle',{cx:px(v.length-1),cy:py(v[v.length-1]),r:5,fill:'var(--c-serie)',stroke:'var(--bg2)','stroke-width':2,class:'pop'},g4);last.style.transitionDelay='1300ms';
+    var lt=t(px(v.length-1)+8,py(v[v.length-1])+4,v[v.length-1],{class:'v fade'},g4);lt.style.transitionDelay='1300ms';
+    var cross=s('line',{y1:pt,y2:H4-pb,stroke:'var(--c-axis)','stroke-dasharray':'3 3',opacity:0},g4);
+    var dot=s('circle',{r:5,fill:'var(--c-serie)',stroke:'var(--bg2)','stroke-width':2,opacity:0},g4);
+    var hit=s('rect',{x:pl,y:0,width:W4-pl-pr,height:H4,class:'hit'},g4);
+    hit.addEventListener('mousemove',function(e){
+      var r=g4.getBoundingClientRect(),sx=(e.clientX-r.left)*W4/r.width,i=Math.round((sx-pl)/(W4-pl-pr)*(v.length-1));i=Math.max(0,Math.min(v.length-1,i));
+      cross.setAttribute('x1',px(i));cross.setAttribute('x2',px(i));cross.setAttribute('opacity',1);
+      dot.setAttribute('cx',px(i));dot.setAttribute('cy',py(v[i]));dot.setAttribute('opacity',1);
+      showTip(e,(i===v.length-1?'Ayer':'Hace '+(v.length-i)+' días')+': <b>'+v[i]+' leads</b>');
+    });
+    hit.addEventListener('mouseleave',function(){cross.setAttribute('opacity',0);dot.setAttribute('opacity',0);hideTip();});
+    var len=ln.getTotalLength();ln.style.strokeDasharray=len;ln.style.strokeDashoffset=len;
+    reveal(c4,function(){ln.style.transition='stroke-dashoffset 1.4s ease';requestAnimationFrame(function(){ln.style.strokeDashoffset=0;});});
+  }
+
+  /* 5. Recorrido: un comprador avanza paso a paso */
+  var j=document.getElementById('journey');
+  if(j){
+    var items=[].slice.call(j.children),bar=document.querySelector('.flow i'),k=-1,timer=null;
+    function step(){k=(k+1)%(items.length+2);items.forEach(function(li,i){li.classList.toggle('act',i===k);li.classList.toggle('done',i<k);});bar.style.width=Math.min(100,(k+1)/items.length*100)+'%';}
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!timer){if(reduce){k=items.length-1;step();}else timer=setInterval(step,1100);}else if(!e.isIntersecting&&timer){clearInterval(timer);timer=null;}})},{threshold:.4}).observe(j);
+  }
 })();
 </script>
 </body>
