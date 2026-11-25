@@ -6,7 +6,7 @@ Prefijo `FLR · ` en el nombre dentro de n8n. Aquí se guardan los JSON exportad
 | Workflow | Disparador | Qué hace | Fase | Patrón existente a reutilizar |
 |---|---|---|---|---|
 | `FLR · sync-sheet-properties` | cada 15 min | Lee la hoja, `upsert` en `properties`, marca `withdrawn` las que desaparecen | 1 | `Wasi - Lectura de Propiedades (AS Propiedades)` (mapeo de campos) |
-| `FLR · alerta-coincidencia` | Database Webhook (insert / baja de precio) + barrido 15 min | `match_buyers_for_property` → reglas (opt-in, tope 2/sem, no repetir, 08:00–21:00, agrupar 2–3) → campos GHL + tag `alerta_pendiente` → `alerts_sent` | 1 | — |
+| ~~`FLR · alerta-coincidencia`~~ (D32: pasa a GHL nativo, pospuesto hasta base de datos real) | Database Webhook (insert / baja de precio) + barrido 15 min | `match_buyers_for_property` → reglas (opt-in, tope 2/sem, no repetir, 08:00–21:00, agrupar 2–3) → campos GHL + tag `alerta_pendiente` → `alerts_sent` | 1 | — |
 | `FLR · lead-portal-a-ghl` | webhook del portal (formulario, "me importa") | Contacto + tag de canal + nota + oportunidad "Nuevo lead", con `ref` y UTM | 1 | `Flamia – Agente Unificado` (Sofía) |
 | `FLR · perfil-comprador-ghl-a-supabase` | cambio de campos del contacto en GHL | Sincroniza a `buyer_profiles`, incluido opt-in/out | 1 | — |
 | `FLR · resumen-diario-dueno` | diario 08:00 hora local | Leads nuevos, tiempo de 1.ª respuesta, sin atender, estancados, visitas, alertas | 1 (simple) | — |

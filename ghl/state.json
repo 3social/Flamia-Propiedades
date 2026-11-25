@@ -81,7 +81,7 @@
     "1_b_herramientas": "search_properties y get_property en FLR · tool-properties (probado en producción, ~0.6 s)",
     "1_c_ghl_snapshot": "hecho; calificación, landing y atribución en workflows nativos de GHL (D29); falta asesor asignado en oportunidades; telefonía pendiente",
     "1_d_agentes": "voz y texto creados por API y conectados a inventario, FAQs, calendario y campos; faltan número, canales y workflows de UI",
-    "1_e_alertas": "pendiente",
+    "1_e_alertas": "pospuesto (D32): documentado; se implementa cuando exista la base de datos real (Supabase con inventario)",
     "1_f_sync_y_datos": "pendiente",
     "1_g_portal": "pendiente",
     "1_h_resumen_diario": "hecho (D31): FLR · Panel del dueño + informe diario 08:00 por correo",

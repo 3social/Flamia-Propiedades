@@ -66,7 +66,7 @@ handoff por falla de herramienta.
 - B. 5 herramientas; `search_properties` p95 < 1.5 s y ≤ 3 resultados; cada respuesta incluye `updated_at`.
 - C. Pipeline de compradores, campos, tags, custom values, calendario y workflows de [`ghl/snapshot-notas.md`](../ghl/snapshot-notas.md).
 - D. Prompts de [`docs/prompts/`](prompts/) cargados; pasan [`tests/agentes/preguntas-trampa.md`](../tests/agentes/preguntas-trampa.md).
-- E. Cambio de precio o propiedad nueva → alerta en < 2 min, solo con opt-in, dentro de horario, sin repetir.
+- E. Cambio de precio o propiedad nueva → alerta en < 2 min, solo con opt-in, dentro de horario, sin repetir. **Pospuesto (D32):** documentado; se implementa cuando exista la base de datos real.
 - F. Sync idempotente (2 corridas no duplican); propiedades desaparecidas → `withdrawn`.
 - G/H. Lead del portal llega a GHL con tags, nota y oportunidad; resumen diario llega a las 8:00.
 - **Hecho cuando:** se cumplen todos los criterios de §13 de la especificación (copiados en §6).

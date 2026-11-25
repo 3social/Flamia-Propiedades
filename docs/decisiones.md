@@ -106,3 +106,12 @@ Widgets: leads nuevos, leads por canal (`Canal Origen`), por nivel (`Nivel Lead`
 **Por qué:** viaja en el snapshot y el cliente no paga n8n (D29). **Costo:** llega como correo con el informe, no como mensaje
 de WhatsApp redactado; "pases a humano" cuenta contactos con el tag por fecha de creación del contacto (aproximación);
 el tiempo de respuesta queda vacío hasta conectar canales. Acceso: administradores sí, usuarios (asesores) no.
+
+## D32 — Alertas de coincidencia: documentadas, sin implementar hasta tener base de datos real (2026-11-25)
+**Estado:** decidido (Michael). El frente E no se construye todavía: sin inventario real en Supabase no hay cambios de
+precio ni propiedades nuevas que disparen alertas, y cualquier prueba sería sobre datos que se van a reemplazar.
+**Diseño acordado (para cuando se implemente):** Supabase detecta el evento (alta o baja de precio en `properties`) y
+calcula coincidencias con `match_buyers_for_property`; llama al webhook de entrada de un workflow nativo de GHL
+`FLR · alerta-coincidencia`, que aplica las reglas de envío (opt-in, 08:00–21:00, máx. 2/semana, sin repetir, 2–3
+propiedades por mensaje) y envía; se registra en `alerts_sent`. Sin n8n (D29). Mientras no haya WhatsApp, se prueba por
+correo/SMS con un contacto ficticio. **Se retoma cuando:** Supabase tenga el inventario real sincronizado (frente F).
