@@ -42,3 +42,8 @@ Borrador; se afina con el primer cliente real tras la demo.
 2. `FLR · 6 Lead Google`: *Añadir activador* → *Google lead form submitted* → elegir su cuenta → Guardar → publicar →
    Configuración → Permitir reentrada → Guardar.
 3. Enviar un lead de prueba desde la vista previa de cada formulario y revisar Canal Origen, Primer Canal y tags.
+
+## Resumen diario del dueño (D31)
+1. *Reportes → Informes personalizados → FLR · Panel del dueño → Enviar y programar*: destinatario = correo del dueño,
+   remitente = correo verificado del cliente. Diario 08:00, rango *Ayer*.
+2. *Tablero → FLR · Panel del dueño*: acceso completo para administradores; usuarios sin acceso.

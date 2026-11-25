@@ -84,7 +84,7 @@
     "1_e_alertas": "pendiente",
     "1_f_sync_y_datos": "pendiente",
     "1_g_portal": "pendiente",
-    "1_h_resumen_diario": "pendiente",
+    "1_h_resumen_diario": "hecho (D31): FLR · Panel del dueño + informe diario 08:00 por correo",
     "1_i_ensayo": "pendiente",
     "2_signature": "pendiente",
     "3_private": "pendiente"
@@ -239,5 +239,22 @@
       "pixels Meta/TikTok/GA4 + consentimiento (Fase 2)"
     ],
     "fase2": "devolver conversiones (Meta CAPI, Google offline por gclid, TikTok Events API)"
+  },
+  "resumenDueno": {
+    "_nota": "D31: resumen diario nativo de GHL (Tablero + Informe personalizado programado). Sin n8n.",
+    "dashboardId": "6b06e35970aaf0d6956f93e8",
+    "dashboardNombre": "FLR · Panel del dueño",
+    "reportId": "6b06e586fb3a70f621c31bfa",
+    "envio": "Diario 08:00 America/Mexico_City, rango Ayer vs día anterior, por correo al administrador (en el alta: correo del dueño)",
+    "widgets": [
+      "Leads nuevos",
+      "Leads por canal (Canal Origen)",
+      "Leads por nivel (Nivel Lead)",
+      "Visitas agendadas",
+      "Pases a humano (tag handoff_humano)",
+      "Compradores por etapa",
+      "Oportunidades por asesor",
+      "Tiempo de respuesta a leads"
+    ]
   }
 }

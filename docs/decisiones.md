@@ -97,3 +97,12 @@ n8n `FLR · lead-google-form` (webhook + clave) y `FLR · lead-landing` se archi
 **Por qué:** sin webhook ni clave que custodiar, sin n8n que pagar, y viaja en el snapshot.
 **Costo:** el disparador exige elegir la cuenta de Google Ads conectada, así que en el snapshot va **en borrador sin
 disparador**; se completa en el alta del cliente (runbook). Hasta entonces no hay prueba con un lead real.
+
+## D31 — Resumen diario del dueño nativo en GHL (2026-11-25)
+**Estado:** decidido (Michael eligió GHL nativo sobre n8n). Tablero `FLR · Panel del dueño` con 8 widgets y un informe
+personalizado creado desde el tablero, programado **diario a las 08:00** (México) con rango *Ayer* comparado con el día anterior.
+Widgets: leads nuevos, leads por canal (`Canal Origen`), por nivel (`Nivel Lead`), visitas agendadas, pases a humano
+(`handoff_humano`), compradores por etapa, oportunidades por asesor y tiempo de respuesta a leads.
+**Por qué:** viaja en el snapshot y el cliente no paga n8n (D29). **Costo:** llega como correo con el informe, no como mensaje
+de WhatsApp redactado; "pases a humano" cuenta contactos con el tag por fecha de creación del contacto (aproximación);
+el tiempo de respuesta queda vacío hasta conectar canales. Acceso: administradores sí, usuarios (asesores) no.

@@ -22,5 +22,5 @@ Actualizado 2026-11-18. Todo lo marcado hecho se verificó leyendo de vuelta des
 
 ## Lo siguiente que construyo cuando haya (1)–(4)
 - `FLR · sync-kb-inventario` (regenera la KB de inventario desde `flr_properties`, D23).
-- `FLR · alerta-coincidencia`, `FLR · resumen-diario-dueno` y `FLR · lead-portal-a-ghl` (ver `n8n/workflows/README.md`).
+- `FLR · alerta-coincidencia` y `FLR · lead-portal-a-ghl`. El resumen diario ya está en GHL (D31: *FLR · Panel del dueño*, correo diario 08:00).
 - Acciones `WORKFLOW_TRIGGER` / `callEndWorkflowIds` del agente de voz apuntando a los workflows de la UI.
