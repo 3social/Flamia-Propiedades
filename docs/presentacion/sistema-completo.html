@@ -124,6 +124,24 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 .close .steps li{background:#121729;border-color:#252B42;color:#fff}
 .close .steps li span{color:#A3A7BD}
 
+/* Lo más importante */
+.tops{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.topc{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px}
+.topc.big{grid-row:span 2;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--violeta)}
+.topc strong{font-family:"Syne";font-size:clamp(34px,4.4vw,52px);display:block;line-height:1}
+.topc.big strong{font-size:clamp(48px,7vw,88px)}
+.topc b{display:block;font-size:19px;margin:12px 0 4px}
+.topc span{color:var(--muted);font-size:15px}
+
+/* Asistentes */
+.agents{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.agent{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px}
+.ahead{display:flex;gap:12px;align-items:center}
+.ahead .ico{margin:0}
+.ahead h3{font-size:22px}
+.agent .checks li{font-size:16px}
+.agent .checks b{color:var(--ink)}
+
 /* Navegación */
 .dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:10}
 .dots a{width:10px;height:10px;border-radius:50%;background:var(--line);border:1px solid rgba(124,58,237,.35)}
@@ -132,14 +150,15 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
 @media (max-width:1180px){ .dots{display:none} }
 @media (max-width:900px){
   .g3,.journey,.steps{grid-template-columns:repeat(2,1fr)}
-  .split,.cols{grid-template-columns:1fr;gap:26px}
+  .split,.cols,.agents{grid-template-columns:1fr;gap:26px}
+  .tops{grid-template-columns:repeat(2,1fr)} .topc.big{grid-row:auto;grid-column:1/-1}
 }
 @media (max-width:560px){
   body{font-size:16px}
   html{scroll-snap-type:none}
   .slide{min-height:auto;padding:56px 16px}
   .cover{min-height:100vh}
-  .g3,.g2,.journey,.steps,.kpis{grid-template-columns:1fr}
+  .g3,.g2,.journey,.steps,.kpis,.tops{grid-template-columns:1fr}
   .dots{display:none}
 }
 </style>
@@ -155,6 +174,21 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
     <h1>Cada interesado atendido al instante. <span class="grad">Cada venta, a la vista.</span></h1>
     <p class="lead">Un sistema que capta, responde, califica, agenda y da seguimiento a tus compradores sin que se te escape ninguno, mientras tú ves en un solo panel qué está pasando con tu negocio.</p>
     <p class="hint">Desliza o usa las flechas ↓ para recorrer la presentación</p>
+  </div>
+</section>
+
+<!-- 1b. Lo más importante -->
+<section class="slide top" id="s1b">
+  <div class="wrap">
+    <span class="eyebrow">Lo más importante</span>
+    <h2>Cinco cosas que cambian tu forma de vender</h2>
+    <div class="tops">
+      <div class="topc big"><strong class="grad">&lt; 1 min</strong><b>Respuesta a cada interesado</b><span>Por chat y por teléfono, 24/7, en español e inglés.</span></div>
+      <div class="topc"><strong class="grad">0</strong><b>Precios inventados</b><span>Solo ofrece propiedades disponibles, con precio vigente y fecha.</span></div>
+      <div class="topc"><strong class="grad">3</strong><b>Preguntas para calificar</b><span>Presupuesto, plazo y forma de pago: caliente, tibio o frío.</span></div>
+      <div class="topc"><strong class="grad">Solo</strong><b>Agenda la visita</b><span>El comprador elige día y hora; su oportunidad avanza sin que nadie la mueva.</span></div>
+      <div class="topc"><strong class="grad">8:00</strong><b>Tu resumen diario</b><span>Leads, canales, visitas y asesores en tu correo cada mañana.</span></div>
+    </div>
   </div>
 </section>
 
@@ -264,6 +298,42 @@ h2{font-size:clamp(30px,4.6vw,52px);margin:14px 0 18px}
       <div class="msg in">Para vivir, nos mudamos en unos 3 meses.</div>
       <div class="msg out">Perfecto. ¿Te gustaría visitarlo esta semana? Tengo horarios el martes y el jueves.</div>
       <div class="time">Respuesta en 9 segundos</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b. Asistentes -->
+<section class="slide" id="s6b">
+  <div class="wrap">
+    <span class="eyebrow">Tus dos asistentes</span>
+    <h2>Un asistente que escribe y otro que habla, <span class="grad">con la misma información</span></h2>
+    <p class="lead">Los dos consultan tu inventario, tu calendario y la ficha de cada comprador. Hacen el trabajo repetitivo para que tu asesor llegue a la visita con todo listo.</p>
+    <div class="agents">
+      <div class="agent">
+        <div class="ahead"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></div><h3>Asistente de chat</h3></div>
+        <ul class="checks">
+          <li><span><b>Contesta en segundos</b> los mensajes, de día y de noche.</span></li>
+          <li><span><b>Responde dudas</b> de tu negocio con tus preguntas frecuentes.</span></li>
+          <li><span><b>Envía hasta 3 propiedades</b> que coinciden, con precio vigente y fecha.</span></li>
+          <li><span><b>Califica</b> con presupuesto, plazo y forma de pago, y lo guarda en la ficha.</span></li>
+          <li><span><b>Agenda la visita</b> en tu calendario de visitas privadas.</span></li>
+          <li><span><b>Pasa a un asesor</b> al comprador VIP o cuando no sabe algo.</span></li>
+          <li><span><b>Respeta la baja:</b> si el comprador pide no recibir mensajes, se detiene.</span></li>
+        </ul>
+        <div class="status"><span class="badge pend">Se activa con tu número de mensajería</span></div>
+      </div>
+      <div class="agent">
+        <div class="ahead"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></div><h3>Asistente de voz</h3></div>
+        <ul class="checks">
+          <li><span><b>Contesta las llamadas</b> a cualquier hora, con voz natural.</span></li>
+          <li><span><b>Habla español o inglés</b> según el idioma del comprador.</span></li>
+          <li><span><b>Busca en tu inventario</b> y menciona máximo 3 opciones, sin inventar precios.</span></li>
+          <li><span><b>Califica</b> durante la llamada y guarda las respuestas en la ficha.</span></li>
+          <li><span><b>Agenda la visita</b> mientras el comprador sigue en la línea.</span></li>
+          <li><span><b>Transfiere a un asesor</b> humano cuando conviene.</span></li>
+        </ul>
+        <div class="status"><span class="badge pend">Se activa con tu número de teléfono</span></div>
+      </div>
     </div>
   </div>
 </section>
